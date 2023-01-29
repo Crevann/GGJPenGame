@@ -2464,7 +2464,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.56062883, y: -0.0000000142480445, z: 0.0000000096463975, w: 0.82806724}
+  m_LocalRotation: {x: 0.56062883, y: 0.000000014248037, z: -0.000000009646392, w: 0.82806724}
   m_LocalPosition: {x: -11.66, y: 16.49, z: -3.0700002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7577,6 +7577,7 @@ GameObject:
   - component: {fileID: 1800542101}
   - component: {fileID: 1800542107}
   - component: {fileID: 1800542106}
+  - component: {fileID: 1800542108}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -7731,6 +7732,52 @@ MonoBehaviour:
   m_DefaultActionMap: New action map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1800542108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800542100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba8d029d1820b149841cc99296f4844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Method: 3
+  m_Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.9509356
+      outSlope: 2.9509356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.030228889
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 0.0018960834
+      outSlope: 0.0018960834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.2023964
+      outSlope: -2.2023964
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.02497083
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1811847936
 GameObject:
   m_ObjectHideFlags: 0
@@ -8068,7 +8115,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.56062883, y: -0.0000000142480445, z: 0.0000000096463975, w: 0.82806724}
+  m_LocalRotation: {x: 0.56062883, y: 0.000000014248037, z: -0.000000009646392, w: 0.82806724}
   m_LocalPosition: {x: -11.66, y: 16.49, z: -3.0700002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
