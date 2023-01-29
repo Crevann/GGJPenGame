@@ -4,7 +4,7 @@ using UnityEngine;
 
 abstract public class Root : MonoBehaviour
 {
-    [SerializeField] private RootData data;
+    public RootData data;
 
     public abstract void Action();
 }
