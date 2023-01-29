@@ -12,10 +12,11 @@ public class Inventory : Singleton<Inventory>
     }
 
     public void UseWord(int index) {
-        //Word action
+        roots[index].Action();
+        RemoveRoot(index);
     }
 
-    public Root AddWord(Root root) {
+    public Root AddRoot(Root root) {
         for (int i = 0; i < maxInventorySize; i++) {
             if (roots[i] == null) {
                 roots[i] = root;
@@ -25,7 +26,7 @@ public class Inventory : Singleton<Inventory>
         return null;
     }
 
-    public Root RemoveWord(int index) {
+    public Root RemoveRoot(int index) {
         if (roots[index]) {
             Root root = roots[index];
             roots[index] = null;
@@ -33,4 +34,19 @@ public class Inventory : Singleton<Inventory>
         }
         return null;
     }
+
+#if UNITY_EDITOR
+    private void OnGUI() {
+        GUI.Label(new Rect(0, 0, 200, 30), "Inventory:");
+        for (int i = 0; i < roots.Length; i++) {
+            if (roots[i]) {
+                float y = 35 + (35 * i);
+                GUI.Label(new Rect(0, y, 150, 30), roots[i].data.name);
+                if (GUI.Button(new Rect(160, y, 50, 20), "Use")) {
+                    UseWord(i);
+                }
+            }
+        } 
+    }
+#endif
 }
