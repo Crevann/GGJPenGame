@@ -1,0 +1,34 @@
+{
+    "name": "MyInput",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "e76dc0a2-5662-43e4-9573-8cef44aa7ac5",
+            "actions": [
+                {
+                    "name": "Mouse",
+                    "type": "Button",
+                    "id": "21a6d4b4-ae1b-4127-8a9a-8155bc53e85c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b46157d1-7561-4659-92ed-c2f1602eb6ef",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
