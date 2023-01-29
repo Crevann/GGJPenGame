@@ -25,7 +25,7 @@ public class PickUpObject : MonoBehaviour
         {
             Debug.Log("is in Inventary");
             gameObject.SetActive(false);
-            inventory.AddWord(wordRoot);
+            inventory.AddRoot(wordRoot);
         }
     }
 }

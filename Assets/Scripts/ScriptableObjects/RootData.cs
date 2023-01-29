@@ -6,6 +6,8 @@ public enum Avaiability {
     World,
     Combat
 }
+
+[CreateAssetMenu(fileName = "RootWorldData", menuName = "Roots/World")]
 public class RootData : ScriptableObject
 {
     public string root;
