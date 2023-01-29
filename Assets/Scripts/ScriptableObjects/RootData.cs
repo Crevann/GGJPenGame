@@ -13,4 +13,5 @@ public class RootData : ScriptableObject
     public string root;
     public Avaiability context = Avaiability.World;
     public string[] suffixes;
+    [SerializeField] Transform toSpawn;
 }
