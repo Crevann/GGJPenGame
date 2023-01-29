@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class BookMark : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BookMark : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] Transform starPos;
     Camera camera;
+    [SerializeField]UnityEvent changePage;
+    
 
     void Start()
     {
@@ -23,11 +26,13 @@ public class BookMark : MonoBehaviour
     {
         Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
-        if(Physics.Raycast(ray,out hit, 1000, bookMark))
+        if(Physics.Raycast(ray,out hit, 1000, bookMark) && hit.collider.gameObject.name == gameObject.name)
         {
+            
             counter += speed * Time.deltaTime;
             counter = Mathf.Clamp01(counter);
             transform.position = Vector3.right * Mathf.Lerp(transform.position.x, target.position.x, counter) + Vector3.forward * transform.position.z;
+            OnMouse();
         }
         else
         {
@@ -37,5 +42,12 @@ public class BookMark : MonoBehaviour
         }
     }
 
-
+    void OnMouse()
+    {
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Debug.Log(gameObject.name);
+            changePage.Invoke();
+        }
+    }
 }
