@@ -9,6 +9,6 @@ public enum Avaiability {
 public class RootData : ScriptableObject
 {
     public string root;
-    public Avaiability context;
+    public Avaiability context = Avaiability.World;
     public string[] suffixes;
 }
