@@ -26,13 +26,12 @@ public class BookMark : MonoBehaviour
     {
         Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
-        if(Physics.Raycast(ray,out hit, 1000, bookMark) && hit.collider.gameObject.name == gameObject.name)
+        if(Physics.Raycast(ray,out hit, 1000, bookMark) && hit.collider.gameObject == gameObject)
         {
-            
             counter += speed * Time.deltaTime;
             counter = Mathf.Clamp01(counter);
             transform.position = Vector3.right * Mathf.Lerp(transform.position.x, target.position.x, counter) + Vector3.forward * transform.position.z;
-            OnMouse();
+            BookMarkClicked();
         }
         else
         {
@@ -42,11 +41,10 @@ public class BookMark : MonoBehaviour
         }
     }
 
-    void OnMouse()
+    void BookMarkClicked()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Debug.Log(gameObject.name);
             changePage.Invoke();
         }
     }
