@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
 {
-    [SerializeField] GameObject item;
-    //Inventory
+    Inventory inventory;
+    [SerializeField] Root wordRoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory = Inventory.Instance;
     }
 
     // Update is called once per frame
@@ -24,8 +24,8 @@ public class PickUpObject : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("is in Inventary");
-            item.SetActive(false);
-            //Add to Inventory
+            gameObject.SetActive(false);
+            inventory.AddWord(wordRoot);
         }
     }
 }
