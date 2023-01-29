@@ -5,31 +5,31 @@ using UnityEngine;
 public class Inventory : Singleton<Inventory>
 {
     [SerializeField] private int maxInventorySize = 4;
-    public Root[] words;
+    public Root[] roots;
 
     private void Awake() {
-        words = new Root[maxInventorySize];
+        roots = new Root[maxInventorySize];
     }
 
     public void UseWord(int index) {
         //Word action
     }
 
-    public Root AddWord(Root word) {
+    public Root AddWord(Root root) {
         for (int i = 0; i < maxInventorySize; i++) {
-            if (words[i] == null) {
-                words[i] = word;
-                return word;
+            if (roots[i] == null) {
+                roots[i] = root;
+                return root;
             }
         }
         return null;
     }
 
     public Root RemoveWord(int index) {
-        if (words[index]) {
-            Word word = words[index];
-            words[index] = null;
-            return word;
+        if (roots[index]) {
+            Root root = roots[index];
+            roots[index] = null;
+            return root;
         }
         return null;
     }
