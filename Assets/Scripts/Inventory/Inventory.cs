@@ -5,17 +5,17 @@ using UnityEngine;
 public class Inventory : Singleton<Inventory>
 {
     [SerializeField] private int maxInventorySize = 4;
-    public Word[] words;
+    public Root[] words;
 
     private void Awake() {
-        words = new Word[maxInventorySize];
+        words = new Root[maxInventorySize];
     }
 
     public void UseWord(int index) {
         //Word action
     }
 
-    public Word AddWord(Word word) {
+    public Word AddWord(Root word) {
         for (int i = 0; i < maxInventorySize; i++) {
             if (words[i] == null) {
                 words[i] = word;
@@ -25,7 +25,7 @@ public class Inventory : Singleton<Inventory>
         return null;
     }
 
-    public Word RemoveWord(int index) {
+    public Root RemoveWord(int index) {
         if (words[index]) {
             Word word = words[index];
             words[index] = null;
