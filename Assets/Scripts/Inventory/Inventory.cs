@@ -15,7 +15,7 @@ public class Inventory : Singleton<Inventory>
         //Word action
     }
 
-    public Word AddWord(Root word) {
+    public Root AddWord(Root word) {
         for (int i = 0; i < maxInventorySize; i++) {
             if (words[i] == null) {
                 words[i] = word;
