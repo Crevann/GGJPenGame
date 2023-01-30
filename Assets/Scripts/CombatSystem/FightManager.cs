@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootCombatData : RootData
+public class FightManager : Singleton<FightManager>
 {
-    public int damage;
+    public Entity[] enemies;
 }
