@@ -72,8 +72,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Other Assets
-/[Aa]ssets/[Bb]aedrick/
-/[Aa]ssets/[Pp]lugins/
-/[Aa]ssets/[Pp]lugins.meta
-/[Aa]ssets/[Bb]aedrick.meta
+/[Aa]ssets/[Pp]lugins/[Bb]aedrick/
+/[Aa]ssets/[Pp]lugins/Borodar/
+/[Aa]ssets/[Pp]lugins/Borodar.meta
+
+/[Aa]ssets/[Pp]lugins/[Bb]aedrick.meta
 /ProjectSettings/PackageManagerSettings.assets
