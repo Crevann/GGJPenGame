@@ -5,16 +5,16 @@ using echo17.EndlessBook;
 using Cinemachine;
 
 
-[System.Serializable]
-public class KeyValuePair {
-    public EndlessBook.StateEnum key;
-    public CinemachineVirtualCamera val;
-}
 
 
 
 public class CameraMgr : Singleton<CameraMgr>
 {
+    [System.Serializable]
+    public class KeyValuePair {
+        public EndlessBook.StateEnum key;
+        public CinemachineVirtualCamera val;
+    }
     [SerializeField] List<KeyValuePair> MyList = new List<KeyValuePair>();
     [SerializeField] CinemachineVirtualCamera currentCamera;
     [SerializeField] float bookmarkDelay = 1;

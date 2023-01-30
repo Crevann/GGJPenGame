@@ -220,7 +220,6 @@
         /// </summary>
         protected bool isTurningPages;
 
-        public bool IsTurningPage => isTurningPages;
 
         protected bool isDraggingPage;
 
@@ -309,7 +308,7 @@
         /// List of the turning page gameobjects
         /// </summary>
         [SerializeField]
-        protected List<Page> pages = null;
+        public List<Page> pages = null;
 
         /// <summary>
         /// The current page number.

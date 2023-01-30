@@ -5,26 +5,27 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public float startWaitTime = 3;
-    public float timeToRotation = 2;
-    public float speedWalk = 6;
-    public float speedRun = 9;
+    [SerializeField] float startWaitTime = 3;
+    [SerializeField] float timeToRotation = 2;
+    [SerializeField] float speedWalk = 6;
+    [SerializeField] float speedRun = 9;
 
-    public float viewRadius = 15;
-    public float viewAngle = 90;
-    public LayerMask targetMask;
-    public LayerMask obstacleMask;
-    public float meshResolution = 1f;
-    public int edgeResolveIterations = 4;
-    public float edgeDstThreshold = 0.5f;
+    [SerializeField] float viewRadius = 15;
+    [SerializeField] float viewAngle = 90;
+    [SerializeField] LayerMask targetMask;
+    [SerializeField] LayerMask obstacleMask;
+    [SerializeField] float meshResolution = 1f;
+    [SerializeField] int edgeResolveIterations = 4;
+    [SerializeField] float edgeDstThreshold = 0.5f;
 
-    public Transform[] wayPoints;
+    [SerializeField] Transform[] wayPoints;
     int CurrentwayPointIndex;
 
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 playerPosition;
 
+    NavMeshAgent agent;
+    
     float waitTime;
     float timeToRotate;
     bool playerInRange;
