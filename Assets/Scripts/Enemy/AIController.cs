@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class AIController : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public float startWaitTime = 4;
+    public float startWaitTime = 3;
     public float timeToRotation = 2;
     public float speedWalk = 6;
     public float speedRun = 9;
@@ -78,7 +78,7 @@ public class AIController : MonoBehaviour
         }
         if(agent.remainingDistance <= agent.stoppingDistance)
         {
-            if(waitTime <= 0 && caughtPlayer && Vector3.Distance(transform.position,GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
+            if(waitTime <= 0 && caughtPlayer && Vector3.Distance(transform.position,GameObject.FindGameObjectWithTag("Player").transform.position) >= 5f)
             {
                 enemyPatrol = true;
                 playerNear = false;
@@ -89,7 +89,7 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
+                if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 1.5f)
                 {
                     StopEnemy();
                     waitTime -= Time.deltaTime;
@@ -129,7 +129,7 @@ public class AIController : MonoBehaviour
                 else
                 {
                     StopEnemy();
-                    timeToRotate -= Time.deltaTime;
+                    waitTime -= Time.deltaTime;
                 }
             }
         }
