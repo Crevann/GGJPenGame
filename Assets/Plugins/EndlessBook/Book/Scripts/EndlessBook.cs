@@ -220,6 +220,8 @@
         /// </summary>
         protected bool isTurningPages;
 
+        public bool IsTurningPage => isTurningPages;
+
         protected bool isDraggingPage;
 
         /// <summary>
