@@ -14,7 +14,8 @@ public class BookMark : MonoBehaviour
     [SerializeField] Transform startTarget;
     [SerializeField] Transform hiddenTarget;
     Vector3 startPos;
-    [HideInInspector] public bool negative;
+    Vector3 colliderStartPos;
+     public bool negative;
     Camera camera;
     bool wasClicked;
 
@@ -22,18 +23,20 @@ public class BookMark : MonoBehaviour
     [SerializeField]UnityEvent changePage;
     
 
-    void Start()
+    void Awake()
     {
         camera = Camera.main;
+        colliderStartPos = transform.position;
         startPos = bookMarkToMove.position;
         counter = 0;
+        negative = false;
     }
 
    
     void Update()
     {
         if (isHiding) {
-            ChaingePosition(bookMarkToMove, hiddenTarget, ref counter, speed * Time.deltaTime);
+            ChaingePosition(bookMarkToMove.position.x, (negative ? -1 : 1) * hiddenTarget.position.x, ref counter, speed * Time.deltaTime);
 
             if (counter >= 0.5) {
                 if (wasClicked) {
@@ -51,21 +54,20 @@ public class BookMark : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray,out hit, 1000, bookMark) && hit.collider.gameObject == gameObject)
         {
-            ChaingePosition(bookMarkToMove, target, ref counter, speed * Time.deltaTime);
+            ChaingePosition(bookMarkToMove.position.x, (negative ? -1 : 1) * target.position.x, ref counter, speed * Time.deltaTime);
 
             BookMarkClicked();
         }
         else
         {
-            ChaingePosition(startTarget, bookMarkToMove, ref counter, -speed * Time.deltaTime);
+            ChaingePosition((negative ? -1 : 1) * startTarget.position.x, bookMarkToMove.position.x, ref counter, -speed * Time.deltaTime);
             
         }
     }
-    void ChaingePosition(Transform start, Transform end, ref float counter, float deltaChange) {
-        float mult = negative ? -1 : 1;
+    void ChaingePosition(float start, float end, ref float counter, float deltaChange) {
         counter += deltaChange;
         counter = Mathf.Clamp01(counter);
-        bookMarkToMove.position = Vector3.right * Mathf.Lerp(start.position.x * mult, end.position.x * mult, counter)
+        bookMarkToMove.position = Vector3.right * Mathf.Lerp(start, end, counter)
             + Vector3.forward * startPos.z
             + Vector3.up * startPos.y;
     }
@@ -84,6 +86,7 @@ public class BookMark : MonoBehaviour
         counter = 0;
     }
     private void OnEnable() {
-        
+
+        transform.position = new Vector3((negative ? -1 : 1) * colliderStartPos.x, colliderStartPos.y, colliderStartPos.z);
     }
 }

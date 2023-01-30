@@ -13,8 +13,8 @@ public class BookmarksMgr : Singleton<BookmarksMgr>
     }
     public void Activate() {
         foreach (var bookmark in bookmarks) {
-            bookmark.gameObject.SetActive(true);
             bookmark.negative = negative;
+            bookmark.gameObject.SetActive(true);
         }
     }
     void Start()

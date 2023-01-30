@@ -2828,6 +2828,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2186094580432443318, guid: fb2dd3507e64e1949a6d72b18fa2b44a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.12
+      objectReference: {fileID: 0}
     - target: {fileID: 2670907719900826976, guid: fb2dd3507e64e1949a6d72b18fa2b44a, type: 3}
       propertyPath: changePage.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -4596,6 +4600,7 @@ MonoBehaviour:
   - key: 4
     val: {fileID: 1389062469}
   currentCamera: {fileID: 1241869150}
+  bookmarkDelay: 1
 --- !u!1 &803829208
 GameObject:
   m_ObjectHideFlags: 0
