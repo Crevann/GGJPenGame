@@ -4,10 +4,6 @@ using UnityEngine;
 using echo17.EndlessBook;
 using Cinemachine;
 
-
-
-
-
 public class CameraMgr : Singleton<CameraMgr>
 {
     [System.Serializable]
