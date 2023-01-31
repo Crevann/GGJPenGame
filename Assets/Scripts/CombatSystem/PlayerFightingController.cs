@@ -5,8 +5,8 @@ using UnityEngine.InputSystem.XR;
 
 public class PlayerFightingController : MonoBehaviour
 {
-    public RootCombat currentSelectedRoot;
-    public Entity target;
+    [HideInInspector] public RootCombat currentSelectedRoot;
+    [HideInInspector] public Entity target;
 
     private Entity self;
 
