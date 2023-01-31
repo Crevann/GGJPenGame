@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EntityData", menuName = "Entities/Enemies")]
 public class EnemyData : EntityData
 {
-    public Root[] rootPool;
+    public RootCombat[] rootPool;
 }

@@ -9,6 +9,7 @@ public class FightManager : Singleton<FightManager>
 {
     [SerializeField] private int maxEnemies = 4;
 
+    public Entity pen;
     public Entity[] enemies;
     public Entity[] enemiesToSpawn;
     [HideInInspector] public int currentTurn; //If -1 is player turn
@@ -25,13 +26,13 @@ public class FightManager : Singleton<FightManager>
     private void Start() {
         enemies = new Entity[maxEnemies];
         //enemiesToSpawn = new Entity[maxEnemies];
-        InitializeFight();
     }
     private void Awake() {
         FSM = GetComponent<Animator>();
         camNoise = fightingCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
     public void InitializeFight() {
+        pen.Initialize(); //Just for testing purposes, move this to start of the game
         for(int i = 0; i < enemiesToSpawn.Length; i++){
             Entity spawnedEnemy = Instantiate(enemiesToSpawn[i], enemyPositions[i]);
             spawnedEnemy.Initialize();
@@ -49,4 +50,17 @@ public class FightManager : Singleton<FightManager>
     public void ShakeCamera(float strength) {
         camNoise.m_AmplitudeGain = strength;
     }
+
+#if UNITY_EDITOR
+    private void OnGUI() {
+        if(GUI.Button(new Rect(400, 0, 100, 30), "Execute AI turn")) {
+            foreach(Entity enemy in enemies) {
+                enemy.ai.SelectRoot();
+                enemy.ai.SelectTarget();
+                enemy.ai.UseRoot();
+                enemy.ai.Execute();
+            }
+        }
+    }
+#endif
 }

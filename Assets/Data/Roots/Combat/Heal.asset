@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65eba8d77f25a3a469453f26ac3f6d03, type: 3}
-  m_Name: Hit
+  m_Name: Heal
   m_EditorClassIdentifier: 
-  root: Hit
+  root: Heal
   context: 1
   suffixes: []
-  damage: 2
-  avaiableTargets: 2
+  damage: -4
+  avaiableTargets: 1

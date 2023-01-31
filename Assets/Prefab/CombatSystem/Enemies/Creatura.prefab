@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3100172685702195172}
   - component: {fileID: 3100172685702195173}
   - component: {fileID: 8167977010210215112}
+  - component: {fileID: -2060981882690040381}
   m_Layer: 0
   m_Name: Creatura
   m_TagString: Untagged
@@ -126,3 +127,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
   popup: {fileID: 3324199152760335834, guid: 865e8da6f71f77946843562f49dbc620, type: 3}
+--- !u!114 &-2060981882690040381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100172685702195194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623a99e62c8c71b4fbe541a55cebcf5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

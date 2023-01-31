@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestPen
   m_EditorClassIdentifier: 
   entityName: Pen
-  health: 5
+  health: 100

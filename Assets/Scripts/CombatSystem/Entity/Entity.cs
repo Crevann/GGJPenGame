@@ -7,7 +7,10 @@ public class Entity : MonoBehaviour
 {
     [SerializeReference] private EntityData data;
     public string EntityName => data.entityName;
+    public RootCombat[] RootPool => ((EnemyData)data).rootPool;
     private EntityHealth health;
+    public int Health => health.Health;
+    public bool EntityHasMaxedHp => health.MaxedHealth;
 
     //Logic
     private int damage;
@@ -16,10 +19,14 @@ public class Entity : MonoBehaviour
 
     //References
     private Renderer renderer;
+    public BaseEnemyAI ai; //Get only if it has AI
     [Header("Fighting references")]
     [SerializeField] private DamagePopup popup;
 
     private void Awake() {
+        if(!TryGetComponent<BaseEnemyAI>(out ai)) {
+            Debug.Log("Entity is not AI");
+        }
         health = GetComponent<EntityHealth>();
         renderer = GetComponent<Renderer>();
     }
@@ -39,7 +46,7 @@ public class Entity : MonoBehaviour
         }
         DamagePopup instPopup = Instantiate<DamagePopup>(popup);
         instPopup.transform.position = target.transform.position;
-        instPopup.SetText(damage.ToString());
+        instPopup.SetText(Mathf.Abs(damage).ToString());
         FightManager.Instance.ShakeCamera(damage);
     }
 
