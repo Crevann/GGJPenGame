@@ -25,15 +25,15 @@ public class FightManager : Singleton<FightManager>
     private void Start() {
         enemies = new Entity[maxEnemies];
         //enemiesToSpawn = new Entity[maxEnemies];
-        InitializeFight(enemiesToSpawn);
+        InitializeFight();
     }
     private void Awake() {
         FSM = GetComponent<Animator>();
         camNoise = fightingCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
-    public void InitializeFight(Entity[] enemiesPrefab) {
-        for(int i = 0; i < enemiesPrefab.Length; i++){
-            Entity spawnedEnemy = Instantiate(enemiesPrefab[i], enemyPositions[i]);
+    public void InitializeFight() {
+        for(int i = 0; i < enemiesToSpawn.Length; i++){
+            Entity spawnedEnemy = Instantiate(enemiesToSpawn[i], enemyPositions[i]);
             spawnedEnemy.Initialize();
             spawnedEnemy.transform.localPosition = new Vector3(0, spawnedEnemy.GetEntitySize().y * 0.5f, 0);
             enemies[i] = spawnedEnemy;
