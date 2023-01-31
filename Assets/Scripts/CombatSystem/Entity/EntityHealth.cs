@@ -8,7 +8,16 @@ public class EntityHealth : MonoBehaviour
     private int health;
     public int Health {
         get => health;
-        set => health = value >= 0 ? value : 0;
+        set {
+            if (value < 0) {
+                health = 0;
+            }else if(value > maxHealth) {
+                health = maxHealth;
+            }
+            else {
+                health = value;
+            }
+        }
     }
     
     public int SetMaxHealth(int hp) {

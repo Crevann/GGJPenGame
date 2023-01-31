@@ -14,8 +14,14 @@ public class Entity : MonoBehaviour
     public int Damage => damage;
     private bool isDead;
 
+    //References
+    private Renderer renderer;
+    [Header("Fighting references")]
+    [SerializeField] private DamagePopup popup;
+
     private void Awake() {
         health = GetComponent<EntityHealth>();
+        renderer = GetComponent<Renderer>();
     }
     public void Initialize() {
         health.SetMaxHealth(data.health);
@@ -31,14 +37,22 @@ public class Entity : MonoBehaviour
         if (target.CheckDead()) {
             Debug.Log("Is dead");
         }
+        DamagePopup instPopup = Instantiate<DamagePopup>(popup);
+        instPopup.transform.position = target.transform.position;
+        instPopup.SetText(damage.ToString());
+        FightManager.Instance.ShakeCamera(damage);
     }
 
     public bool CheckDead() {
         if(health.Health <= 0) {
             isDead = true;
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); //Temp
             return true;
         }
         return false;
+    }
+
+    public Vector3 GetEntitySize() {
+        return renderer.bounds.size;
     }
 }
