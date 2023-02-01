@@ -68,6 +68,14 @@ public class LevelMgr : Singleton<LevelMgr>
     }
     //For state change
     protected virtual void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
+        currentPage = currentPageNumber;
+        if (currentPageNumber % 2 == 1) {
+            AddToPage(currentPageNumber);
+            AddToPage(currentPageNumber + 1);
+        } else {
+            AddToPage(currentPageNumber);
+            AddToPage(currentPageNumber - 1);
+        }
         if (debug) Debug.Log("OnBookTurnToPageCompleted: State set to " + toState + ". Current Page Number = " + currentPageNumber);
     }
 
@@ -82,74 +90,48 @@ public class LevelMgr : Singleton<LevelMgr>
     }
 
     protected virtual void OnPageTurnEnd(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection) {
-
-        Vector3 sizeOfCameraPage;
-        if (dic.ContainsKey(pageNumberFirstVisible)) {
-            sizeOfCameraPage = dic[pageNumberFirstVisible].collider.size;
-            foreach (Mob item in dic[pageNumberFirstVisible].mobs) {
-                if (!item.isActiveAndEnabled || item.onTopOfBook) continue;
-                item.onTopOfBook = true;
-                item.transform.rotation = Quaternion.Euler(Vector3.right * 90);
-                item.transform.localScale *= totalPageLength / sizeOfCameraPage.x;
-                Vector3 cameraPagePosition = item.transform.localPosition;
-                Vector3 clampedPos;
-                clampedPos.x = cameraPagePosition.x / (sizeOfCameraPage.x * 0.5f);
-                clampedPos.y = cameraPagePosition.y / (sizeOfCameraPage.y * 0.5f);
-                clampedPos.z = 0;
-
-                Vector3 bookPagePosition;
-                bookPagePosition.x = clampedPos.x * totalPageLength * 0.5f + bohOffset *0.8f; //boh
-                bookPagePosition.z = clampedPos.y * totalPageLength * 0.5f;
-                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y;
-
-                item.transform.position = bookPagePosition + book.transform.position + Vector3.left * (totalPageLength * 0.5f - notViewablePageLength);
-            }
-        }
-
-        if (dic.ContainsKey(pageNumberLastVisible)) {
-
-            sizeOfCameraPage = dic[pageNumberLastVisible].collider.size;
-            foreach (Mob item in dic[pageNumberLastVisible].mobs) {
-                if (!item.isActiveAndEnabled || item.onTopOfBook) continue;
-                item.onTopOfBook = true;
-                item.transform.rotation = Quaternion.Euler(Vector3.right * 90);
-                item.transform.localScale *= totalPageLength / sizeOfCameraPage.x;
-
-                Vector3 cameraPagePosition = item.transform.localPosition;
-                Vector3 clampedPos;
-                clampedPos.x = cameraPagePosition.x / (sizeOfCameraPage.x * 0.5f);
-                clampedPos.y = cameraPagePosition.y / (sizeOfCameraPage.y * 0.5f);
-                clampedPos.z = 0;
-
-                Vector3 bookPagePosition;
-                bookPagePosition.x = clampedPos.x * totalPageLength * 0.5f - bohOffset * 0.8f; //boh
-                bookPagePosition.z = clampedPos.y * totalPageLength * 0.5f;
-                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y;
-
-                item.transform.position = bookPagePosition + book.transform.position + Vector3.right * (totalPageLength * 0.5f/* + notViewablePageLength*/);
-            }
-        }
-
-        //TODO also left
+        AddToPage(pageNumberFirstVisible);
+        AddToPage(pageNumberLastVisible);
 
 
         if (debug) Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
+    }
+    private void AddToPage(int pageNumber) {
+        bool leftPage = pageNumber % 2 == 1;
+        Vector3 sizeOfCameraPage;
+        if (dic.ContainsKey(pageNumber)) {
+            sizeOfCameraPage = dic[pageNumber].collider.size;
+            foreach (TeleportingObject item in dic[pageNumber].mobs) {
+                if (!item.isActiveAndEnabled || item.onTopOfBook) continue;
+                item.onTopOfBook = true;
+                item.transform.rotation = Quaternion.Euler(Vector3.right * 90);
+                item.transform.localScale *= totalPageLength / sizeOfCameraPage.x;
+                Vector3 cameraPagePosition = item.transform.localPosition;
+                Vector3 clampedPos;
+                clampedPos.x = cameraPagePosition.x / (sizeOfCameraPage.x * 0.5f);
+                clampedPos.y = cameraPagePosition.y / (sizeOfCameraPage.y * 0.5f);
+                clampedPos.z = 0;
+
+                Vector3 bookPagePosition;
+                bookPagePosition.x = clampedPos.x * totalPageLength * 0.5f + bohOffset * (leftPage ? 0.8f : -0.8f); //boh
+                bookPagePosition.z = clampedPos.y * totalPageLength * 0.5f;
+                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y;
+
+                item.transform.position = bookPagePosition + book.transform.position + (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f - (leftPage ? notViewablePageLength : 0));
+            }
+        }
     }
     private void RemoveFromPage(int pageNumber) {
         Vector3 sizeOfCameraPage;
         bool leftPage = pageNumber % 2 == 1;
         if (dic.ContainsKey(pageNumber)) {
             sizeOfCameraPage = dic[pageNumber].collider.size;
-            foreach (Mob item in dic[pageNumber].mobs) {
+            foreach (TeleportingObject item in dic[pageNumber].mobs) {
                 if (!item.isActiveAndEnabled || !item.onTopOfBook) continue;
                 item.onTopOfBook = false;
                 item.transform.rotation = Quaternion.Euler(Vector3.zero);
                 item.transform.localScale /= totalPageLength / sizeOfCameraPage.x;
-                //left
-                Vector3 leftBookPagePosition = item.transform.position - Vector3.left                               * (totalPageLength * 0.5f - notViewablePageLength) - book.transform.position;
-                //right
-                Vector3 rightBookPagePosition = item.transform.position - Vector3.right                              * (totalPageLength * 0.5f) - book.transform.position;
-
+               
                 Vector3 bookPagePosition = item.transform.position - (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f - (leftPage ? notViewablePageLength : 0)) - book.transform.position;
 
                 Vector3 clampedPos;
