@@ -77,6 +77,7 @@ public class BookMark : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             wasClicked = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.changePage, this.transform.position);
             BookmarksMgr.Instance.ChangeScene();
         }
     }
