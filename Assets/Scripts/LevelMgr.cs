@@ -58,6 +58,7 @@ public class LevelMgr : Singleton<LevelMgr>
 
 
     public void OpenToPage(int panegN) {
+        EnemyMgr.Instance.DeactivateAllEnemies();
         book.TurnToPage(panegN, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 0.5f,
                     openTime: 1f,
                     onCompleted: OnBookTurnToPageCompleted,

@@ -42,7 +42,7 @@ public class AIController : MonoBehaviour {
     [SerializeField] float timeToFall = 1;
     [SerializeField] float distanceFromPlayer = 30;
     TeleportingObject myTeleportingObject;
-    bool isRising = false;
+    [HideInInspector] public bool isRising = false;
     Quaternion myCurrentRotation;
     float counter;
     bool readyToMove = false;
@@ -79,8 +79,7 @@ public class AIController : MonoBehaviour {
 
             return;
         }
-        Debug.Log(agent.isOnOffMeshLink);
-        if (agent.isOnOffMeshLink) {
+        if (agent.enabled && agent.isOnOffMeshLink) {
             agent.CompleteOffMeshLink();
         }
         if (readyToMove) {
@@ -92,12 +91,14 @@ public class AIController : MonoBehaviour {
                 agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
             }
             EnviromentView();
-
-            if (enemyPatrol) {
-                EnemyPatrol();
-            } else {
-                ChasePlayer();
+            if (agent.enabled) {
+                if (enemyPatrol) {
+                    EnemyPatrol();
+                } else {
+                    ChasePlayer();
+                }
             }
+
         }
         RisingAndLowering();
 
