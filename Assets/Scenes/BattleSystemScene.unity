@@ -8911,8 +8911,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.5019268, y: -0.00000002441511, z: 0.000000014168638, w: 0.8649101}
-  m_LocalPosition: {x: -4.59, y: 13.82, z: -3.08}
+  m_LocalRotation: {x: 0.5019268, y: 0.000000024399395, z: -0.000000014159519, w: 0.8649101}
+  m_LocalPosition: {x: -5.84, y: 13.82, z: -3.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10492,7 +10492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 137667979527145653, guid: 5114c58a3d983ed45b771ad318d63322, type: 3}
       propertyPath: m_Name
-      value: EnemyPositions
+      value: Positions
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598726248847100818, guid: 5114c58a3d983ed45b771ad318d63322, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5114c58a3d983ed45b771ad318d63322, type: 3}
@@ -10708,7 +10712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616156261835379081, guid: 311fe6dc297fbe449be855c8e7377aa3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.59
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 8616156261835379081, guid: 311fe6dc297fbe449be855c8e7377aa3, type: 3}
       propertyPath: m_LocalPosition.y
