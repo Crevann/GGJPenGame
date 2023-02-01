@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+[RequireComponent(typeof(TeleportingObject), typeof(NavMeshAgent))]
 public class AIController : MonoBehaviour
 {
     [SerializeField] float startWaitTime = 3;
@@ -32,8 +32,23 @@ public class AIController : MonoBehaviour
     bool playerNear;
     bool enemyPatrol;
     bool caughtPlayer;
-    
 
+    #region ale
+    PlayerMovement player;
+
+    [Header("Standing Up")]
+    [SerializeField] AnimationCurve standUpMovement;
+    [SerializeField] float timeToRaise = 1;
+    [SerializeField] float timeToFall = 1;
+    [SerializeField] float distanceFromPlayer = 30;
+    TeleportingObject myTeleportingObject;
+    bool isRising = false;
+    Quaternion myCurrentRotation;
+    float counter;
+    bool readyToMove = false;
+    bool wasReadyToMove = false;
+    Vector2 radiusAndHeight;
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -44,27 +59,77 @@ public class AIController : MonoBehaviour
         waitTime = startWaitTime;
         timeToRotate = timeToRotation;
 
+
         CurrentwayPointIndex = 0;
         agent = GetComponent<NavMeshAgent>();
 
-        agent.isStopped = false;
+        radiusAndHeight = new Vector2(agent.radius, agent.height);
+        //agent.isStopped = true;
         agent.speed = speedWalk;
-        agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+        agent.enabled = false;
+        //agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+
+        myTeleportingObject = GetComponent<TeleportingObject>();
+        player = FindObjectOfType<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnviromentView();
+        if (!myTeleportingObject.onTopOfBook) {
+            if(agent.enabled) agent.enabled = false;
 
-        if (!enemyPatrol)
-        {
-            ChaseEnemy();
+            return;
         }
-        else
-        {
-            EnemyPatrol();
+        
+            //agent.isStopped = !readyToMove;
+        if (readyToMove) {
+            if (!wasReadyToMove) {
+                agent.radius = radiusAndHeight.x / transform.localScale.x;
+                agent.height = radiusAndHeight.y / transform.localScale.y;
+                wasReadyToMove = true;
+                agent.enabled = true;
+                agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+                //NavMeshHit navhit;
+                //if (NavMesh.FindClosestEdge(transform.position, out navhit, NavMesh.AllAreas)) {
+                //    transform.position = navhit.position;
+                //}
+            }
+            EnviromentView();
+
+            if (!enemyPatrol)
+            {
+                ChaseEnemy();
+            }
+            else
+            {
+                EnemyPatrol();
+            }
         }
+        if(distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
+            if (!isRising) {
+                counter = 0;
+                isRising = true;
+            }
+            counter += Time.deltaTime;
+            float c = counter / timeToRaise;
+            c = Mathf.Clamp01(c);
+            transform.rotation = Quaternion.Euler(Vector3.right * standUpMovement.Evaluate(c) * 90);
+            readyToMove = c == 1;
+        } else {
+            readyToMove = false;
+            if (isRising) {
+                counter = 0;
+                isRising = false;
+                myCurrentRotation = transform.rotation;
+            }
+            counter += Time.deltaTime;
+            float c = counter / timeToRaise;
+            c = Mathf.Clamp01(c);
+            transform.rotation = Quaternion.Lerp(myCurrentRotation, Quaternion.Euler(Vector3.right * 90), c);
+
+        }
+        if(!readyToMove) wasReadyToMove = false;
     }
 
     private void ChaseEnemy()
@@ -79,7 +144,7 @@ public class AIController : MonoBehaviour
         }
         if(agent.remainingDistance <= agent.stoppingDistance)
         {
-            if(waitTime <= 0 && caughtPlayer && Vector3.Distance(transform.position,GameObject.FindGameObjectWithTag("Player").transform.position) >= 5f)
+            if(waitTime <= 0 && caughtPlayer && Vector3.Distance(transform.position, player.transform.position) >= 5f)
             {
                 enemyPatrol = true;
                 playerNear = false;
@@ -90,7 +155,7 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 1.5f)
+                if(Vector3.Distance(transform.position, player.transform.position) >= 1.5f)
                 {
                     StopEnemy();
                     waitTime -= Time.deltaTime;
@@ -129,7 +194,7 @@ public class AIController : MonoBehaviour
                 }
                 else
                 {
-                    StopEnemy();
+                    //StopEnemy();
                     waitTime -= Time.deltaTime;
                 }
             }
