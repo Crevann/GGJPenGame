@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SwitchFaceEnemy : MonoBehaviour
 {
+    [SerializeField] bool isFacingRight;
     [SerializeField] GameObject switchFace;
     [SerializeField] float turningSpeed = 5f;
-    bool isFacingRight;
     Vector3 lastPos;
     void Start()
     {

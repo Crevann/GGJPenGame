@@ -23,24 +23,29 @@ public class PlayerFightingController : MonoBehaviour
 
 #if UNITY_EDITOR
     private void OnGUI() {
-        if (GUI.Button(new Rect(200, 0, 150, 20), "Execute")) {
-            if (target) {
-                Setup();
-                Execute();
+        if(FightManager.Instance.currentTurn == -1) {
+            if (GUI.Button(new Rect(200, 0, 150, 20), "Execute")) {
+                if (target) {
+                    Setup();
+                    Execute();
+                }
             }
-        }
-        for (int i = 0; i < FightManager.Instance.enemies.Length; i++) {
-            float y = 30 + 30 * i;
-            if(GUI.Button(new Rect(200, y, 150, 20), "Target " + i)){
-                target = FightManager.Instance.enemies[i];
+            if (GUI.Button(new Rect(500, 50, 150, 20), "Confirm")) {
+                FightManager.Instance.NextPhase();
             }
-        }
+            for (int i = 0; i < FightManager.Instance.enemies.Length; i++) {
+                float y = 30 + 30 * i;
+                if (GUI.Button(new Rect(200, y, 150, 20), "Target " + i)) {
+                    target = FightManager.Instance.enemies[i];
+                }
+            }
 
-        if (currentSelectedRoot) {
-            GUI.Label(new Rect(400, 0, 300, 20), "Selected: " + currentSelectedRoot.data.root);
-        }
-        if (target) {
-            GUI.Label(new Rect(400, 30, 300, 20), "Target: " + target.EntityName);
+            if (currentSelectedRoot) {
+                GUI.Label(new Rect(400, 0, 300, 20), "Selected: " + currentSelectedRoot.data.root);
+            }
+            if (target) {
+                GUI.Label(new Rect(400, 30, 300, 20), "Target: " + target.EntityName);
+            }
         }
     }
 
