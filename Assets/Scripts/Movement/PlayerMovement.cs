@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
     }
     private void OnMouse() {
         if (Mouse.current.leftButton.wasPressedThisFrame) {
