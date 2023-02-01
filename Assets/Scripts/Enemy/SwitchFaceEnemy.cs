@@ -34,11 +34,11 @@ public class SwitchFaceEnemy : MonoBehaviour
     {
         if (isFacingRight)
         {
-            transform.Rotate(0, Mathf.Lerp(transform.rotation.y, 180, Time.deltaTime * turningSpeed), 0);
+            switchFace.transform.rotation = Quaternion.Lerp(switchFace.transform.rotation, Quaternion.Euler(new Vector3(0, 0, 0)), Time.deltaTime * turningSpeed);
         }
         else
         {
-            transform.Rotate(0, Mathf.Lerp(transform.rotation.y, 0, Time.deltaTime * turningSpeed), 0);
+            switchFace.transform.rotation = Quaternion.Lerp(switchFace.transform.rotation, Quaternion.Euler(new Vector3(0, 180, 0)), Time.deltaTime * turningSpeed);
         }
     }
 }
