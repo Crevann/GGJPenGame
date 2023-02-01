@@ -15,6 +15,7 @@ public class BookMark : MonoBehaviour
     [SerializeField] Transform hiddenTarget;
     Vector3 startPos;
     Vector3 colliderStartPos;
+    Vector3 colliderColliderCenterPos;
      public bool negative;
     Camera camera;
     bool wasClicked;
@@ -27,6 +28,7 @@ public class BookMark : MonoBehaviour
     {
         camera = Camera.main;
         colliderStartPos = transform.position;
+        colliderColliderCenterPos = GetComponent<BoxCollider>().center;
         startPos = bookMarkToMove.position;
         counter = 0;
         negative = false;
@@ -89,5 +91,7 @@ public class BookMark : MonoBehaviour
     private void OnEnable() {
 
         transform.position = new Vector3((negative ? -1 : 1) * colliderStartPos.x, colliderStartPos.y, colliderStartPos.z);
+        BoxCollider collider = GetComponent<BoxCollider>();
+        collider.center = new Vector3((negative ? -1 : 1) * colliderColliderCenterPos.x, colliderColliderCenterPos.y, colliderColliderCenterPos.z);
     }
 }
