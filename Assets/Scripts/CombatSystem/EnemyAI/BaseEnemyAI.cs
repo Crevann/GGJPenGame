@@ -7,6 +7,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
     protected Entity self;
     protected Entity target;
     protected RootCombat currentSelectedRoot;
+    public RootCombat CurrentSelectedRoot => currentSelectedRoot;
 
     private void Awake() {
         self = GetComponent<Entity>();
@@ -14,8 +15,6 @@ abstract public class BaseEnemyAI : MonoBehaviour
     public void UseRoot() {
         currentSelectedRoot.SetUser(self);
         currentSelectedRoot.Action();
-        //Clear root for next turn
-        currentSelectedRoot = null;
     }
 
     public void Execute() {

@@ -22,11 +22,15 @@ public class FightManager : Singleton<FightManager>
 
     //References
     private Animator FSM;
+    private PlayerFightingController playerFightingController;
     [SerializeField] private Transform[] enemyPositions;
 
     //FSM triggers
     private string startFight = "StartFight";
     private string nextState = "NextState";
+    private string fightInitialized = "FightInitialized";
+    private string fightHasEnded = "FightHasEnded";
+    private string engageStall = "EngageStall";
 
     private void Start() {
         enemies = new Entity[maxEnemies];
@@ -34,6 +38,7 @@ public class FightManager : Singleton<FightManager>
     }
     private void Awake() {
         FSM = GetComponent<Animator>();
+        playerFightingController = pen.GetComponent<PlayerFightingController>();
         camNoise = fightingCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
     public void InitializeFight() {
@@ -60,9 +65,34 @@ public class FightManager : Singleton<FightManager>
         FSM.SetTrigger(startFight);
     }
 
+    public void NextPhase() {
+        FSM.SetTrigger(nextState);
+    }
+    public void ExecuteActionPlayer() {
+        playerFightingController.Setup();
+        playerFightingController.Execute();
+    }
+    
+    public void EnemyDecisions() {
+        foreach (Entity enemy in enemies) {
+            if (enemy) {
+                enemy.ai.SelectRoot();
+                enemy.ai.SelectTarget();
+                enemy.ai.UseRoot();
+            }
+        }
+    }
+
+    public bool CheckTargetWords() {
+        if(playerFightingController.currentSelectedRoot.data.root == playerFightingController.target.ai.CurrentSelectedRoot.data.root) {
+            return true;
+        }
+        return false;
+    }
+
 #if UNITY_EDITOR
     private void OnGUI() {
-        if(GUI.Button(new Rect(400, 0, 100, 30), "Execute AI turn")) {
+        if(GUI.Button(new Rect(500, 0, 100, 30), "Execute AI turn")) {
             foreach(Entity enemy in enemies) {
                 if (enemy) {
                     enemy.ai.SelectRoot();

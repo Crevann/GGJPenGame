@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour
     private int damage;
     public int Damage => damage;
     private bool isDead;
+    public bool IsDead => IsDead;
 
     //References
     private Renderer renderer;
