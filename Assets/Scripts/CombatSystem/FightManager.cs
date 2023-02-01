@@ -13,6 +13,7 @@ public class FightManager : Singleton<FightManager>
     public Entity[] enemies;
     public Entity[] enemiesToSpawn;
     [HideInInspector] public int currentTurn; //If -1 is player turn
+    private bool isStalling;
 
     //Camera management
     [SerializeField] CinemachineVirtualCamera fightingCam;
@@ -25,6 +26,7 @@ public class FightManager : Singleton<FightManager>
 
     //FSM triggers
     private string startFight = "StartFight";
+    private string nextState = "NextState";
 
     private void Start() {
         enemies = new Entity[maxEnemies];
@@ -62,10 +64,12 @@ public class FightManager : Singleton<FightManager>
     private void OnGUI() {
         if(GUI.Button(new Rect(400, 0, 100, 30), "Execute AI turn")) {
             foreach(Entity enemy in enemies) {
-                enemy.ai.SelectRoot();
-                enemy.ai.SelectTarget();
-                enemy.ai.UseRoot();
-                enemy.ai.Execute();
+                if (enemy) {
+                    enemy.ai.SelectRoot();
+                    enemy.ai.SelectTarget();
+                    enemy.ai.UseRoot();
+                    enemy.ai.Execute();
+                }
             }
         }
     }
