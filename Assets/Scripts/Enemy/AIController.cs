@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 [RequireComponent(typeof(TeleportingObject), typeof(NavMeshAgent))]
@@ -58,7 +59,6 @@ public class AIController : MonoBehaviour
         playerInRange = false;
         waitTime = startWaitTime;
         timeToRotate = timeToRotation;
-
 
         CurrentwayPointIndex = 0;
         agent = GetComponent<NavMeshAgent>();
