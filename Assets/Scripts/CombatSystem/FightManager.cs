@@ -23,6 +23,9 @@ public class FightManager : Singleton<FightManager>
     private Animator FSM;
     [SerializeField] private Transform[] enemyPositions;
 
+    //FSM triggers
+    private string startFight = "StartFight";
+
     private void Start() {
         enemies = new Entity[maxEnemies];
         //enemiesToSpawn = new Entity[maxEnemies];
@@ -49,6 +52,10 @@ public class FightManager : Singleton<FightManager>
 
     public void ShakeCamera(float strength) {
         camNoise.m_AmplitudeGain = strength;
+    }
+
+    public void StartFight() {
+        FSM.SetTrigger(startFight);
     }
 
 #if UNITY_EDITOR

@@ -1,0 +1,12 @@
+Ha 2 oggetti necessari, che si trovano nella cartella Essentials dei prefab:
+Game: contiene tutta la logica con FightManager e FSM, FightManager è un singleton
+EnemyPositions: contiene le posizioni dei nemici (E successivamente della penna)
+
+Come far partire una battaglia:
+- Il nemico deve settare un array di Entity (Fatte a prefab) da massimo 4 su FightManager, chiamato enemyToSpawn. 
+- Una volta che è tutto pronto (Girare pagine e cose così, ma lo posso gestire dal FightManager che forse è meglio), usa FightManager.Instance.StartFight() per far partire la battaglia, ci pensa lui ad inizializzare tutto e spostare la cam.
+- La FSM di base sta su Nothing, appena si usa StartFight entra nel loop fino a fine battaglia
+
+!!Per ora la battaglia è infinita, non si può uscire, verrà gestito dalla FSM!!
+
+Se tutto va bene sia nei miei script che nell'implementazione dovrebbe funzionare tutto, si spera.
