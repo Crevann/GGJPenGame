@@ -24,6 +24,7 @@ public class FightManager : Singleton<FightManager>
     //References
     private Animator FSM;
     private PlayerFightingController playerFightingController;
+    [SerializeField] private Transform penPosition;
     [SerializeField] private Transform[] enemyPositions;
 
     //FSM triggers
@@ -43,8 +44,10 @@ public class FightManager : Singleton<FightManager>
         camNoise = fightingCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
     public void InitializeFight() {
-        pen.Initialize(); //Just for testing purposes, move this to start of the game
-        for(int i = 0; i < enemiesToSpawn.Length; i++){
+        //pen.Initialize(); //Just for testing purposes, move this to start of the game
+        pen.gameObject.SetActive(true);
+        pen.transform.position = penPosition.position;
+        for (int i = 0; i < enemiesToSpawn.Length; i++){
             Entity spawnedEnemy = Instantiate(enemiesToSpawn[i], enemyPositions[i]);
             spawnedEnemy.Initialize();
             //spawnedEnemy.transform.localPosition = new Vector3(0, spawnedEnemy.GetEntitySize().y * 0.5f, 0);
