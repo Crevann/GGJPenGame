@@ -10,11 +10,14 @@ public class PlayerMovement : MonoBehaviour
     Camera cam;
     NavMeshAgent navMeshAgent;
     [SerializeField] LayerMask ground;
+    [SerializeField] float speedAnimationMult = 0.2f;
     private EventInstance movePenSFX;
+    Animator animator;
     void Awake()
     {
         cam = Camera.main;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -25,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         UpdateSound();
+        animator.speed = navMeshAgent.velocity.magnitude * speedAnimationMult;
     }
 
     private void FixedUpdate()

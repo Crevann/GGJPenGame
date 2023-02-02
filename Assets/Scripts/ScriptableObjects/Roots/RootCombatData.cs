@@ -14,5 +14,6 @@ public enum Targettables {
 public class RootCombatData : RootData
 {
     public int damage;
+    public int stallDamage;
     public Targettables avaiableTargets;
 }
