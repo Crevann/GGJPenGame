@@ -46,7 +46,7 @@ public class FightManager : Singleton<FightManager>
         for(int i = 0; i < enemiesToSpawn.Length; i++){
             Entity spawnedEnemy = Instantiate(enemiesToSpawn[i], enemyPositions[i]);
             spawnedEnemy.Initialize();
-            spawnedEnemy.transform.localPosition = new Vector3(0, spawnedEnemy.GetEntitySize().y * 0.5f, 0);
+            //spawnedEnemy.transform.localPosition = new Vector3(0, spawnedEnemy.GetEntitySize().y * 0.5f, 0);
             enemies[i] = spawnedEnemy;
         }
         currentTurn = -1;
