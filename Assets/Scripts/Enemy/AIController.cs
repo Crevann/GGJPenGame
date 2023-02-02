@@ -48,6 +48,7 @@ public class AIController : MonoBehaviour {
     bool readyToMove = false;
     bool wasReadyToMove = false;
     Vector2 radiusAndHeight;
+    SwitchFaceEnemy switchFace;
     #endregion
     // Start is called before the first frame update
     void Start() {
@@ -69,6 +70,7 @@ public class AIController : MonoBehaviour {
         //agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
 
         myTeleportingObject = GetComponent<TeleportingObject>();
+        switchFace = GetComponent<SwitchFaceEnemy>();
         player = FindObjectOfType<PlayerMovement>();
     }
 
@@ -103,6 +105,7 @@ public class AIController : MonoBehaviour {
         RisingAndLowering();
 
         if (!readyToMove) wasReadyToMove = false;
+        if (switchFace) switchFace.enabled = readyToMove;
     }
     void RisingAndLowering() {
         if (distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
