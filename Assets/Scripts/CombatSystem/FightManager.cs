@@ -72,6 +72,17 @@ public class FightManager : Singleton<FightManager>
         playerFightingController.Setup();
         playerFightingController.Execute();
     }
+
+    public bool CheckIfAllEnemiesAreDead() {
+        for (int i = 0; i < enemies.Length; i++) {
+            if (enemies[i]) {
+                if (!enemies[i].IsDead) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     
     public void EnemyDecisions() {
         foreach (Entity enemy in enemies) {
