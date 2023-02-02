@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { Menu, CutScene, World, Fight}
+public enum GameState { Menu, World, Fight, CutScene}
 public class GameMGR : Singleton<GameMGR>
 {
     [System.Serializable]
@@ -24,6 +24,7 @@ public class GameMGR : Singleton<GameMGR>
         get => currentState;
         set {
             currentState = value;
+            AudioManager.instance.SetMusicArea(currentState);
             ChangeState();
         }
     }
