@@ -79,3 +79,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Pp]lugins/[Bb]aedrick.meta
 /ProjectSettings/PackageManagerSettings.assets
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+fmod_editor.log
+Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset.meta
