@@ -90,7 +90,11 @@ MonoBehaviour:
   - {fileID: 1595142286498122543}
   StringsBanks:
   - {fileID: 4730325673183483042}
+<<<<<<< HEAD
   cacheTime: 638108833413240252
+=======
+  cacheTime: 638108792033497699
+>>>>>>> 17244f812f8b7c1f9ddea6a9acd4c753d6d37dc3
   cacheVersion: 131601
 --- !u!114 &1595142286498122543
 MonoBehaviour:
@@ -107,7 +111,11 @@ MonoBehaviour:
   Path: Assets/Music/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< HEAD
   lastModified: 638108833413155604
+=======
+  lastModified: 638108792033447822
+>>>>>>> 17244f812f8b7c1f9ddea6a9acd4c753d6d37dc3
   FileSizes: []
   Exists: 1
 --- !u!114 &1888347106915184118
@@ -152,7 +160,11 @@ MonoBehaviour:
   Path: Assets/Music/FMODBanks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
+<<<<<<< HEAD
   lastModified: 638108833413240252
+=======
+  lastModified: 638108792033497699
+>>>>>>> 17244f812f8b7c1f9ddea6a9acd4c753d6d37dc3
   FileSizes: []
   Exists: 1
 --- !u!114 &2489068645659418784
@@ -224,7 +236,11 @@ MonoBehaviour:
   Path: Assets/Music/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 638108833413185243
+=======
+  lastModified: 638108792033477747
+>>>>>>> 17244f812f8b7c1f9ddea6a9acd4c753d6d37dc3
   FileSizes:
   - Name: 
     Value: 894
