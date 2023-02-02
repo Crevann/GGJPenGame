@@ -6992,6 +6992,20 @@ MonoBehaviour:
       Data3: 1845184697
       Data4: 812237050
     Path: event:/PenMovement
+  <ambienceSound>k__BackingField:
+    Guid:
+      Data1: -2015482815
+      Data2: 1183024942
+      Data3: 19408558
+      Data4: 548925680
+    Path: event:/Ambience/school chat
+  <musicMenu>k__BackingField:
+    Guid:
+      Data1: -1581354920
+      Data2: 1329793575
+      Data3: -1573955651
+      Data4: -1303316721
+    Path: event:/Music/MenuMusic
 --- !u!114 &744123925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5560792923765645336, guid: d4b8a2c0c21571343bebeba52ebc11c4, type: 3}
@@ -16240,7 +16254,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.5019268, y: -0.000000013355532, z: 0.000000007750515, w: 0.8649101}
+  m_LocalRotation: {x: 0.5019268, y: 0.00000002441512, z: -0.000000014168644, w: 0.8649101}
   m_LocalPosition: {x: -12.03, y: 13.82, z: -15.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
