@@ -33,9 +33,11 @@ public class RaycastInstance : MonoBehaviour
                 RayMouse = Cam.ScreenPointToRay(mousePos);
                 if (Physics.Raycast(RayMouse.origin, RayMouse.direction, out hit, 40))
                 {
-                    Instance = Instantiate(Prefabs[Prefab]);
+                    if (!Instance)
+                        Instance = Instantiate(Prefabs[Prefab], transform);
                     Instance.transform.position = hit.point + hit.normal * 0.01f;
-                    Destroy(Instance, 1.5f);
+                    Instance.GetComponent<ParticleSystem>().Play();
+                    //Destroy(Instance, 1.5f);
                 }
             }
             else
