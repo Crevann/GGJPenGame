@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExecutePenPhase : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        FightManager.Instance.MakeEnemyAttack(FightManager.Instance.currentTurn);
+        animator.SetBool("AllEnemiesActed", false);
+        Animation ani = FightManager.Instance.pen.GetComponent<Animation>();
+        ani.Play();        
     }
 }

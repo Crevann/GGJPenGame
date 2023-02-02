@@ -70,4 +70,9 @@ public class Entity : MonoBehaviour
     public Vector3 GetEntitySize() {
         return renderer.bounds.size;
     }
+
+    //ONLY FOR PLAYER ANIMATION
+    public void AttackPlayer() {
+        FightManager.Instance.ExecuteActionPlayer();
+    }
 }

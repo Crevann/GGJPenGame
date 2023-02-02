@@ -14,6 +14,7 @@ public class FightManager : Singleton<FightManager>
     public Entity[] enemiesToSpawn;
     [HideInInspector] public int currentTurn; //If -1 is player turn
     private bool isStalling;
+    private bool penIsDead;
 
     //Camera management
     [SerializeField] CinemachineVirtualCamera fightingCam;
@@ -82,6 +83,10 @@ public class FightManager : Singleton<FightManager>
             }
         }
         return true;
+    }
+
+    public bool CheckIfPenIsDead() {
+        return pen.CheckDead();
     }
     
     public void EnemyDecisions() {
