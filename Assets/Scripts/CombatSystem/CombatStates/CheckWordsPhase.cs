@@ -8,7 +8,8 @@ public class CheckWordsPhase : StateMachineBehaviour
         //This will enable the UI
         if (FightManager.Instance.CheckTargetWords()) {
             Debug.Log("Words are the same, engage stall");
-            FightManager.Instance.NextPhase(); //Temp go forward
+            //animator.SetTrigger("EngageStall");
+            FightManager.Instance.NextPhase();
         }
         else {
             FightManager.Instance.NextPhase();
