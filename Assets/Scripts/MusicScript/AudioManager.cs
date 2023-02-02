@@ -22,6 +22,11 @@ public class AudioManager : MonoBehaviour
     }
 
 
+    public void SetMusicArea(GameState area)
+    {
+        musicMenuInstance.setParameterByName("area", (float)area);
+    }
+
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
