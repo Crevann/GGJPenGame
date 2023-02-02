@@ -15,5 +15,6 @@ MonoBehaviour:
   root: Hit
   context: 1
   suffixes: []
-  damage: 2
+  damage: 15
+  stallDamage: 0
   avaiableTargets: 2
