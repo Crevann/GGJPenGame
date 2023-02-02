@@ -11,6 +11,12 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("PenMovement SFX")]
     [field: SerializeField] public EventReference penMovement { get; private set; }
+
+    [field: Header("Ambience Sound")]
+    [field: SerializeField] public EventReference ambienceSound { get; private set; }
+
+    [field: Header("Music Menu")]
+    [field: SerializeField] public EventReference musicMenu { get; private set; }
     public static FMODEvents instance { get; private set; }
     private void Awake()
     {

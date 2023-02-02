@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance { get; private set; }
 
+    private EventInstance ambienceEventInstance;
+    private EventInstance musicMenuInstance;
+
     private void Awake()
     {
         if(instance != null)
@@ -22,6 +25,23 @@ public class AudioManager : MonoBehaviour
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
+    }
+
+    private void Start()
+    {
+        InizializeAmbience(FMODEvents.instance.ambienceSound);
+        InizializeMusicMenu(FMODEvents.instance.musicMenu);
+    }
+    private void InizializeAmbience(EventReference ambienceEvent)
+    {
+        ambienceEventInstance = CreateInstance(ambienceEvent);
+        ambienceEventInstance.start();
+    }
+
+    private void InizializeMusicMenu(EventReference menuMusic)
+    {
+        musicMenuInstance = CreateInstance(menuMusic);
+        musicMenuInstance.start();
     }
 
     public EventInstance CreateInstance(EventReference eventeReference)
