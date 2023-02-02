@@ -59,6 +59,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushiboi
       objectReference: {fileID: 0}
+    - target: {fileID: 3440241696321798089, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440241696321798089, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440241696321798089, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0320b18d6736744098cc81cbcd4e460, type: 2}
     - target: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
       propertyPath: data
       value: 

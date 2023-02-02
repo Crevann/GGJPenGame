@@ -13,8 +13,8 @@ public class Inventory : Singleton<Inventory>
 
     private void Awake() {
         roots = new Root[maxInventorySize];
-        user = GetComponent<Entity>();
-        controller = GetComponent<PlayerFightingController>();
+        user = FightManager.Instance.pen;
+        controller = FightManager.Instance.pen.GetComponent<PlayerFightingController>();
     }
 
     public Root UseWord(int index) {

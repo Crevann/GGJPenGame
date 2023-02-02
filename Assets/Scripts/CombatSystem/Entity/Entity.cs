@@ -6,6 +6,9 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [SerializeReference] private EntityData data;
+    [Header("Sprites")]
+    [SerializeField] private Sprite idle;
+    [SerializeField] private Sprite attack;
     public string EntityName => data.entityName;
     public RootCombat[] RootPool => ((EnemyData)data).rootPool;
     private EntityHealth health;
@@ -19,7 +22,7 @@ public class Entity : MonoBehaviour
     public bool IsDead => isDead;
 
     //References
-    private Renderer renderer;
+    private SpriteRenderer renderer;
     public BaseEnemyAI ai; //Get only if it has AI
     [Header("Fighting references")]
     [SerializeField] private DamagePopup popup;
@@ -29,7 +32,7 @@ public class Entity : MonoBehaviour
             Debug.Log("Entity is not AI");
         }
         health = GetComponent<EntityHealth>();
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
     }
     public void Initialize() {
         health.SetMaxHealth(data.health);
@@ -58,6 +61,10 @@ public class Entity : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void SwitchSprites() {
+        renderer.sprite = renderer.sprite == idle ? attack : idle;
     }
 
     public Vector3 GetEntitySize() {

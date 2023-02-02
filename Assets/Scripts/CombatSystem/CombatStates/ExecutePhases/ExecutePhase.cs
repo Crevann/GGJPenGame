@@ -23,12 +23,15 @@ public class ExecutePhase : StateMachineBehaviour
             if(enemyCurrentTimer <= 0) {
                 if(FightManager.Instance.currentTurn < FightManager.Instance.enemiesToSpawn.Length) {
                     if (!FightManager.Instance.enemies[FightManager.Instance.currentTurn].IsDead) {
+                        FightManager.Instance.MakeEnemyAttack(FightManager.Instance.currentTurn);
+                        FightManager.Instance.enemies[FightManager.Instance.currentTurn].SwitchSprites();
                         FightManager.Instance.enemies[FightManager.Instance.currentTurn].ai.Execute();   
                     }
                     FightManager.Instance.currentTurn++;
                 }
                 else {
                     animator.SetBool("FightHasEnded", FightManager.Instance.CheckIfAllEnemiesAreDead());
+                    FightManager.Instance.ResetEnemyPositions();
                     FightManager.Instance.NextPhase();
                 }
                 enemyCurrentTimer = enemyActionDelay;

@@ -94,6 +94,23 @@ public class FightManager : Singleton<FightManager>
         }
     }
 
+    public void MakeEnemyAttack(int enemy) {
+        for (int i = 0; i < enemyPositions.Length; i++) {
+            if(i == enemy) {
+                enemyPositions[i].GetComponent<MovePosition>().movementState = MovementState.TOATTACK;
+            }
+            else {
+                enemyPositions[i].GetComponent<MovePosition>().movementState = MovementState.TOBACK;
+            }
+        }
+    }
+
+    public void ResetEnemyPositions() {
+        for (int i = 0; i < enemyPositions.Length; i++) {
+            enemyPositions[i].GetComponent<MovePosition>().movementState = MovementState.TOORIGINAL;
+        }
+    }
+
     public bool CheckTargetWords() {
         if(playerFightingController.currentSelectedRoot.data.root == playerFightingController.target.ai.CurrentSelectedRoot.data.root) {
             return true;
