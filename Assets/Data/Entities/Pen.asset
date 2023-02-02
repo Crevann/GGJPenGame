@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835d1f3fc44fb3d4b8298f27484b5fb6, type: 3}
-  m_Name: TestPen
+  m_Name: Pen
   m_EditorClassIdentifier: 
   entityName: Pen
-  health: 100
+  health: 20
