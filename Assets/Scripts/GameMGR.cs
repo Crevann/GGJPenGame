@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public enum GameState { Menu, World, Fight, CutScene}
 public class GameMGR : Singleton<GameMGR>
 {
@@ -17,6 +17,9 @@ public class GameMGR : Singleton<GameMGR>
         foreach (var kvp in MyList) {
             dictionary[kvp.key] = kvp.val;
         }
+    }
+    private void Start() {
+        CurrentState = GameState.Menu;
     }
 
     private GameState currentState = GameState.Menu;
@@ -39,5 +42,8 @@ public class GameMGR : Singleton<GameMGR>
                     item.SetActive(false);
                 }
         }
+    }
+    public void ChangeState(int state) { 
+        CurrentState = (GameState)state;
     }
 }
