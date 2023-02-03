@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RootSpawnTestBridge : RootWorld {
+    [SerializeField] protected GameObject affectedGO;
     public override void Action() {
-        affectedGO.SetActive(true);
+        if(affectedGO)
+            affectedGO.SetActive(true);
     }
 }
