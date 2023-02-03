@@ -19,8 +19,6 @@ public class EnemyStatUI : MonoBehaviour
     void Update()
     {
         for (int i = 0; i < FightManager.Instance.enemies.Length; i++)
-        {
-            spriteEnemys[i].sprite = 
-        }
+        {        }
     }
 }

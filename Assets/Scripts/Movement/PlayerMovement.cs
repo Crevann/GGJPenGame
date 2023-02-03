@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
+    private void OnEnable() {
+        //navMeshAgent.autoTraverseOffMeshLink = true;
+    }
 
     private void Start()
     {
