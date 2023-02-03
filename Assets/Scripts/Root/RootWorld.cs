@@ -5,5 +5,5 @@ using UnityEngine;
 
 abstract public class RootWorld : Root
 {
-    [SerializeField] protected GameObject affectedGO;
+    
 }

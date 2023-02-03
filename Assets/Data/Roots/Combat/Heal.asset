@@ -17,5 +17,6 @@ MonoBehaviour:
   suffixes: []
   damage: -4
   stallDamage: 0
-  avaiableTargets: 1
+  avaiableTargets: 0
   description: Heals 4 HP.
+  effect: {fileID: 198025859805546612, guid: 721cfe8018b2cd04abd0748143d2a312, type: 3}

@@ -17,5 +17,6 @@ MonoBehaviour:
   suffixes: []
   damage: 5
   stallDamage: 0
-  avaiableTargets: 2
+  avaiableTargets: 1
   description: Hits an enemy for 5 damage.
+  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
