@@ -59,7 +59,7 @@ public class Entity : MonoBehaviour
 
     public void SpawnEffect(ParticleSystem effect, Entity target) {
         ParticleSystem ps = Instantiate<ParticleSystem>(effect);
-        ps.transform.position = target.transform.position;
+        ps.transform.position += target.transform.position;
     }
 
     public bool CheckDead() {
