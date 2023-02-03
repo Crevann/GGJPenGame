@@ -39,14 +39,12 @@ public class GameMGR : Singleton<GameMGR>
     }
     private void ChangeState() {
         for (int i = 0; i < dictionary.Count; i++) {
-            if ((GameState)i == currentState) 
-                foreach (GameObject item in dictionary[(GameState)i]) {
-                    item.SetActive(true);
-                }
-            else
-                foreach (GameObject item in dictionary[(GameState)i]) {
-                    item.SetActive(false);
-                }
+            foreach (GameObject item in dictionary[(GameState)i]) {
+                item.SetActive(false);
+            }
+        }
+        foreach (GameObject item in dictionary[currentState]) {
+            item.SetActive(true);
         }
     }
     public void ChangeState(int state) { 
