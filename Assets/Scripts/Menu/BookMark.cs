@@ -13,6 +13,9 @@ public class BookMark : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] Transform startTarget;
     [SerializeField] Transform hiddenTarget;
+    [SerializeField] Material front;
+    [SerializeField] Material back;
+    MeshRenderer meshRenderer;
     Vector3 startPos;
     Vector3 colliderStartPos;
     Vector3 colliderColliderCenterPos;
@@ -32,6 +35,7 @@ public class BookMark : MonoBehaviour
         startPos = bookMarkToMove.position;
         counter = 0;
         negative = false;
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
    
@@ -93,5 +97,6 @@ public class BookMark : MonoBehaviour
         transform.position = new Vector3((negative ? -1 : 1) * colliderStartPos.x, colliderStartPos.y, colliderStartPos.z);
         BoxCollider collider = GetComponent<BoxCollider>();
         collider.center = new Vector3((negative ? -1 : 1) * colliderColliderCenterPos.x, colliderColliderCenterPos.y, colliderColliderCenterPos.z);
+        meshRenderer.material = negative ? back : front;
     }
 }
