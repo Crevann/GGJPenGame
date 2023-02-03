@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour
             Debug.Log("Is dead");
         }
         DamagePopup instPopup = Instantiate<DamagePopup>(popup);
-        instPopup.transform.position = target.transform.position;
+        instPopup.transform.position = target.transform.position + Vector3.forward * -1;
         instPopup.SetText(Mathf.Abs(damage).ToString());
         FightManager.Instance.ShakeCamera(damage);
     }
