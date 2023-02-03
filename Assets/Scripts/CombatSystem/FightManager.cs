@@ -51,6 +51,7 @@ public class FightManager : Singleton<FightManager>
         pen.HealthComponent.Health = GameMGR.Instance.penHP;
     }
     public void InitializeFight() {
+        stadium.gameObject.SetActive(true);
         stadium.OpenStadium();
         pen.gameObject.SetActive(true);
         SetPenHealth();

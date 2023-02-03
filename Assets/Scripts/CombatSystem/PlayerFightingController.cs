@@ -17,6 +17,9 @@ public class PlayerFightingController : MonoBehaviour
         currentSelectedRoot.Action();
     }
 
+    private void Update() {
+        GameMGR.Instance.penHP = self.Health;
+    }
     public void Execute() {
         self.DealDamage(self.Damage, target);
     }

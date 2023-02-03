@@ -65,6 +65,7 @@ public class InventoryUI : MonoBehaviour
     public void SelectRoot(int index)
     {
         FightManager.Instance.PlayerFightingController.currentSelectedRoot = (RootCombat)Inventory.Instance.SelectRoot(index);
+        FightManager.Instance.PlayerFightingController.Setup();
     }
     
 }

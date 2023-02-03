@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,18 @@ using UnityEngine;
 public class MobBattle : MonoBehaviour
 {
     [SerializeField] private Entity[] encounter;
+    [SerializeField] private CinemachineVirtualCamera bookCamera;
+
+    [SerializeField] private float battleStartTime;
+    private float battleStartTimer;
+    private bool battleIsStarting;
     private void OnTriggerEnter(Collider other) {
+        LevelMgr.Instance.OpenToPage(7);
         GameMGR.Instance.mobInfight = this;
         FightManager.Instance.enemiesToSpawn = encounter;
+        bookCamera.Priority = 2;
         GameMGR.Instance.CurrentState = GameState.Fight;
-        LevelMgr.Instance.OpenToPage(7);
         FightManager.Instance.StartFight();
     }
+
 }
