@@ -4,11 +4,16 @@ using UnityEngine;
 
 public enum Targettables {
     User,
-    Ally,
-    Enemy,
-    Both
+    Single,
+    Multiple
 }
 
+public enum StatusEffects {
+    Buff,
+    Debuff,
+    Stun,
+    Counter
+}
 [CreateAssetMenu(fileName = "RootCombatData", menuName = "Roots/Combat")]
 
 public class RootCombatData : RootData
@@ -17,4 +22,5 @@ public class RootCombatData : RootData
     public int stallDamage;
     public Targettables avaiableTargets;
     public string description;
+    public ParticleSystem effect;
 }

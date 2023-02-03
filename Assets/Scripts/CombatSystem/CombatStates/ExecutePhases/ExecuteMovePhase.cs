@@ -14,15 +14,16 @@ public class ExecuteMovePhase : StateMachineBehaviour
             FightManager.Instance.currentTurn++;
         }
 
-        if(FightManager.Instance.currentTurn >= FightManager.Instance.enemiesToSpawn.Length) {
-            animator.SetBool("AllEnemiesActed", true);
-            FightManager.Instance.NextPhase();
-            return;
-        }
         //Check if all enemies are dead
         if (FightManager.Instance.CheckIfAllEnemiesAreDead()) {
             animator.SetBool("FightHasEnded", true);
             animator.SetBool("AllEnemiesActed", true);
+            return;
+        }
+
+        if (FightManager.Instance.currentTurn >= FightManager.Instance.enemiesToSpawn.Length) {
+            animator.SetBool("AllEnemiesActed", true);
+            FightManager.Instance.NextPhase();
             return;
         }
 

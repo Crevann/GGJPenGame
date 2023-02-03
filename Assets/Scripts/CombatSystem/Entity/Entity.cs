@@ -57,6 +57,11 @@ public class Entity : MonoBehaviour
         FightManager.Instance.ShakeCamera(damage);
     }
 
+    public void SpawnEffect(ParticleSystem effect, Entity target) {
+        ParticleSystem ps = Instantiate<ParticleSystem>(effect);
+        ps.transform.position = target.transform.position;
+    }
+
     public bool CheckDead() {
         if(health.Health <= 0) {
             isDead = true;

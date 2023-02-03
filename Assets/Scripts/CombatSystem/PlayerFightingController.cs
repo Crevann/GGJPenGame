@@ -21,7 +21,28 @@ public class PlayerFightingController : MonoBehaviour
         GameMGR.Instance.penHP = self.Health;
     }
     public void Execute() {
-        self.DealDamage(self.Damage, target);
+        ParticleSystem ps;
+        switch (((RootCombatData)currentSelectedRoot.data).avaiableTargets) {
+            case Targettables.User:
+                self.DealDamage(self.Damage, self);
+                self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
+                break;
+            case Targettables.Single:
+                self.DealDamage(self.Damage, target);
+                self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
+                break;
+            case Targettables.Multiple:
+                for (int i = 0; i < FightManager.Instance.enemies.Length; i++) {
+                    if (FightManager.Instance.enemies[i]) {
+                        self.DealDamage(self.Damage, FightManager.Instance.enemies[i]);
+                        self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, FightManager.Instance.enemies[i]);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+       
     }
 
 #if UNITY_EDITOR
