@@ -80,6 +80,10 @@ public class AIController : MonoBehaviour {
 
             return;
         }
+        if (!player || !player.isActiveAndEnabled) {
+            player = FindObjectOfType<PlayerMovement>();
+            return;
+        }
         if (agent.enabled && agent.isOnOffMeshLink) {
             agent.CompleteOffMeshLink();
         }
@@ -107,10 +111,7 @@ public class AIController : MonoBehaviour {
         if (switchFace) switchFace.enabled = readyToMove;
     }
     void RisingAndLowering() {
-        if (!player || !player.isActiveAndEnabled) {
-            player = FindObjectOfType<PlayerMovement>();
-            return;
-        }
+        
         if (distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
             if (!isRising) {
                 counter = 0;
@@ -257,7 +258,7 @@ public class AIController : MonoBehaviour {
 
         if (!advancedView) {
             NavMeshPath path = new NavMeshPath();
-            playerInRange = playerInViewRange.Length > 0 && agent.CalculatePath(player.transform.position, path) && !player.GetComponent<NavMeshAgent>().isOnOffMeshLink && !agent.isOnOffMeshLink;
+            playerInRange = playerInViewRange.Length > 0 && agent.CalculatePath(player.transform.position, path) /*&& !player.GetComponent<NavMeshAgent>().isOnOffMeshLink && !agent.isOnOffMeshLink*/;
             playerPosition = player.transform.position;
             enemyPatrol = !playerInRange;
             //if (enemyPatrol) agent.enabled = false;
