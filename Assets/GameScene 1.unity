@@ -7068,7 +7068,7 @@ MonoBehaviour:
       Data2: 1329793575
       Data3: -1573955651
       Data4: -1303316721
-    Path: event:/Music/MenuMusic
+    Path: event:/Music/Music
 --- !u!114 &744123925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5560792923765645336, guid: d4b8a2c0c21571343bebeba52ebc11c4, type: 3}
