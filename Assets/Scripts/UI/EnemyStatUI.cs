@@ -6,9 +6,9 @@ using TMPro;
 
 public class EnemyStatUI : MonoBehaviour
 {
-    Image[] spriteEnemys;
-    TextMeshProUGUI[] currentsHealth;
-    Image[] barsHealt;
+    [SerializeField]Image[] spriteEnemys;
+    [SerializeField]TextMeshProUGUI[] currentsHealth;
+    [SerializeField]Image[] barsHealt;
     
     void Start()
     {
@@ -22,12 +22,14 @@ public class EnemyStatUI : MonoBehaviour
         {
             if(!FightManager.Instance.enemies[i])
             {
-                spriteEnemys[i].gameObject.SetActive(false);
+                spriteEnemys[i].transform.parent.gameObject.SetActive(false);
                 break;
             }
+            spriteEnemys[i].transform.parent.gameObject.SetActive(true);
             spriteEnemys[i].sprite = FightManager.Instance.enemies[i].Icon;
             currentsHealth[i].text = FightManager.Instance.enemies[i].Health.ToString() + "/" + FightManager.Instance.enemies[i].MaxHealth.ToString();
-            barsHealt[i].fillAmount =(float)FightManager.Instance.enemies[i].MaxHealth / (float)FightManager.Instance.enemies[i].Health;
+            barsHealt[i].fillAmount =(float)FightManager.Instance.enemies[i].Health / (float)FightManager.Instance.enemies[i].MaxHealth;
         }
+
     }
 }

@@ -43,7 +43,7 @@ public class InventoryUI : MonoBehaviour
            }
            else
            {
-                buttons[i].interactable = false;
+                buttons[i].interactable = true;
            }
         }
 
@@ -62,5 +62,9 @@ public class InventoryUI : MonoBehaviour
         isOpened = !isOpened;
     }
 
+    public void SelectRoot(int index)
+    {
+        FightManager.Instance.PlayerFightingController.currentSelectedRoot = (RootCombat)Inventory.Instance.SelectRoot(index);
+    }
     
 }
