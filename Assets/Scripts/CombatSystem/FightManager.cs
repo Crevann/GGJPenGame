@@ -49,8 +49,8 @@ public class FightManager : Singleton<FightManager>
         pen.HealthComponent.Health = GameMGR.Instance.penHP;
     }
     public void InitializeFight() {
-        SetPenHealth();
         pen.gameObject.SetActive(true);
+        SetPenHealth();
         pen.transform.position = penPosition.position;
         for (int i = 0; i < enemiesToSpawn.Length; i++){
             Entity spawnedEnemy = Instantiate(enemiesToSpawn[i], enemyPositions[i]);
