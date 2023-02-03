@@ -20,7 +20,7 @@ public class EnemyStatUI : MonoBehaviour
     {
         for (int i = 0; i < FightManager.Instance.enemies.Length; i++)
         {
-            spriteEnemys[i].sprite = 
+            //spriteEnemys[i].sprite = 
         }
     }
 }
