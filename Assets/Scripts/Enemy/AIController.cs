@@ -71,7 +71,6 @@ public class AIController : MonoBehaviour {
 
         myTeleportingObject = GetComponent<TeleportingObject>();
         switchFace = GetComponent<SwitchFaceEnemy>();
-        player = FindObjectOfType<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -108,6 +107,10 @@ public class AIController : MonoBehaviour {
         if (switchFace) switchFace.enabled = readyToMove;
     }
     void RisingAndLowering() {
+        if (!player || !player.isActiveAndEnabled) {
+            player = FindObjectOfType<PlayerMovement>();
+            return;
+        }
         if (distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
             if (!isRising) {
                 counter = 0;
@@ -123,6 +126,7 @@ public class AIController : MonoBehaviour {
             if (isRising) {
                 counter = 0;
                 isRising = false;
+
                 myCurrentRotation = transform.rotation;
             }
             counter += Time.deltaTime;
