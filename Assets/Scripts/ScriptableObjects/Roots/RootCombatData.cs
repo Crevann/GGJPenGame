@@ -16,4 +16,5 @@ public class RootCombatData : RootData
     public int damage;
     public int stallDamage;
     public Targettables avaiableTargets;
+    public string description;
 }
