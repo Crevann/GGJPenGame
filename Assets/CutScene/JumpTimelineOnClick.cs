@@ -16,10 +16,8 @@ public class JumpTimelineOnClick : MonoBehaviour
         playableDirector = GetComponent<PlayableDirector>();
     }
     void OnMouseUp() {
-        Debug.Log("CLick");
         TimelineAsset timelineAsset = playableDirector.playableAsset as TimelineAsset;
         var markers = timelineAsset.markerTrack.GetMarkers().ToArray();
-        Debug.Log(markers.Length);
         
         playableDirector.Play();
         playableDirector.time = markers[markerNum].time;
