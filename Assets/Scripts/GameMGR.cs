@@ -5,8 +5,9 @@ using UnityEngine;
 public enum GameState { Menu, World, Fight, CutScene}
 public class GameMGR : Singleton<GameMGR>
 {
-    public int penMaxHP = 20;
-    public int penHP = 20;
+    [SerializeField] private EntityData penData;
+    public int penMaxHP;
+    public int penHP;
 
     [System.Serializable]
     public class KeyValuePair {
@@ -23,6 +24,7 @@ public class GameMGR : Singleton<GameMGR>
     }
     private void Start() {
         CurrentState = GameState.Menu;
+        InitializePen();
     }
 
     private GameState currentState = GameState.Menu;
@@ -49,5 +51,10 @@ public class GameMGR : Singleton<GameMGR>
     }
     public void ChangeState(int state) { 
         CurrentState = (GameState)state;
+    }
+
+    private void InitializePen() {
+        penMaxHP = penData.health;
+        penHP = penData.health;
     }
 }
