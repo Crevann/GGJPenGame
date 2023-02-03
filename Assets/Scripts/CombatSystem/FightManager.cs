@@ -43,8 +43,13 @@ public class FightManager : Singleton<FightManager>
         playerFightingController = pen.GetComponent<PlayerFightingController>();
         camNoise = fightingCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
+
+    private void SetPenHealth() {
+        pen.HealthComponent.SetMaxHealth(GameMGR.Instance.penMaxHP);
+        pen.HealthComponent.Health = GameMGR.Instance.penHP;
+    }
     public void InitializeFight() {
-        //pen.Initialize(); //Just for testing purposes, move this to start of the game
+        SetPenHealth();
         pen.gameObject.SetActive(true);
         pen.transform.position = penPosition.position;
         for (int i = 0; i < enemiesToSpawn.Length; i++){

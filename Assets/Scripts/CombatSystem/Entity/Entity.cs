@@ -8,10 +8,12 @@ public class Entity : MonoBehaviour
     [SerializeReference] private EntityData data;
     [Header("Sprites")]
     [SerializeField] private Sprite idle;
+    public Sprite Icon => idle;
     [SerializeField] private Sprite attack;
     public string EntityName => data.entityName;
     public RootCombat[] RootPool => ((EnemyData)data).rootPool;
     private EntityHealth health;
+    public EntityHealth HealthComponent => health;
     public int Health => health.Health;
     public int MaxHealth => health.MaxHealth;
     public bool EntityHasMaxedHp => health.MaxedHealth;

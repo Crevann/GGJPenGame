@@ -5,8 +5,8 @@ using UnityEngine;
 public enum GameState { Menu, World, Fight, CutScene}
 public class GameMGR : Singleton<GameMGR>
 {
-    public int penMaxHP;
-    public int penHP;
+    public int penMaxHP = 20;
+    public int penHP = 20;
 
     [System.Serializable]
     public class KeyValuePair {
