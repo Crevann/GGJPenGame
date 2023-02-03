@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public enum GameState { Menu, World, Fight, CutScene}
+public enum GameState { Menu, World, Fight, CutScene }
 public class GameMGR : Singleton<GameMGR>
 {
     [SerializeField] private EntityData penData;
