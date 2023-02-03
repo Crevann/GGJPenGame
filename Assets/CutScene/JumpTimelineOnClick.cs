@@ -9,11 +9,12 @@ public class JumpTimelineOnClick : MonoBehaviour
 {
     private PlayableDirector playableDirector;
     //public GameObject controlPanel;
-
+    bool isSkipped = false;
 
     public int markerNum;
     void Start() {
         playableDirector = GetComponent<PlayableDirector>();
+        isSkipped = false;
     }
     void OnMouseUp() {
         TimelineAsset timelineAsset = playableDirector.playableAsset as TimelineAsset;
@@ -23,7 +24,8 @@ public class JumpTimelineOnClick : MonoBehaviour
         playableDirector.time = markers[markerNum].time;
     }
     private void Update() {
-        if (Mouse.current.leftButton.wasPressedThisFrame) {
+        if (Mouse.current.leftButton.wasPressedThisFrame && !isSkipped) {
+            isSkipped = true;
             OnMouseUp();
         }
     }
