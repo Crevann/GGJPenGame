@@ -10434,15 +10434,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939321289}
-  m_LocalRotation: {x: 0.11661364, y: -0, z: -0, w: 0.99317735}
-  m_LocalPosition: {x: -0.05000019, y: 8.89, z: -14.349989}
+  m_LocalRotation: {x: 0.100892305, y: -0, z: -0, w: 0.99489737}
+  m_LocalPosition: {x: 0.5, y: 9.5, z: -21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 267632485}
   m_Father: {fileID: 800081570}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 13.393, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.581, y: 0, z: 0}
 --- !u!1 &940591280
 GameObject:
   m_ObjectHideFlags: 0
@@ -13114,6 +13114,52 @@ Transform:
   m_Father: {fileID: 1165329654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1138884915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1138884916}
+  - component: {fileID: 1138884917}
+  m_Layer: 0
+  m_Name: RootBridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1138884916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138884915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 738852023}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138884917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138884915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36abd25574d803448f07893b5aa04e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  affectedGO: {fileID: 0}
 --- !u!1 &1143823452
 GameObject:
   m_ObjectHideFlags: 0
@@ -27537,6 +27583,18 @@ PrefabInstance:
       propertyPath: battleStartTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.data[1]
+      value: 
+      objectReference: {fileID: 8167977010210215112, guid: 4817b64cd060ce24f8fb38d528a4bf95, type: 3}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.data[2]
+      value: 
+      objectReference: {fileID: 8167977010210215112, guid: e0d3490f397e43f4889967bd10d12fec, type: 3}
     - target: {fileID: 4414636748826655930, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
       propertyPath: m_Name
       value: CupCakey
