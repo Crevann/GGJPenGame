@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class MobBattle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField] private Entity[] encounter;
+    private void OnTriggerEnter(Collider other) {
+        GameMGR.Instance.mobInfight = this;
+        FightManager.Instance.enemiesToSpawn = encounter;
+        GameMGR.Instance.CurrentState = GameState.Fight;
+        LevelMgr.Instance.OpenToPage(7);
+        FightManager.Instance.StartFight();
     }
 }
