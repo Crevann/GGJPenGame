@@ -24,6 +24,7 @@ public class FightManager : Singleton<FightManager>
     //References
     private Animator FSM;
     private PlayerFightingController playerFightingController;
+    public PlayerFightingController PlayerFightingController => playerFightingController;
     [SerializeField] private Transform penPosition;
     [SerializeField] private Transform[] enemyPositions;
     [SerializeField] private BackgroundPeople stadium;

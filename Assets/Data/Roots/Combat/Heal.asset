@@ -18,3 +18,4 @@ MonoBehaviour:
   damage: -4
   stallDamage: 0
   avaiableTargets: 1
+  description: Heals 4 HP.

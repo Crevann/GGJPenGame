@@ -18,3 +18,4 @@ MonoBehaviour:
   damage: 5
   stallDamage: 0
   avaiableTargets: 2
+  description: Hits an enemy for 5 damage.
