@@ -5,11 +5,13 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class EndBattleState : StateMachineBehaviour
 {
-    private string trigger = "FightInitialized";
-
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         LevelMgr.Instance.OpenToPage(GameMGR.Instance.currentLevel);
-        CameraMgr.Instance.ChooseCamera(Cameras.BookView);
+        GameMGR.Instance.mobInfight.defeated = true;
         GameMGR.Instance.CurrentState = GameState.World;
+        CameraMgr.Instance.ChooseCamera(Cameras.FollowPlayer);
+        if (FightManager.Instance.pen.IsDead) {
+            GameMGR.Instance.penIsDead = true;
+        }
     }
 }

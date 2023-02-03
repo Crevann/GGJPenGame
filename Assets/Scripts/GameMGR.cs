@@ -7,7 +7,7 @@ public class GameMGR : Singleton<GameMGR>
 {
     [SerializeField] private EntityData penData;
     public MobBattle mobInfight;
-    public int currentLevel;
+    public int currentLevel = 3;
     
     //Pen stats
     public int penMaxHP;

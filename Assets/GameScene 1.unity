@@ -4473,8 +4473,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penData: {fileID: 11400000, guid: db23d03ff6820a1479c2c848ad192fe8, type: 2}
   mobInfight: {fileID: 0}
+  currentLevel: 3
   penMaxHP: 0
   penHP: 0
+  penIsDead: 0
   MyList:
   - key: 0
     val: []
@@ -8515,6 +8517,13 @@ MonoBehaviour:
     val: {fileID: 1389062469}
   currentCamera: {fileID: 1241869150}
   bookmarkDelay: 1
+  allCameras:
+  - {fileID: 1747417268}
+  - {fileID: 1854797051}
+  - {fileID: 1241869150}
+  - {fileID: 1389062469}
+  - {fileID: 939321290}
+  - {fileID: 878201772}
 --- !u!1 &801864410
 GameObject:
   m_ObjectHideFlags: 0
