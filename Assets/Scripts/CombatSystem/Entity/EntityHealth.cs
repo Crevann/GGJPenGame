@@ -6,6 +6,7 @@ public class EntityHealth : MonoBehaviour
 {
     private int maxHealth;
     private int health;
+    public int MaxHealth => maxHealth;
     public bool MaxedHealth => health >= maxHealth;
     public int Health {
         get => health;

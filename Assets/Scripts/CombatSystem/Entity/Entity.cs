@@ -13,6 +13,7 @@ public class Entity : MonoBehaviour
     public RootCombat[] RootPool => ((EnemyData)data).rootPool;
     private EntityHealth health;
     public int Health => health.Health;
+    public int MaxHealth => health.MaxHealth;
     public bool EntityHasMaxedHp => health.MaxedHealth;
 
     //Logic
