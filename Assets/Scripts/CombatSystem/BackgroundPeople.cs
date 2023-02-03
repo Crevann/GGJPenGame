@@ -28,9 +28,11 @@ public class BackgroundPeople : MonoBehaviour {
                 int randomIndex = Random.Range(0, uniquePeopleSpritesSpawn.Count);
                 people[i].sprite = uniquePeopleSpritesSpawn[randomIndex];
                 uniquePeopleSpritesSpawn.Remove(uniquePeopleSpritesSpawn[randomIndex]);
+                people[i].flipX = false;
             }
             else {
                 people[i].sprite = peopleSprites[Random.Range(0, peopleSprites.Length)];
+                people[i].flipX = Random.Range(0, 2) < 1 ? false : true;
             }
         }
     }

@@ -260,6 +260,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: be0376a8e8d7a934db26b76e65909967, type: 3}
   - {fileID: 21300000, guid: db167edf5a88ec741925be417ab673bf, type: 3}
   - {fileID: 21300000, guid: 95128f94d5f9a1246a1183e82c2ce99a, type: 3}
+  - {fileID: 21300000, guid: 32e99c562149b8844bfd1324d129c681, type: 3}
+  - {fileID: 21300000, guid: 73c07d48602182f429ca5b76db3bd667, type: 3}
+  - {fileID: 21300000, guid: e61e02b83fa4f934bb6262d494307f40, type: 3}
+  - {fileID: 21300000, guid: 4039eceb1acae8244822943d9fd8b674, type: 3}
   peopleSprites:
   - {fileID: 21300000, guid: e592d3cc1745b594db15977147c7a5e4, type: 3}
   - {fileID: 21300000, guid: 515e79c069b4f194aa6f5196d7e18710, type: 3}
