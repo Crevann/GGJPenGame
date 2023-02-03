@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: RootTestBridgeData
   m_EditorClassIdentifier: 
   root: Spawn
-  context: 0
+  context: 1
   suffixes: []
-  toSpawn: {fileID: 9194964912161899336, guid: 88c342866a51ad540908434bd46f4aa9, type: 3}

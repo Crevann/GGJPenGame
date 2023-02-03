@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hit
   m_EditorClassIdentifier: 
   root: Hit
-  context: 1
+  context: 2
   suffixes: []
   damage: 15
   stallDamage: 0
