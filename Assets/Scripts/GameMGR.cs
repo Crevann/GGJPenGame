@@ -5,6 +5,9 @@ using UnityEngine;
 public enum GameState { Menu, World, Fight, CutScene}
 public class GameMGR : Singleton<GameMGR>
 {
+    public int penMaxHP;
+    public int penHP;
+
     [System.Serializable]
     public class KeyValuePair {
         public GameState key;
@@ -28,7 +31,7 @@ public class GameMGR : Singleton<GameMGR>
         set {
             currentState = value;
             ChangeState();
-            AudioManager.instance.SetMusicArea(currentState);
+            //AudioManager.instance.SetMusicArea(currentState);
             Debug.Log(currentState);
         }
     }
