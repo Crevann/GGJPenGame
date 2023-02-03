@@ -4013,7 +4013,6 @@ MonoBehaviour:
     val:
     - {fileID: 2120491034}
     - {fileID: 228905881}
-    - {fileID: 1858297085}
   - key: 2
     val:
     - {fileID: 668320827}
@@ -16890,7 +16889,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.50192684, y: 0.00000001840756, z: -0.000000010682321, w: 0.8649101}
+  m_LocalRotation: {x: 0.50192684, y: -0.000000018407567, z: 0.000000010682324, w: 0.8649101}
   m_LocalPosition: {x: -12.03, y: 13.82, z: -13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
