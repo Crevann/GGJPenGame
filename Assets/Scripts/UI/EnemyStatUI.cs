@@ -20,7 +20,12 @@ public class EnemyStatUI : MonoBehaviour
     {
         for (int i = 0; i < FightManager.Instance.enemies.Length; i++)
         {
-            spriteEnemys[i].sprite = 
+            if(!FightManager.Instance.enemies[i])
+            {
+                spriteEnemys[i].gameObject.SetActive(false);
+                break;
+            }
+            spriteEnemys[i].sprite = FightManager.Instance.enemies[i].Icon;
         }
     }
 }
