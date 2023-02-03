@@ -3216,6 +3216,25 @@ Transform:
   m_Father: {fileID: 1566388765}
   m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &242226263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4414636748826655930, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+  m_PrefabInstance: {fileID: 4414636748025838817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &242226270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242226263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d860fb1228c48e145b476255bd4bfa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encounter:
+  - {fileID: 8167977010210215112, guid: 4fb108679359b5746bff8df35fb61b47, type: 3}
 --- !u!1 &244211022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,6 +3599,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &293798765
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143431914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &302054667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,6 +4491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penData: {fileID: 11400000, guid: db23d03ff6820a1479c2c848ad192fe8, type: 2}
+  mobInfight: {fileID: 0}
   penMaxHP: 0
   penHP: 0
   MyList:
@@ -19153,7 +19186,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.5019268, y: 0.000000013355532, z: -0.000000007750515, w: 0.8649101}
+  m_LocalRotation: {x: 0.5019268, y: -0.000000013355538, z: 0.0000000077505184, w: 0.8649101}
   m_LocalPosition: {x: -12.03, y: 13.82, z: -13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

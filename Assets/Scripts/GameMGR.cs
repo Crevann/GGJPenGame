@@ -6,6 +6,7 @@ public enum GameState { Menu, World, Fight, CutScene}
 public class GameMGR : Singleton<GameMGR>
 {
     [SerializeField] private EntityData penData;
+    public MobBattle mobInfight;
     public int penMaxHP;
     public int penHP;
 
