@@ -254,16 +254,16 @@ public class AIController : MonoBehaviour {
     }
 
     void EnviromentView() {
-        Collider[] playerInViewRange = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
         if (!advancedView) {
             NavMeshPath path = new NavMeshPath();
-            playerInRange = playerInViewRange.Length > 0 && agent.CalculatePath(player.transform.position, path) /*&& !player.GetComponent<NavMeshAgent>().isOnOffMeshLink && !agent.isOnOffMeshLink*/;
+            playerInRange = (player.transform.position - transform.position).sqrMagnitude < viewRadius * viewRadius && agent.CalculatePath(player.transform.position, path) /*&& !player.GetComponent<NavMeshAgent>().isOnOffMeshLink && !agent.isOnOffMeshLink*/;
             playerPosition = player.transform.position;
             enemyPatrol = !playerInRange;
             //if (enemyPatrol) agent.enabled = false;
             return;
         }
+        Collider[] playerInViewRange = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
         for (int i = 0; i < playerInViewRange.Length; i++) {
             Transform player = playerInViewRange[i].transform;
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
