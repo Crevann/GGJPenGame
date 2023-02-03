@@ -30,7 +30,9 @@ public class AgentLinkMover : MonoBehaviour {
             yield return null;
         }
     }
-
+    private void OnEnable() {
+        StartCoroutine(Start());
+    }
     IEnumerator NormalSpeed(NavMeshAgent agent) {
         OffMeshLinkData data = agent.currentOffMeshLinkData;
         Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;

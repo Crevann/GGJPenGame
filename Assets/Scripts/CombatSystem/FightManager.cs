@@ -26,6 +26,7 @@ public class FightManager : Singleton<FightManager>
     private PlayerFightingController playerFightingController;
     [SerializeField] private Transform penPosition;
     [SerializeField] private Transform[] enemyPositions;
+    [SerializeField] private BackgroundPeople stadium;
 
     //FSM triggers
     private string startFight = "StartFight";
@@ -49,6 +50,7 @@ public class FightManager : Singleton<FightManager>
         pen.HealthComponent.Health = GameMGR.Instance.penHP;
     }
     public void InitializeFight() {
+        stadium.OpenStadium();
         pen.gameObject.SetActive(true);
         SetPenHealth();
         pen.transform.position = penPosition.position;

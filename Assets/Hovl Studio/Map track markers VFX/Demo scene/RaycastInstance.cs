@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RaycastInstance : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class RaycastInstance : MonoBehaviour
     private Ray RayMouse;
     private GameObject Instance;
     private float windowDpi;
-
+    [SerializeField] NavMeshAgent navMeshAgent;
     //Double-click protection
     private float buttonSaver = 0f;
 
@@ -33,6 +34,8 @@ public class RaycastInstance : MonoBehaviour
                 RayMouse = Cam.ScreenPointToRay(mousePos);
                 if (Physics.Raycast(RayMouse.origin, RayMouse.direction, out hit, 40))
                 {
+                    NavMeshPath path = new NavMeshPath();
+                    if(!navMeshAgent.CalculatePath(hit.point, path)) return ;
                     if (!Instance)
                         Instance = Instantiate(Prefabs[Prefab], transform);
                     Instance.transform.position = hit.point + hit.normal * 0.01f;

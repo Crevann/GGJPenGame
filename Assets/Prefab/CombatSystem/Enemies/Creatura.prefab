@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
+  idle: {fileID: 0}
+  attack: {fileID: 0}
   ai: {fileID: 0}
   popup: {fileID: 3324199152760335834, guid: 865e8da6f71f77946843562f49dbc620, type: 3}
 --- !u!114 &-2060981882690040381
@@ -114,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: fea821aabf41bb14e97da76fb1924d17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
