@@ -27,7 +27,7 @@ public class GameMGR : Singleton<GameMGR>
         get => currentState;
         set {
             currentState = value;
-            AudioManager.instance.SetMusicArea(currentState);
+            //AudioManager.instance.SetMusicArea(currentState);
             ChangeState();
         }
     }
