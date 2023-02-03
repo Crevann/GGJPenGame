@@ -13,5 +13,8 @@ public class ExecuteEnemyReset : StateMachineBehaviour
         }
 
         //Check if pen is dead
+        if (FightManager.Instance.pen.IsDead) {
+            animator.SetBool("FightHasEnded", true);
+        }
     }
 }

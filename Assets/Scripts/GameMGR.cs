@@ -7,8 +7,12 @@ public class GameMGR : Singleton<GameMGR>
 {
     [SerializeField] private EntityData penData;
     public MobBattle mobInfight;
+    public int currentLevel;
+    
+    //Pen stats
     public int penMaxHP;
     public int penHP;
+    public bool penIsDead;
 
     [System.Serializable]
     public class KeyValuePair {
