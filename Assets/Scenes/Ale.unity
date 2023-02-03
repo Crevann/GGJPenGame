@@ -4278,6 +4278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penData: {fileID: 11400000, guid: db23d03ff6820a1479c2c848ad192fe8, type: 2}
+  mobInfight: {fileID: 0}
   penMaxHP: 0
   penHP: 0
   MyList:
