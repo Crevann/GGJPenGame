@@ -5602,7 +5602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &578896169
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7098,7 +7098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &744859647
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8352,7 +8352,7 @@ Transform:
   - {fileID: 365716048}
   m_Father: {fileID: 800081570}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 10, y: 7, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.179954, y: 0.003871295, z: 0.0217661}
 --- !u!114 &878201772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12256,6 +12256,11 @@ Light:
 --- !u!4 &1313151942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
+  m_PrefabInstance: {fileID: 1870487577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1313151943 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2209289417013083345, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
   m_PrefabInstance: {fileID: 1870487577}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1314582593
@@ -16834,13 +16839,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2209289415388337674, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209289415388337674, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209289415388337674, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.659838
+      value: -14.54
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16848,7 +16865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.002895
+      value: -10.92
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16856,15 +16873,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083344, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16881,7 +16898,7 @@ PrefabInstance:
     - target: {fileID: 2209289417013083345, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: df117e953c07af84ba733f7da3da0a8d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2209289417013083372, guid: 66649ca5d13fee4429f0253449035b98, type: 3}
       propertyPath: m_Method
       value: 2
@@ -17699,6 +17716,8 @@ PlayableDirector:
     value: {fileID: 878201774}
   - key: {fileID: -6329553321558179252, guid: 625aeaa15d5192f4da971b7d4e272ebd, type: 2}
     value: {fileID: 878201773}
+  - key: {fileID: -1060808968589182020, guid: 625aeaa15d5192f4da971b7d4e272ebd, type: 2}
+    value: {fileID: 1313151943}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1934504731
