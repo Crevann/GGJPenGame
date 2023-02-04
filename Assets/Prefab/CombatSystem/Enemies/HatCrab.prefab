@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3100172685702195169}
   - component: {fileID: 3100172685702195173}
   - component: {fileID: 8167977010210215112}
-  - component: {fileID: -2060981882690040381}
   - component: {fileID: 3440241696321798089}
+  - component: {fileID: -1358172124288068187}
   m_Layer: 0
   m_Name: HatCrab
   m_TagString: Untagged
@@ -68,18 +68,6 @@ MonoBehaviour:
   multiplier: 1
   ai: {fileID: 0}
   popup: {fileID: 3324199152760335834, guid: 865e8da6f71f77946843562f49dbc620, type: 3}
---- !u!114 &-2060981882690040381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3100172685702195194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 623a99e62c8c71b4fbe541a55cebcf5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &3440241696321798089
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -132,3 +120,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &-1358172124288068187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100172685702195194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a73c1d404154f4199513e86855f386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
