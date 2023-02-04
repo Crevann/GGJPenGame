@@ -34,6 +34,7 @@ public class ChangeSceneTrigger : MonoBehaviour {
             p = other.GetComponent<PlayerMovement>();
             p.JumpIn(transform.position);
             GetComponent<Collider>().enabled = false;
+            Inventory.Instance.ClearInventory();
             isCounting = true;
             count = 0;
         }

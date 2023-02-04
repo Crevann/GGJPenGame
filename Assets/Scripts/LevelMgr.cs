@@ -106,7 +106,7 @@ public class LevelMgr : Singleton<LevelMgr>
 
     protected virtual void OnPageTurnEnd(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection) {
         AddToPage(pageNumberFirstVisible);
-        AddToPage(pageNumberLastVisible);
+        AddToPage(pageNumberFirstVisible + 1);
 
 
         if (debug) Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
