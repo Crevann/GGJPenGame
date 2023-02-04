@@ -28,7 +28,7 @@ MonoBehaviour:
       Data4: 0
     Path: 
   showPopup: 0
-  stun: 1
+  stun: 0
   counter: 0
   multiplier: 2
   weakness: 0

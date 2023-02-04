@@ -20,7 +20,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
     public void Execute() {
         switch (((RootCombatData)currentSelectedRoot.data).avaiableTargets) {
             case Targettables.User:
-                self.DealDamage(self.Damage,
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
                     self,
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
@@ -29,7 +29,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
                 break;
             case Targettables.Single:
-                self.DealDamage(self.Damage,
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
                     target,
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
@@ -38,7 +38,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
                 break;
             case Targettables.Multiple:
-                self.DealDamage(self.Damage,
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
                     target,
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
