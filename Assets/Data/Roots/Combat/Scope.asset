@@ -18,7 +18,7 @@ MonoBehaviour:
   damage: 0
   stallDamage: 0
   avaiableTargets: 1
-  description: Deal 2 more damage with your next attack
+  description: Deal 2 more damage next attack
   effect: {fileID: 0}
   SFX:
     Guid:

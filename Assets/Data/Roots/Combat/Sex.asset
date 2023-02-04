@@ -18,7 +18,7 @@ MonoBehaviour:
   damage: 1
   stallDamage: 0
   avaiableTargets: 1
-  description: Hits an enemy for 5 damage.
+  description: 'Deal 1 damage and stun '
   effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
     Guid:
