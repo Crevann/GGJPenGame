@@ -18187,6 +18187,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6065509053454548938, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 602b620f7ba716f439420f20df463347, type: 3}
+    - target: {fileID: 6065509053576316590, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26eee53fd06d71c40a2d2f17c84c5a69, type: 3}
+    - target: {fileID: 6065509053576316590, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6065509053712349602, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
       propertyPath: m_Name
       value: MenuPauseCanvas
@@ -18302,6 +18314,22 @@ PrefabInstance:
     - target: {fileID: 6065509053782665413, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065509053782665415, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065509054071051905, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34d4b3d515af13f46a1e6eb9275a5c6d, type: 3}
+    - target: {fileID: 6065509054210501682, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065509055475469785, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6065509055475469786, guid: a6c1bfaffde058341bfac3185568679b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -19830,7 +19858,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.5019268, y: -0.00000002441512, z: 0.000000014168644, w: 0.8649101}
+  m_LocalRotation: {x: 0.50192684, y: -0.000000018407567, z: 0.000000010682324, w: 0.8649101}
   m_LocalPosition: {x: -12.03, y: 13.82, z: -13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
