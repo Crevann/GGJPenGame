@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         animator.speed = navMeshAgent.velocity.magnitude * speedAnimationMult;
         if (GameMGR.Instance.CurrentState == GameState.Fight)
         {
-            movePenSFX.stop(STOP_MODE.IMMEDIATE);
+            movePenSFX.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 
@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateSound()
     {
+
         if(GameMGR.Instance.CurrentState == GameState.World)
         {
             if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                movePenSFX.stop(STOP_MODE.IMMEDIATE);
+                movePenSFX.stop(STOP_MODE.ALLOWFADEOUT);
             }
         }
         
