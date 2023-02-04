@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChangeSceneTrigger : MonoBehaviour
-{
+public class ChangeSceneTrigger : MonoBehaviour {
     [SerializeField] int pageToTurnTo;
     [SerializeField] LayerMask playerLayer = (LayerMask)9;
     [SerializeField] Vector3 whereToGo = new Vector3(-22.1588745f, 2.77509117f, -11.7599993f);
@@ -14,28 +13,24 @@ public class ChangeSceneTrigger : MonoBehaviour
     PlayerMovement p;
 
 
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (isCounting) {
-            count+=Time.deltaTime;
+            count += Time.deltaTime;
             if (count > delayTime) {
-                GameMGR.Instance.currentLevel = pageToTurnTo;
                 LevelMgr.Instance.OpenToPage(pageToTurnTo);
                 isCounting = false;
-                p.transform.position = whereToGo;
-                p.GetComponent<NavMeshAgent>().destination = whereToGo;
+                p.JumpOut(whereToGo);
+
             }
         }
     }
     private void OnTriggerEnter(Collider other) {
         if ((playerLayer.value & (1 << other.gameObject.layer)) > 0) {
-            Debug.Log("is in Inventary");
             p = other.GetComponent<PlayerMovement>();
             p.JumpIn(transform.position);
             GetComponent<Collider>().enabled = false;

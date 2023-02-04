@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using echo17.EndlessBook;
 
 public class LevelMgr : Singleton<LevelMgr>
@@ -134,6 +135,7 @@ public class LevelMgr : Singleton<LevelMgr>
                 bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y + (specialOffeset ? 0.5f : 0);
 
                 item.transform.position = bookPagePosition + book.transform.position + (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f * (specialOffeset ? 1.205f : 1) - (leftPage ? notViewablePageLength : 0) );
+                if (item.GetComponent<NavMeshAgent>()) item.GetComponent<NavMeshAgent>().enabled = true;
             }
         }
     }
@@ -146,6 +148,7 @@ public class LevelMgr : Singleton<LevelMgr>
                 dic[pageNumber].collider.size.z * dic[pageNumber].collider.transform.localScale.z);
             foreach (TeleportingObject item in dic[pageNumber].mobs) {
                 if (!item.isActiveAndEnabled || !item.onTopOfBook) continue;
+                if (item.GetComponent<NavMeshAgent>()) item.GetComponent<NavMeshAgent>().enabled = false;
                 item.onTopOfBook = false;
                 item.transform.rotation = Quaternion.Euler(Vector3.zero);
                 item.transform.localScale /= totalPageLength / sizeOfCameraPage.x;
