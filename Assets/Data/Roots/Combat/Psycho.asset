@@ -15,7 +15,7 @@ MonoBehaviour:
   root: Psycho
   context: 2
   suffixes: []
-  damage: 0
+  damage: 2
   stallDamage: 0
   avaiableTargets: 1
   description: Stuns target for one turn

@@ -21,8 +21,8 @@ public class HealerAI : BaseEnemyAI {
                 float entityHPNormalized = (float)entity.Health / (float)entity.MaxHealth;
                 Debug.Log("Entity normalized HP: " + entityHPNormalized.ToString());
                 if (!lowestHealthEntity) {
-                    lowestHealthEntity = entity;
-                    lowestHealth = entityHPNormalized;
+                    lowestHealthEntity = self;
+                    lowestHealth = (float)self.Health / (float)self.MaxHealth;
                 }
                 if (entityHPNormalized < lowestHealth) {
                     lowestHealthEntity = entity;
