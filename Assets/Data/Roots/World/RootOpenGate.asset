@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdd7817408bf1454db85dba835b9eac3, type: 3}
-  m_Name: RootTestBridgeData
+  m_Name: RootOpenGate
   m_EditorClassIdentifier: 
-  root: Spawn
+  root: Gate
   context: 1
   suffixes: []
