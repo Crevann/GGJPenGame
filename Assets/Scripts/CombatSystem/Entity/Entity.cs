@@ -60,7 +60,11 @@ public class Entity : MonoBehaviour
             DamagePopup instPopup = Instantiate<DamagePopup>(popup);
             instPopup.transform.position = target.transform.position + Vector3.forward * -1.1f;
             instPopup.SetText("COUNTER");
-            instPopup.text.fontSize = 16;
+            instPopup.text.fontSize = 14;
+            DamagePopup instPopupNumber = Instantiate<DamagePopup>(popup);
+            instPopupNumber.transform.position = target.transform.position + Vector3.up * 1.3f + Vector3.forward * -1;
+            instPopupNumber.SetText(Mathf.Abs(realDamage).ToString());
+            instPopupNumber.text.fontSize = 16;
             return;
         }
         target.health.Health -= realDamage;
