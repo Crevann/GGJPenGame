@@ -6,7 +6,7 @@ using UnityEngine;
 public class MobBattle : MonoBehaviour
 {
     [SerializeField] private Entity[] encounter;
-    [SerializeField] private CinemachineVirtualCamera bookCamera;
+    //[SerializeField] private CinemachineVirtualCamera bookCamera;
     public bool defeated;
 
     [SerializeField] private float battleStartTime;
@@ -16,7 +16,7 @@ public class MobBattle : MonoBehaviour
         LevelMgr.Instance.OpenToPage(7);
         GameMGR.Instance.mobInfight = this;
         FightManager.Instance.enemiesToSpawn = encounter;
-        bookCamera.Priority = 2;
+        CameraMgr.Instance.ChooseCamera(Cameras.FollowFight);
         GameMGR.Instance.CurrentState = GameState.Fight;
         FightManager.Instance.StartFight();
     }
