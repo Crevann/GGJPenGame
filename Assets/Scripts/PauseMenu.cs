@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PauseMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject MenuPause;
+    
 
     public void ResumeGame()
     {
