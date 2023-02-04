@@ -18,6 +18,11 @@ public class Entity : MonoBehaviour
     public int MaxHealth => health.MaxHealth;
     public bool EntityHasMaxedHp => health.MaxedHealth;
 
+    //Status effect
+    public bool stunned;
+    public bool counter;
+    public int weakness;
+
     //Logic
     private int damage;
     public int Damage => damage;
