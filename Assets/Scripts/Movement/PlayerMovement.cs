@@ -55,18 +55,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateSound()
     {
-        if(navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+        if(GameMGR.Instance.CurrentState == GameState.World)
         {
-            PLAYBACK_STATE playBackState;
-            movePenSFX.getPlaybackState(out playBackState);
-            if (playBackState.Equals(PLAYBACK_STATE.STOPPED))
+            if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
             {
-                movePenSFX.start();
+                PLAYBACK_STATE playBackState;
+                movePenSFX.getPlaybackState(out playBackState);
+                if (playBackState.Equals(PLAYBACK_STATE.STOPPED))
+                {
+                    movePenSFX.start();
+                }
+            }
+            else
+            {
+                movePenSFX.stop(STOP_MODE.IMMEDIATE);
             }
         }
-        else
-        {
-            movePenSFX.stop(STOP_MODE.IMMEDIATE);
-        }
+        
     }
 }

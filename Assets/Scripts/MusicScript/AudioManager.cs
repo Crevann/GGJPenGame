@@ -30,8 +30,13 @@ public class AudioManager : MonoBehaviour
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
+        
     }
 
+    public void StopMusic(bool value)
+    {
+        RuntimeManager.PauseAllEvents(value);
+    }
     private void Start()
     {
         InizializeAmbience(FMODEvents.instance.ambienceSound);
