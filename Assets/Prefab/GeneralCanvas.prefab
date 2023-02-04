@@ -2036,6 +2036,11 @@ MonoBehaviour:
   - {fileID: 5821215647995382939}
   - {fileID: 5821215649185250017}
   - {fileID: 5821215647870833251}
+  enemyPartUI:
+  - {fileID: 5821215648784484756}
+  - {fileID: 5821215647828703275}
+  - {fileID: 5821215647513358442}
+  - {fileID: 5821215648064195397}
 --- !u!1 &5821215648064195397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,7 +4374,7 @@ MonoBehaviour:
   - {fileID: 5821215647592391615}
   - {fileID: 5821215647712361817}
   - {fileID: 5821215648105747508}
-  speed: 3
+  speed: 7
   target: {fileID: 5821215649168484117}
 --- !u!1 &5821215648996591660
 GameObject:
