@@ -58,13 +58,7 @@ public class BattleUI : MonoBehaviour
             {
                 rootDescription.text = ((RootCombatData)FightManager.Instance.PlayerFightingController.currentSelectedRoot.data).description;
                 rootName.text = ((RootCombatData)FightManager.Instance.PlayerFightingController.currentSelectedRoot.data).root;
-            }
-            else
-            {
-                rootDescription.text = "";
-                rootName.text = "";
-            }
-            
+            }       
         }
         else
         {
