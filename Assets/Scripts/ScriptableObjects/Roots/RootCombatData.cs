@@ -28,8 +28,9 @@ public class RootCombatData : RootData
 
     [Header("Status effect")]
     public bool stun;
+    public bool counter;
+    public int multiplier;
     public int weakness;
-    public int counter;
 
 }
 
