@@ -43,8 +43,17 @@ public class InventoryUI : MonoBehaviour
            }
            else
            {
-                buttons[i].interactable = true;
+                buttons[i].interactable = false;
            }
+
+           if(Inventory.Instance.roots[i].data.context == GameState.World)
+           {
+                namesRoots[i].color = new Color(255, 215, 0, 255);
+           }
+           else
+           {
+                namesRoots[i].color = new Color(255, 255, 255, 255);
+            }
         }
 
         if (isOpened)
