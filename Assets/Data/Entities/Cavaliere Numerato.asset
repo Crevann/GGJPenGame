@@ -15,6 +15,9 @@ MonoBehaviour:
   entityName: Cavaliere Numerato
   health: 10
   rootPool:
+  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}
+  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}
+  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}
+  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}
   - {fileID: 7751102114499456835, guid: 8b2363cc7ece76949b0a384406521255, type: 3}
   - {fileID: 7751102114499456835, guid: 114f4f7d6dd709b48bd19047a0cce933, type: 3}
-  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}

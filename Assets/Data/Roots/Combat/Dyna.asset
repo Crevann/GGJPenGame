@@ -27,7 +27,7 @@ MonoBehaviour:
       Data3: -1925309773
       Data4: -2087142801
     Path: event:/SFX Roots/DynaSFX
-  showPopup: 0
+  showPopup: 1
   stun: 0
   counter: 0
   multiplier: 0
