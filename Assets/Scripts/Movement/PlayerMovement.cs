@@ -38,6 +38,11 @@ public class PlayerMovement : MonoBehaviour {
         lockInput = true;
         animator.SetTrigger("GetItem");
     }
+    public void JumpIn(Vector3 pos) {
+        navMeshAgent.destination = pos;
+        lockInput = true;
+        animator.SetTrigger("JumpIn");
+    }
     private void FixedUpdate() {
 
     }
