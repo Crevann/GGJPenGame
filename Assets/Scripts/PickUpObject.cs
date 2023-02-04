@@ -6,6 +6,7 @@ public class PickUpObject : MonoBehaviour
 {
     Inventory inventory;
     [SerializeField] Root wordRoot;
+    [SerializeField] LayerMask playerLayer = (LayerMask) 9;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class PickUpObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if ((playerLayer.value & (1 << other.gameObject.layer)) > 0)
         {
             Debug.Log("is in Inventary");
             gameObject.SetActive(false);

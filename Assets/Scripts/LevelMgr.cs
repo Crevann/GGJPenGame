@@ -69,6 +69,10 @@ public class LevelMgr : Singleton<LevelMgr>
     }
     //For state change
     protected virtual void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
+        if(toState == EndlessBook.StateEnum.OpenFront) {
+            AddToPage(20, true);
+            return;
+        }
         currentPage = currentPageNumber;
         if (currentPageNumber % 2 == 1) {
             AddToPage(currentPageNumber);
@@ -97,7 +101,7 @@ public class LevelMgr : Singleton<LevelMgr>
 
         if (debug) Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
     }
-    private void AddToPage(int pageNumber) {
+    private void AddToPage(int pageNumber, bool specialOffeset = false) {
         bool leftPage = pageNumber % 2 == 1;
         Vector3 sizeOfCameraPage;
         if (dic.ContainsKey(pageNumber)) {
@@ -116,7 +120,7 @@ public class LevelMgr : Singleton<LevelMgr>
                 Vector3 bookPagePosition;
                 bookPagePosition.x = clampedPos.x * totalPageLength * 0.5f + bohOffset * (leftPage ? 0.8f : -0.8f); //boh
                 bookPagePosition.z = clampedPos.y * totalPageLength * 0.5f;
-                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y;
+                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y + (specialOffeset ? 5 : 0);
 
                 item.transform.position = bookPagePosition + book.transform.position + (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f - (leftPage ? notViewablePageLength : 0));
             }
