@@ -43,6 +43,13 @@ public class PlayerMovement : MonoBehaviour {
         lockInput = true;
         animator.SetTrigger("JumpIn");
     }
+    public void JumpOut(Vector3 pos) {
+        navMeshAgent.enabled = false;
+        transform.position = pos;
+        navMeshAgent.enabled = true;
+        navMeshAgent.destination = pos;
+        animator.SetTrigger("JumpOut");
+    }
     private void FixedUpdate() {
 
     }
