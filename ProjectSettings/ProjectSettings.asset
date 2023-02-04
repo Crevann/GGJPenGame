@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Boids
   productName: GGJPenGame
   defaultCursor: {fileID: 2800000, guid: 8a30f2360ad56dd48b8b5a73a90bdd8c, type: 3}
   cursorHotspot: {x: 0, y: 256}
@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1.0.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -155,7 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.GGJPenGame
+    Standalone: com.Boids.GGJPenGame
   buildNumber:
     Standalone: 0
     iPhone: 0

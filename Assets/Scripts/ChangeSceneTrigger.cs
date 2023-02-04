@@ -25,6 +25,7 @@ public class ChangeSceneTrigger : MonoBehaviour
         if (isCounting) {
             count+=Time.deltaTime;
             if (count > delayTime) {
+                GameMGR.Instance.currentLevel = pageToTurnTo;
                 LevelMgr.Instance.OpenToPage(pageToTurnTo);
                 isCounting = false;
                 p.transform.position = whereToGo;
