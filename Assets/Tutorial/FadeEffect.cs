@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 public class FadeEffect : MonoBehaviour
 {
     [SerializeField] float fadeSpeed = 5f;
     TextMeshProUGUI textMeshProUGUI;
+    Image image;
     UnityEvent finishFadeIN;
     UnityEvent finishFadeOUT;
 
@@ -17,6 +19,7 @@ public class FadeEffect : MonoBehaviour
     void Start()
     {
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -34,8 +37,8 @@ public class FadeEffect : MonoBehaviour
         counter = Mathf.Clamp(counter, 0 , fadeSpeed);
         risingVal = counter / fadeSpeed;
         risingVal = Mathf.Clamp01(risingVal);
-        textMeshProUGUI.alpha = risingVal;
-        //CaneFiore.transform.GetChild(0).rotation = Quaternion.Euler(Vector3.right * standUpMovement.Evaluate(risingVal) * 90);
+        if(textMeshProUGUI) textMeshProUGUI.alpha = risingVal;
+        if(image) image.color = new Color(image.color.r, image.color.g, image.color.b, risingVal);
         if(oldRisingVal != 1 && risingVal == 1)
         {
             finishFadeIN.Invoke();
