@@ -15,11 +15,11 @@ MonoBehaviour:
   root: Psycho
   context: 2
   suffixes: []
-  damage: 0
+  damage: 2
   stallDamage: 0
   avaiableTargets: 1
   description: Stuns target for one turn
-  effect: {fileID: 0}
+  effect: {fileID: 198493741878810020, guid: a1c8123c6777d6f45948a5e4b821a569, type: 3}
   SFX:
     Guid:
       Data1: -1859987368

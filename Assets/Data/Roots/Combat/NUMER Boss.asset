@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 0
   description: Multiplies an attack x2.
-  effect: {fileID: 0}
+  effect: {fileID: 198387173780336470, guid: d9467a10b94fb3b428cc539326c9579b, type: 3}
   SFX:
     Guid:
       Data1: 1299676375

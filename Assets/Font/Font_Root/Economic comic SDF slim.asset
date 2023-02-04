@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Economic comic SDF slim
   m_EditorClassIdentifier: 
-  hashCode: -1095079851
+  hashCode: 1598124686
   material: {fileID: 5372046702327821601}
-  materialHashCode: 439171157
+  materialHashCode: -1823999634
   m_Version: 1.1.0
   m_SourceFontFileGUID: 4fdc8d1752b17ea4fb9b8c75a4895537
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4fdc8d1752b17ea4fb9b8c75a4895537, type: 3}
@@ -1868,7 +1868,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0.5
+    - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -1882,12 +1882,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.507
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.7534534
-    - _ScaleRatioB: 0.28125
-    - _ScaleRatioC: 0.28125
+    - _ScaleRatioA: 0.9
+    - _ScaleRatioB: 0.73125
+    - _ScaleRatioC: 0.73125
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

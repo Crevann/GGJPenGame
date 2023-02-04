@@ -28,6 +28,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).multiplier,
                     ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
+                AudioManager.instance.PlayOneShot(((RootCombatData)currentSelectedRoot.data).SFX, target.transform.position);
                 break;
             case Targettables.Single:
                 self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
@@ -38,6 +39,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).multiplier,
                     ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
+                AudioManager.instance.PlayOneShot(((RootCombatData)currentSelectedRoot.data).SFX, target.transform.position);
                 break;
             case Targettables.Multiple:
                 self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
@@ -48,6 +50,7 @@ abstract public class BaseEnemyAI : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).multiplier,
                     ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
+                AudioManager.instance.PlayOneShot(((RootCombatData)currentSelectedRoot.data).SFX, target.transform.position);
                 break;
             default:
                 break;

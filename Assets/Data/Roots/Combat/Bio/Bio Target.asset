@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65eba8d77f25a3a469453f26ac3f6d03, type: 3}
-  m_Name: Sex
+  m_Name: Bio Target
   m_EditorClassIdentifier: 
-  root: Sex
+  root: Bio
   context: 2
   suffixes: []
-  damage: 1
+  damage: -3
   stallDamage: 0
   avaiableTargets: 1
-  description: 'Deal 1 damage and stun '
-  effect: {fileID: 198345536097316502, guid: 6220b0bbd4630c24a9d0fd570b53d326, type: 3}
+  description: Heals 3 HP.
+  effect: {fileID: 198025859805546612, guid: 721cfe8018b2cd04abd0748143d2a312, type: 3}
   SFX:
     Guid:
-      Data1: 173356256
-      Data2: 1125288434
-      Data3: -1988226166
-      Data4: 2050884547
-    Path: event:/SFX Roots/SexSFX
+      Data1: 931801112
+      Data2: 1250058475
+      Data3: -579759734
+      Data4: 730647970
+    Path: event:/SFX Roots/Bio SFX
   showPopup: 1
-  stun: 1
+  stun: 0
   counter: 0
   multiplier: 1
   weakness: 0

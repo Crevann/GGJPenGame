@@ -15,11 +15,11 @@ MonoBehaviour:
   root: Ultra
   context: 2
   suffixes: []
-  damage: 3
+  damage: 4
   stallDamage: 0
   avaiableTargets: 2
-  description: Hits all enemy for 3 damage.
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  description: Hits all enemy for 4 damage.
+  effect: {fileID: 198221902522237218, guid: 45ae8ce3527dfcf46933282f370e9275, type: 3}
   SFX:
     Guid:
       Data1: 1477289424
