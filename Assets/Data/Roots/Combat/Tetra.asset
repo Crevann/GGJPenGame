@@ -22,11 +22,11 @@ MonoBehaviour:
   effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 269622166
+      Data2: 1285827493
+      Data3: -1539664709
+      Data4: -1061900784
+    Path: event:/SFX Roots/Tetra SFX
   showPopup: 1
   stun: 0
   counter: 0

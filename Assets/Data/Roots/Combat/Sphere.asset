@@ -22,11 +22,11 @@ MonoBehaviour:
   effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1927635627
+      Data2: 1278111657
+      Data3: 987604142
+      Data4: 1832693352
+    Path: event:/SFX Roots/SphereSFX
   showPopup: 1
   stun: 0
   counter: 0

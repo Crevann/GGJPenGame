@@ -22,11 +22,12 @@ MonoBehaviour:
   effect: {fileID: 0}
   SFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 231580677
+      Data2: 1182279988
+      Data3: -1925309773
+      Data4: -2087142801
+    Path: event:/SFX Roots/DynaSFX
+  showPopup: 0
   stun: 0
   counter: 0
   multiplier: 0

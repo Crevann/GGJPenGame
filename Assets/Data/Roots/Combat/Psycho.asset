@@ -22,11 +22,11 @@ MonoBehaviour:
   effect: {fileID: 0}
   SFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1859987368
+      Data2: 1147086079
+      Data3: -1006581625
+      Data4: 409877305
+    Path: event:/SFX Roots/PsychoSFX
   showPopup: 0
   stun: 1
   counter: 0
