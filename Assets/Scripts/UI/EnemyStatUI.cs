@@ -30,24 +30,25 @@ public class EnemyStatUI : MonoBehaviour
                 if (FightManager.Instance.isBattling)
                 {
                     enemyPartUI[i].SetActive(true);
+                    for (int j = 0; i < FightManager.Instance.enemies.Length; i++)
+                    {
+                        spriteEnemys[i].transform.parent.gameObject.SetActive(true);
+                        if (!FightManager.Instance.enemies[i])
+                        {
+                            spriteEnemys[i].transform.parent.gameObject.SetActive(false);
+                            continue;
+                        }
+
+                        spriteEnemys[i].sprite = FightManager.Instance.enemies[i].Icon;
+                        currentsHealth[i].text = FightManager.Instance.enemies[i].Health.ToString() + "/" + FightManager.Instance.enemies[i].MaxHealth.ToString();
+                        barsHealt[i].fillAmount = (float)FightManager.Instance.enemies[i].Health / (float)FightManager.Instance.enemies[i].MaxHealth;
+                    }
                 }
                 
             }
         }
        
-        for (int i = 0; i < FightManager.Instance.enemies.Length; i++)
-        {
-            if(!FightManager.Instance.enemies[i] )
-            {
-                spriteEnemys[i].transform.parent.gameObject.SetActive(false);
-                break;
-            }
-            
-            spriteEnemys[i].transform.parent.gameObject.SetActive(true);
-            spriteEnemys[i].sprite = FightManager.Instance.enemies[i].Icon;
-            currentsHealth[i].text = FightManager.Instance.enemies[i].Health.ToString() + "/" + FightManager.Instance.enemies[i].MaxHealth.ToString();
-            barsHealt[i].fillAmount =(float)FightManager.Instance.enemies[i].Health / (float)FightManager.Instance.enemies[i].MaxHealth;
-        }
+        
 
     }
 }
