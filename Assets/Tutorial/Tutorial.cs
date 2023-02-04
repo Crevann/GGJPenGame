@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Tutorial : Singleton<Tutorial>
 {
-    private enum State { LearnToMove, LearnToPickUp, GoToFight, JumpInTheWhole}
+    private enum State { LearnToMove, LearnToPickUp, OpenInventory, GoToFight, JumpInTheWhole}
     [SerializeField] TeleportingObject CaneFiore;
     [SerializeField] AnimationCurve standUpMovement;
     [SerializeField] float timeToRaise = 1;
@@ -18,8 +18,11 @@ public class Tutorial : Singleton<Tutorial>
     [SerializeField] UnityEvent startTutorial;
     [SerializeField] UnityEvent moved;
     [SerializeField] UnityEvent pickedUp;
+    [SerializeField] UnityEvent openedInventory;
     [SerializeField] UnityEvent fought;
     [SerializeField] UnityEvent jumped;
+
+    bool inventoryOpened;
 
 
     private State currentState = State.LearnToMove;
@@ -33,6 +36,7 @@ public class Tutorial : Singleton<Tutorial>
     float risingVal = 0;
     NavMeshAgent fioreAgent;
     NavMeshAgent penAgent;
+
 
     private void Start() {
         fioreAgent = CaneFiore.GetComponent<NavMeshAgent>();
@@ -66,7 +70,7 @@ public class Tutorial : Singleton<Tutorial>
                 break;
             case State.LearnToPickUp:
                 if (Inventory.Instance.roots[0] != null) {
-                    currentState = State.GoToFight;
+                    currentState = State.OpenInventory;
                     pickedUp.Invoke();
                 }
                 break;
@@ -78,10 +82,19 @@ public class Tutorial : Singleton<Tutorial>
                 break;
             case State.JumpInTheWhole:
                 break;
+            case State.OpenInventory:
+                if(inventoryOpened) {
+                    currentState = State.GoToFight;
+                    openedInventory.Invoke();
+                }
+                break;
             default:
                 break;
         }
 
+    }
+    public void InventoryOpened() {
+        inventoryOpened = true;
     }
     void Rise() {
         if (risingVal < 1 && CaneFiore.onTopOfBook) {

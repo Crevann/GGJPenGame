@@ -6,23 +6,49 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
+
+    [Header("Volume")]
+    [Range(0, 10)]
+    public int masterVolume = 10;
+    [Range(0, 10)]
+    public int musicVolume = 10;
+    [Range(0, 10)]
+    public int ambienceVolume = 10;
+    [Range(0, 10)]
+    public int SFXVolume = 10;
+
+
+
     public static AudioManager instance { get; private set; }
 
     private EventInstance ambienceEventInstance;
     private EventInstance musicMenuInstance;
     Bus masterBus;
+    Bus musicBus;
+    Bus ambienceBus;
+    Bus SFXBus;
 
     private void Awake()
     {
-        masterBus = RuntimeManager.GetBus("Bus:/");
         if (instance != null)
         {
             Debug.Log("AudioManager already exist in the scene");
 
         }
         instance = this;
+        masterBus = RuntimeManager.GetBus("Bus:/");
+        musicBus = RuntimeManager.GetBus("Bus:/MUSIC GROUP");
+        ambienceBus = RuntimeManager.GetBus("Bus:/AMBIENCE GROUP");
+        SFXBus = RuntimeManager.GetBus("Bus:/SFX GROUP");
     }
 
+    private void Update()
+    {
+        masterBus.setVolume(masterVolume / 10f);
+        musicBus.setVolume(musicVolume / 10f);
+        ambienceBus.setVolume(ambienceVolume /10f);
+        SFXBus.setVolume(SFXVolume /10f);
+    }
 
     public void SetMusicArea(GameState area)
     {
