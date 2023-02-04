@@ -45,6 +45,7 @@ public class Tutorial : Singleton<Tutorial>
     }
     void Update()
     {
+        if (!fioreAgent.enabled || !fioreAgent) return;
         if (GameMGR.Instance.CurrentState == GameState.Fight) {
             fighting = true;
             currentState = State.JumpInTheWhole;
