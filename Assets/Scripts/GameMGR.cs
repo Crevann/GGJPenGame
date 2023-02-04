@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [System.Serializable]
 public enum GameState { Menu, World, Fight, CutScene }
 public class GameMGR : Singleton<GameMGR>
@@ -30,6 +32,10 @@ public class GameMGR : Singleton<GameMGR>
     private void Start() {
         CurrentState = GameState.Menu;
         InitializePen();
+    }
+    private void Update() {
+        if(penIsDead)
+            SceneManager.LoadScene(1);
     }
 
     private GameState currentState = GameState.Menu;
