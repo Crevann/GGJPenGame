@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,8 +29,10 @@ public class PlayerFightingController : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).stun, 
                     ((RootCombatData)currentSelectedRoot.data).weakness,
                     ((RootCombatData)currentSelectedRoot.data).showPopup,
-                    ((RootCombatData)currentSelectedRoot.data).multiplier);
+                    ((RootCombatData)currentSelectedRoot.data).multiplier,
+                    ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
+                AudioManager.instance.PlayOneShot(((RootCombatData)currentSelectedRoot.data).SFX, self.transform.position);
                 break;
             case Targettables.Single:
                 self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
@@ -37,8 +40,11 @@ public class PlayerFightingController : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
                     ((RootCombatData)currentSelectedRoot.data).showPopup,
-                    ((RootCombatData)currentSelectedRoot.data).multiplier);
+                    ((RootCombatData)currentSelectedRoot.data).multiplier,
+                    ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
+                AudioManager.instance.PlayOneShot(((RootCombatData)currentSelectedRoot.data).SFX, target.transform.position);
+
                 break;
             case Targettables.Multiple:
                 for (int i = 0; i < FightManager.Instance.enemies.Length; i++) {
@@ -48,10 +54,12 @@ public class PlayerFightingController : MonoBehaviour
                         ((RootCombatData)currentSelectedRoot.data).stun,
                         ((RootCombatData)currentSelectedRoot.data).weakness,
                         ((RootCombatData)currentSelectedRoot.data).showPopup,
-                        ((RootCombatData)currentSelectedRoot.data).multiplier);
+                        ((RootCombatData)currentSelectedRoot.data).multiplier,
+                        ((RootCombatData)currentSelectedRoot.data).counter);
                         self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, FightManager.Instance.enemies[i]);
                     }
                 }
+                AudioManager.instance.PlayOneShot(((RootCombatData)currentSelectedRoot.data).SFX, self.transform.position);
                 break;
             default:
                 break;
