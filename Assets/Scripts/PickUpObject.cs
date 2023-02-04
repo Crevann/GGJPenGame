@@ -27,7 +27,7 @@ public class PickUpObject : MonoBehaviour
             Debug.Log("is in Inventary");
             other.GetComponent<PlayerMovement>().GetItem(transform.position);
             GetComponent<Collider>().enabled = false;
-            GetComponent<FadeEffect>().FadeOut();
+            GetComponentInChildren<FadeEffect>().FadeOut();
             inventory.AddRoot(wordRoot);
         }
     }

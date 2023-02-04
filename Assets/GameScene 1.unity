@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.00001984378
+  m_AmplitudeGain: 9.294936e-12
   m_FrequencyGain: 3
   mNoiseOffsets: {x: 701.5126, y: -218.78183, z: 799.24036}
 --- !u!114 &267632487
@@ -18233,7 +18233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581671623}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.56, y: -2.77, z: 0}
+  m_LocalPosition: {x: -8.65, y: -7.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20937,6 +20937,7 @@ MonoBehaviour:
   finishFadeOUT:
     m_PersistentCalls:
       m_Calls: []
+  fadingIn: 0
 --- !u!114 &1893918008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21380,6 +21381,7 @@ MonoBehaviour:
   finishFadeOUT:
     m_PersistentCalls:
       m_Calls: []
+  fadingIn: 0
 --- !u!114 &1910102795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28797,6 +28799,7 @@ MonoBehaviour:
   finishFadeOUT:
     m_PersistentCalls:
       m_Calls: []
+  fadingIn: 0
 --- !u!1 &1163259256461108861
 GameObject:
   m_ObjectHideFlags: 0
@@ -29305,7 +29308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5291310314713337832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e871b8a59e30c24eba7848bef20460f, type: 3}
   m_Name: 
@@ -29317,6 +29320,7 @@ MonoBehaviour:
   finishFadeOUT:
     m_PersistentCalls:
       m_Calls: []
+  fadingIn: 0
 --- !u!114 &4090415803133653549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29765,6 +29769,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1612430735}
     m_Modifications:
+    - target: {fileID: 448470297472686510, guid: e7edbf4c8c18eb14da083920a82dcb87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448470297472686510, guid: e7edbf4c8c18eb14da083920a82dcb87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6567771742636553312, guid: e7edbf4c8c18eb14da083920a82dcb87, type: 3}
       propertyPath: m_Name
       value: Sphere
@@ -29895,6 +29907,7 @@ MonoBehaviour:
   finishFadeOUT:
     m_PersistentCalls:
       m_Calls: []
+  fadingIn: 0
 --- !u!114 &7622137235448480225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30406,6 +30419,7 @@ MonoBehaviour:
   finishFadeOUT:
     m_PersistentCalls:
       m_Calls: []
+  fadingIn: 0
 --- !u!195 &8447390806212481504
 NavMeshAgent:
   m_ObjectHideFlags: 0
