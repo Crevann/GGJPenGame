@@ -192,6 +192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounter:
   - {fileID: 8167977010210215112, guid: 4fb108679359b5746bff8df35fb61b47, type: 3}
+  bookCamera: {fileID: 0}
+  defeated: 0
   battleStartTime: 0
 --- !u!1 &4414636749638982909
 GameObject:
@@ -204,7 +206,7 @@ GameObject:
   - component: {fileID: 4414636749638982908}
   - component: {fileID: 4414636749638982849}
   m_Layer: 0
-  m_Name: CupCakey (1)
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
