@@ -32,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateSound();
         animator.speed = navMeshAgent.velocity.magnitude * speedAnimationMult;
+        if (GameMGR.Instance.CurrentState == GameState.Fight)
+        {
+            movePenSFX.stop(STOP_MODE.IMMEDIATE);
+        }
     }
 
     private void FixedUpdate()
