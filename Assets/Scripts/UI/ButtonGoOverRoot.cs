@@ -10,7 +10,7 @@ public class ButtonGoOverRoot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] TextMeshProUGUI rootDescription;
     [SerializeField] TextMeshProUGUI rootName;
     public void OnPointerEnter(PointerEventData eventData) {
-        if (Inventory.Instance.roots[index]) {
+        if (Inventory.Instance.roots[index] && Inventory.Instance.roots[index].data.context != GameState.World) {
             Debug.Log("Inside button");
             rootDescription.text = ((RootCombatData)Inventory.Instance.roots[index].data).description;
             rootName.text = ((RootCombatData)Inventory.Instance.roots[index].data).root;

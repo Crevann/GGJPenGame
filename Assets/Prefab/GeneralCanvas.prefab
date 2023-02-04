@@ -2874,7 +2874,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Root \nSelected\n"
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
   m_sharedMaterial: {fileID: 5372046702327821601, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
@@ -3644,7 +3646,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Info Root
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
   m_sharedMaterial: {fileID: 5372046702327821601, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
