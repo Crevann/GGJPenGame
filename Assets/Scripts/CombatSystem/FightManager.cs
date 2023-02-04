@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using Cinemachine;
 using Unity.Mathematics;
 
+//!!Lasciate ogni speranza voi ch'entrate!!
 public class FightManager : Singleton<FightManager>
 {
     [SerializeField] private int maxEnemies = 4;
