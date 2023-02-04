@@ -42,7 +42,7 @@ public class PlayerFightingController : MonoBehaviour
                 break;
             case Targettables.Multiple:
                 for (int i = 0; i < FightManager.Instance.enemies.Length; i++) {
-                    if (FightManager.Instance.enemies[i]) {
+                    if (FightManager.Instance.enemies[i] && !FightManager.Instance.enemies[i].IsDead) {
                         self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
                         FightManager.Instance.enemies[i],
                         ((RootCombatData)currentSelectedRoot.data).stun,
