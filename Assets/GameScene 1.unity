@@ -254,6 +254,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5821215647766961893, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
+    - target: {fileID: 5821215647766961893, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5372046702327821601, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
     - target: {fileID: 5821215648105747499, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -286,6 +294,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5821215648230207371, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
+    - target: {fileID: 5821215648230207371, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5372046702327821601, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
+    - target: {fileID: 5821215648532879561, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
+    - target: {fileID: 5821215648532879561, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5372046702327821601, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
+    - target: {fileID: 5821215649329981097, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
+    - target: {fileID: 5821215649329981097, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5372046702327821601, guid: 10f51c382c97c2c41bb8844cee858ca6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a3dd4bad3857b84e8eb81e5f2c7999d, type: 3}
 --- !u!1 &10278685
@@ -19878,7 +19910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.5019268, y: 0.00000002441511, z: -0.000000014168638, w: 0.8649101}
+  m_LocalRotation: {x: 0.50192684, y: 0.00000001840756, z: -0.000000010682321, w: 0.8649101}
   m_LocalPosition: {x: -12.03, y: 13.82, z: -13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28036,15 +28068,15 @@ PrefabInstance:
     - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
       propertyPath: encounter.Array.data[0]
       value: 
-      objectReference: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+      objectReference: {fileID: 8167977010210215112, guid: 4fb108679359b5746bff8df35fb61b47, type: 3}
     - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
       propertyPath: encounter.Array.data[1]
       value: 
-      objectReference: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+      objectReference: {fileID: 8167977010210215112, guid: 4817b64cd060ce24f8fb38d528a4bf95, type: 3}
     - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
       propertyPath: encounter.Array.data[2]
       value: 
-      objectReference: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+      objectReference: {fileID: 8167977010210215112, guid: e0d3490f397e43f4889967bd10d12fec, type: 3}
     - target: {fileID: 4414636748826655930, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
       propertyPath: m_Name
       value: CupCakey

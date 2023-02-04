@@ -54,7 +54,7 @@ public class Entity : MonoBehaviour
     public void DealDamage(int damage, Entity target, bool stun, int weakness, bool showPopup, int multiplier, bool counter) {
         //Do some cool camera shake or something
         int realDamage = (damage * this.multiplier) + target.weakness;
-        if (target.counter && !counter) {
+        if (target.counter && !counter && damage > 0) {
             DealDamage(damage, this, stun, weakness, showPopup, multiplier, counter);
             target.counter = false;
             DamagePopup instPopup = Instantiate<DamagePopup>(popup);

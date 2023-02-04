@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 1
   description: Deal 2 more damage next attack
-  effect: {fileID: 0}
+  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
     Guid:
       Data1: -458055877

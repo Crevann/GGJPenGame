@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65eba8d77f25a3a469453f26ac3f6d03, type: 3}
-  m_Name: NUMER Boss
+  m_Name: Bio Target
   m_EditorClassIdentifier: 
-  root: Numer Boss
+  root: Bio
   context: 2
   suffixes: []
-  damage: 0
+  damage: -3
   stallDamage: 0
-  avaiableTargets: 0
-  description: Multiplies an attack x2.
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  avaiableTargets: 1
+  description: Heals 3 HP.
+  effect: {fileID: 198025859805546612, guid: 721cfe8018b2cd04abd0748143d2a312, type: 3}
   SFX:
     Guid:
-      Data1: 1299676375
-      Data2: 1189413955
-      Data3: -1981209467
-      Data4: -1656862097
-    Path: event:/SFX Roots/NumerSFX
+      Data1: 931801112
+      Data2: 1250058475
+      Data3: -579759734
+      Data4: 730647970
+    Path: event:/SFX Roots/Bio SFX
   showPopup: 0
   stun: 0
   counter: 0
-  multiplier: 2
+  multiplier: 1
   weakness: 0

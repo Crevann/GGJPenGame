@@ -13,10 +13,18 @@ public class HealerAI : BaseEnemyAI {
     }
 
     public override Entity SelectTarget() {
-        Entity lowestHealthEntity = self;
+        Entity lowestHealthEntity = null;
+        float lowestHealth = 1;
         foreach (var entity in FightManager.Instance.enemies) {
-            if (entity) {
-                if (entity.Health < lowestHealthEntity.Health && !entity.EntityHasMaxedHp) {
+            if (entity && !entity.IsDead) {
+                //Get normalized entity hp
+                float entityHPNormalized = (float)entity.Health / (float)entity.MaxHealth;
+                Debug.Log("Entity normalized HP: " + entityHPNormalized.ToString());
+                if (!lowestHealthEntity) {
+                    lowestHealthEntity = entity;
+                    lowestHealth = entityHPNormalized;
+                }
+                if (entityHPNormalized < lowestHealth) {
                     lowestHealthEntity = entity;
                 }
             }
