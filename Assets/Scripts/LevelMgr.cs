@@ -56,9 +56,14 @@ public class LevelMgr : Singleton<LevelMgr>
         }
     }
 
+    public virtual void OnStateButtonClicked(int buttonIndex) {
+        RemoveFromPage(20, true);
+        book.SetState((EndlessBook.StateEnum)buttonIndex, animationTime: 1, onCompleted: OnBookStateChanged);
 
+    }
     public void OpenToPage(int panegN) {
         EnemyMgr.Instance.DeactivateAllEnemies();
+        RemoveFromPage(20, true);
         book.TurnToPage(panegN, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 0.5f,
                     openTime: 1f,
                     onCompleted: OnBookTurnToPageCompleted,
@@ -67,12 +72,16 @@ public class LevelMgr : Singleton<LevelMgr>
                     );
 
     }
-    //For state change
-    protected virtual void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
-        if(toState == EndlessBook.StateEnum.OpenFront) {
+    protected virtual void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
+        if (toState == EndlessBook.StateEnum.OpenFront) {
             AddToPage(20, true);
             return;
         }
+        Debug.Log("State set to " + toState + ". Current Page Number = " + currentPageNumber);
+    }
+    //For state change
+    protected virtual void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
+        
         currentPage = currentPageNumber;
         if (currentPageNumber % 2 == 1) {
             AddToPage(currentPageNumber);
@@ -85,7 +94,7 @@ public class LevelMgr : Singleton<LevelMgr>
     }
 
     protected virtual void OnPageTurnStart(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection) {
-       
+        RemoveFromPage(20, true);
         RemoveFromPage(pageNumberFront);
         RemoveFromPage(pageNumberBack);
         RemoveFromPage(pageNumberFirstVisible);
@@ -105,7 +114,9 @@ public class LevelMgr : Singleton<LevelMgr>
         bool leftPage = pageNumber % 2 == 1;
         Vector3 sizeOfCameraPage;
         if (dic.ContainsKey(pageNumber)) {
-            sizeOfCameraPage = dic[pageNumber].collider.size;
+            sizeOfCameraPage = new Vector3(dic[pageNumber].collider.size.x * dic[pageNumber].collider.transform.localScale.x, 
+                dic[pageNumber].collider.size.y * dic[pageNumber].collider.transform.localScale.y, 
+                dic[pageNumber].collider.size.z * dic[pageNumber].collider.transform.localScale.z);
             foreach (TeleportingObject item in dic[pageNumber].mobs) {
                 if (!item.isActiveAndEnabled || item.onTopOfBook) continue;
                 item.onTopOfBook = true;
@@ -120,24 +131,26 @@ public class LevelMgr : Singleton<LevelMgr>
                 Vector3 bookPagePosition;
                 bookPagePosition.x = clampedPos.x * totalPageLength * 0.5f + bohOffset * (leftPage ? 0.8f : -0.8f); //boh
                 bookPagePosition.z = clampedPos.y * totalPageLength * 0.5f;
-                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y + (specialOffeset ? 5 : 0);
+                bookPagePosition.y = 3.6f * 0.01f * book.transform.localScale.y + (specialOffeset ? 0.5f : 0);
 
-                item.transform.position = bookPagePosition + book.transform.position + (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f - (leftPage ? notViewablePageLength : 0));
+                item.transform.position = bookPagePosition + book.transform.position + (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f * (specialOffeset ? 1.205f : 1) - (leftPage ? notViewablePageLength : 0) );
             }
         }
     }
-    private void RemoveFromPage(int pageNumber) {
+    private void RemoveFromPage(int pageNumber, bool specialOffeset = false) {
         Vector3 sizeOfCameraPage;
         bool leftPage = pageNumber % 2 == 1;
         if (dic.ContainsKey(pageNumber)) {
-            sizeOfCameraPage = dic[pageNumber].collider.size;
+            sizeOfCameraPage = new Vector3(dic[pageNumber].collider.size.x * dic[pageNumber].collider.transform.localScale.x,
+                dic[pageNumber].collider.size.y * dic[pageNumber].collider.transform.localScale.y,
+                dic[pageNumber].collider.size.z * dic[pageNumber].collider.transform.localScale.z);
             foreach (TeleportingObject item in dic[pageNumber].mobs) {
                 if (!item.isActiveAndEnabled || !item.onTopOfBook) continue;
                 item.onTopOfBook = false;
                 item.transform.rotation = Quaternion.Euler(Vector3.zero);
                 item.transform.localScale /= totalPageLength / sizeOfCameraPage.x;
                
-                Vector3 bookPagePosition = item.transform.position - (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f - (leftPage ? notViewablePageLength : 0)) - book.transform.position;
+                Vector3 bookPagePosition = item.transform.position - (leftPage ? Vector3.left : Vector3.right) * (totalPageLength * 0.5f * (specialOffeset ? 1.205f : 1) - (leftPage ? notViewablePageLength : 0)) - book.transform.position;
 
                 Vector3 clampedPos;
                 clampedPos.z = -1;
