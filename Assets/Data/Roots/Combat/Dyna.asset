@@ -30,5 +30,5 @@ MonoBehaviour:
   showPopup: 1
   stun: 0
   counter: 0
-  multiplier: 0
+  multiplier: 1
   weakness: 0
