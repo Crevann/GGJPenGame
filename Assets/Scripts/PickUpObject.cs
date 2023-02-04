@@ -25,7 +25,9 @@ public class PickUpObject : MonoBehaviour
         if ((playerLayer.value & (1 << other.gameObject.layer)) > 0)
         {
             Debug.Log("is in Inventary");
-            gameObject.SetActive(false);
+            other.GetComponent<PlayerMovement>().GetItem(transform.position);
+            GetComponent<Collider>().enabled = false;
+            GetComponent<FadeEffect>().FadeOut();
             inventory.AddRoot(wordRoot);
         }
     }
