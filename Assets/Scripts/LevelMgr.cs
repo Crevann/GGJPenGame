@@ -25,6 +25,7 @@ public class LevelMgr : Singleton<LevelMgr>
     int currentPage = 0;
     [SerializeField] bool clickMe;
     [SerializeField] bool debug = false;
+    int openingPageLeft;
     void Awake() {
         foreach (var kvp in MyList) {
             dic[kvp.page] = kvp.mapObject;
@@ -63,6 +64,7 @@ public class LevelMgr : Singleton<LevelMgr>
 
     }
     public void OpenToPage(int panegN) {
+        openingPageLeft = panegN % 2 == 1 ? panegN : panegN - 1;
         EnemyMgr.Instance.DeactivateAllEnemies();
         RemoveFromPage(20, true);
         book.TurnToPage(panegN, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 0.5f,
@@ -105,8 +107,8 @@ public class LevelMgr : Singleton<LevelMgr>
     }
 
     protected virtual void OnPageTurnEnd(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection) {
-        AddToPage(pageNumberFirstVisible);
-        AddToPage(pageNumberFirstVisible + 1);
+        AddToPage(openingPageLeft);
+        AddToPage(openingPageLeft + 1);
 
 
         if (debug) Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
