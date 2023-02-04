@@ -30,7 +30,7 @@ public class Tutorial : Singleton<Tutorial>
     PlayerMovement player;
 
 
-
+    bool fighting;
     float counter;
     bool isRising;
     float risingVal = 0;
@@ -41,15 +41,21 @@ public class Tutorial : Singleton<Tutorial>
     private void Start() {
         fioreAgent = CaneFiore.GetComponent<NavMeshAgent>();
         fioreAgent.enabled = false;
+        fighting = false;
     }
     void Update()
     {
+        if (GameMGR.Instance.CurrentState == GameState.Fight) {
+            fighting = true;
+            currentState = State.JumpInTheWhole;
+        }
         if (!player || !player.isActiveAndEnabled) {
             player = FindObjectOfType<PlayerMovement>();
             if(player) penAgent = player.GetComponent<NavMeshAgent>();
             done = false;
             return;
         }
+            Debug.Log(currentState);
         Rise();
         Do();
     }
@@ -75,10 +81,11 @@ public class Tutorial : Singleton<Tutorial>
                 }
                 break;
             case State.GoToFight:
-                if(GameMGR.Instance.CurrentState == GameState.Fight) {
-                    currentState = State.JumpInTheWhole;
-                    fought.Invoke();
-                }
+                //if(fighting) {
+                //    currentState = State.JumpInTheWhole;
+                //    Debug.Log("JumpInDaHole");
+                //    fought.Invoke();
+                //}
                 break;
             case State.JumpInTheWhole:
                 break;
