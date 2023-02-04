@@ -15,8 +15,20 @@ MonoBehaviour:
   root: Hit
   context: 2
   suffixes: []
-  damage: 5
+  damage: 1
   stallDamage: 0
-  avaiableTargets: 2
+  avaiableTargets: 1
   description: Hits an enemy for 5 damage.
   effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  SFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  showPopup: 1
+  stun: 1
+  counter: 0
+  multiplier: 1
+  weakness: 0

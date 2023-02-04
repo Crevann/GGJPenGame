@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class AttackerAI : BaseEnemyAI {
     //Simplest AI, always attacks
-    //Pool is:
+    //Random pool of 4 random moves:
     //0 - Hit
 
     public override Root SelectRoot() {
-        currentSelectedRoot = self.RootPool[0];
+        currentSelectedRoot = self.RootPool[Random.Range(0, self.RootPool.Length)];
         return currentSelectedRoot;
     }
 

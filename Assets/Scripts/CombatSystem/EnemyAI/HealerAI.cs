@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class HealerAI : BaseEnemyAI {
     //Simplest AI, always attacks
-    //Pool is:
-    //0 - Hit
-    //1 - Heal
+    //Pool is a random move of heals
 
     public override Root SelectRoot() {
-        currentSelectedRoot = self.RootPool[1];
+        currentSelectedRoot = self.RootPool[Random.Range(0, self.RootPool.Length)];
         return currentSelectedRoot;
     }
 

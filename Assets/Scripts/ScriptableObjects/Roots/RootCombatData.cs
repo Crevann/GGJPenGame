@@ -25,6 +25,13 @@ public class RootCombatData : RootData
     public string description;
     public ParticleSystem effect;
     public EventReference SFX;
+    public bool showPopup;
+
+    [Header("Status effect")]
+    public bool stun;
+    public bool counter;
+    public int multiplier = 1;
+    public int weakness;
 
 }
 

@@ -18,6 +18,12 @@ public class Entity : MonoBehaviour
     public int MaxHealth => health.MaxHealth;
     public bool EntityHasMaxedHp => health.MaxedHealth;
 
+    //Status effect
+    public bool stunned;
+    public bool counter;
+    public int weakness;
+    public int multiplier;
+
     //Logic
     private int damage;
     public int Damage => damage;
@@ -36,6 +42,7 @@ public class Entity : MonoBehaviour
         }
         health = GetComponent<EntityHealth>();
         renderer = GetComponent<SpriteRenderer>();
+        multiplier = 1;
     }
     public void Initialize() {
         health.SetMaxHealth(data.health);
@@ -44,17 +51,27 @@ public class Entity : MonoBehaviour
     public void SetDamage(int damage) {
         this.damage = damage;
     }
-    public void DealDamage(int damage, Entity target) {
+    public void DealDamage(int damage, Entity target, bool stun, int weakness, bool showPopup, int multiplier) {
         //Do some cool camera shake or something
-        target.health.Health -= damage;
+        int realDamage = (damage * this.multiplier) + target.weakness;
+        target.health.Health -= realDamage;
         Debug.Log(target.health.Health);
         if (target.CheckDead()) {
             Debug.Log("Is dead");
         }
-        DamagePopup instPopup = Instantiate<DamagePopup>(popup);
-        instPopup.transform.position = target.transform.position + Vector3.forward * -1;
-        instPopup.SetText(Mathf.Abs(damage).ToString());
-        FightManager.Instance.ShakeCamera(damage);
+        if (showPopup) {
+            DamagePopup instPopup = Instantiate<DamagePopup>(popup);
+            instPopup.transform.position = target.transform.position + Vector3.forward * -1;
+            instPopup.SetText(Mathf.Abs(realDamage).ToString());
+        }
+        FightManager.Instance.ShakeCamera(realDamage);
+        target.stunned = stun;
+        target.weakness = weakness;
+        if (target.counter) {
+            DealDamage(damage, this, stun, weakness, showPopup, multiplier);
+            target.counter = false;
+        }
+        this.multiplier = multiplier;
     }
 
     public void SpawnEffect(ParticleSystem effect, Entity target) {

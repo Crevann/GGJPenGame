@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Creatura
   m_EditorClassIdentifier: 
   entityName: Creatura
-  health: 1
+  health: 3
   rootPool:
   - {fileID: 1361589565081366773, guid: 1702170ff7c58f94388a1bfe3bd5388a, type: 3}
-  - {fileID: 3355892059071628726, guid: 498610449ad990c448b20fb65b68a22e, type: 3}
+  - {fileID: 2185251062153528404, guid: e84ce490a65c85e4bae7cfc28a8d49d4, type: 3}

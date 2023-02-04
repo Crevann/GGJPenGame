@@ -18,18 +18,32 @@ abstract public class BaseEnemyAI : MonoBehaviour
     }
 
     public void Execute() {
-        ParticleSystem ps;
         switch (((RootCombatData)currentSelectedRoot.data).avaiableTargets) {
             case Targettables.User:
-                self.DealDamage(self.Damage, self);
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
+                    self,
+                    ((RootCombatData)currentSelectedRoot.data).stun,
+                    ((RootCombatData)currentSelectedRoot.data).weakness,
+                    ((RootCombatData)currentSelectedRoot.data).showPopup,
+                    ((RootCombatData)currentSelectedRoot.data).multiplier);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
                 break;
             case Targettables.Single:
-                self.DealDamage(self.Damage, target);
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
+                    target,
+                    ((RootCombatData)currentSelectedRoot.data).stun,
+                    ((RootCombatData)currentSelectedRoot.data).weakness,
+                    ((RootCombatData)currentSelectedRoot.data).showPopup,
+                    ((RootCombatData)currentSelectedRoot.data).multiplier);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
                 break;
             case Targettables.Multiple:
-                self.DealDamage(self.Damage, target);
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
+                    target,
+                    ((RootCombatData)currentSelectedRoot.data).stun,
+                    ((RootCombatData)currentSelectedRoot.data).weakness,
+                    ((RootCombatData)currentSelectedRoot.data).showPopup,
+                    ((RootCombatData)currentSelectedRoot.data).multiplier);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
                 break;
             default:

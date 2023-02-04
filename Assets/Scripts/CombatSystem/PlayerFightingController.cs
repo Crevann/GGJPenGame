@@ -21,20 +21,34 @@ public class PlayerFightingController : MonoBehaviour
         GameMGR.Instance.penHP = self.Health;
     }
     public void Execute() {
-        ParticleSystem ps;
         switch (((RootCombatData)currentSelectedRoot.data).avaiableTargets) {
             case Targettables.User:
-                self.DealDamage(self.Damage, self);
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage, 
+                    self, 
+                    ((RootCombatData)currentSelectedRoot.data).stun, 
+                    ((RootCombatData)currentSelectedRoot.data).weakness,
+                    ((RootCombatData)currentSelectedRoot.data).showPopup,
+                    ((RootCombatData)currentSelectedRoot.data).multiplier);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
                 break;
             case Targettables.Single:
-                self.DealDamage(self.Damage, target);
+                self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
+                    target,
+                    ((RootCombatData)currentSelectedRoot.data).stun,
+                    ((RootCombatData)currentSelectedRoot.data).weakness,
+                    ((RootCombatData)currentSelectedRoot.data).showPopup,
+                    ((RootCombatData)currentSelectedRoot.data).multiplier);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
                 break;
             case Targettables.Multiple:
                 for (int i = 0; i < FightManager.Instance.enemies.Length; i++) {
                     if (FightManager.Instance.enemies[i]) {
-                        self.DealDamage(self.Damage, FightManager.Instance.enemies[i]);
+                        self.DealDamage(((RootCombatData)currentSelectedRoot.data).damage,
+                        FightManager.Instance.enemies[i],
+                        ((RootCombatData)currentSelectedRoot.data).stun,
+                        ((RootCombatData)currentSelectedRoot.data).weakness,
+                        ((RootCombatData)currentSelectedRoot.data).showPopup,
+                        ((RootCombatData)currentSelectedRoot.data).multiplier);
                         self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, FightManager.Instance.enemies[i]);
                     }
                 }
@@ -42,7 +56,6 @@ public class PlayerFightingController : MonoBehaviour
             default:
                 break;
         }
-       
     }
 
 #if UNITY_EDITOR

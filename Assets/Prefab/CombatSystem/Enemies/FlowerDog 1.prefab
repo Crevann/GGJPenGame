@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3100172685702195194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,6 +62,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
   idle: {fileID: 21300000, guid: 50d012f545c3a9d4c860f7f9cf34e78f, type: 3}
   attack: {fileID: 21300000, guid: 334be5983fa57fb4c9f6df19bf576d43, type: 3}
+  stunned: 0
+  counter: 0
+  weakness: 0
+  multiplier: 1
   ai: {fileID: 0}
   popup: {fileID: 3324199152760335834, guid: 865e8da6f71f77946843562f49dbc620, type: 3}
 --- !u!114 &-2060981882690040381

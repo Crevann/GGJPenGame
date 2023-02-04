@@ -62,6 +62,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
   idle: {fileID: 21300000, guid: be0b72e1e7707564191d7accfe80bc01, type: 3}
   attack: {fileID: 21300000, guid: f31f8eaa4c266cf4980ff0187cca7e5c, type: 3}
+  stunned: 0
+  counter: 0
+  weakness: 0
+  multiplier: 1
   ai: {fileID: 0}
   popup: {fileID: 3324199152760335834, guid: 865e8da6f71f77946843562f49dbc620, type: 3}
 --- !u!114 &-2060981882690040381
