@@ -8,11 +8,12 @@ public class FadeEffect : MonoBehaviour
 {
     [SerializeField] float fadeSpeed = 5f;
     TextMeshProUGUI textMeshProUGUI;
+    TextMeshPro textMeshPro;
     Image image;
     [SerializeField]UnityEvent finishFadeIN;
     [SerializeField]UnityEvent finishFadeOUT;
 
-    bool fadingIn = false;
+    [SerializeField] bool fadingIn = false;
     float counter;
     float risingVal;
     float oldRisingVal;
@@ -20,6 +21,7 @@ public class FadeEffect : MonoBehaviour
     {
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
         image = GetComponent<Image>();
+        textMeshPro = GetComponent<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class FadeEffect : MonoBehaviour
         risingVal = counter / fadeSpeed;
         risingVal = Mathf.Clamp01(risingVal);
         if(textMeshProUGUI) textMeshProUGUI.alpha = risingVal;
+        if(textMeshPro) textMeshPro.alpha = risingVal;
         if(image) image.color = new Color(image.color.r, image.color.g, image.color.b, risingVal);
         if(oldRisingVal != 1 && risingVal == 1)
         {
