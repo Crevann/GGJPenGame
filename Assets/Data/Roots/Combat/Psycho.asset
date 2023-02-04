@@ -27,7 +27,7 @@ MonoBehaviour:
       Data3: -1006581625
       Data4: 409877305
     Path: event:/SFX Roots/PsychoSFX
-  showPopup: 0
+  showPopup: 1
   stun: 1
   counter: 0
   multiplier: 1
