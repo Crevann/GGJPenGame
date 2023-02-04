@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b7f211b70258c145a6eb7e225ffa977, type: 3}
-  m_Name: Cavaliere Numerato
+  m_Name: Matita Mannara
   m_EditorClassIdentifier: 
-  entityName: Cavaliere Numerato
-  health: 10
+  entityName: Matita Mannara
+  health: 7
   rootPool:
-  - {fileID: 7751102114499456835, guid: 8b2363cc7ece76949b0a384406521255, type: 3}
   - {fileID: 7751102114499456835, guid: 114f4f7d6dd709b48bd19047a0cce933, type: 3}
-  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}
+  - {fileID: 7751102114499456835, guid: 98f9bc54b77afa34ba6cde6eaf20995e, type: 3}
+  - {fileID: 7751102114499456835, guid: b70017404e6d54948ba697f9b9f29ca8, type: 3}
+  - {fileID: 7751102114499456835, guid: d68964147a5c97d41b533e5c10b9d084, type: 3}

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65eba8d77f25a3a469453f26ac3f6d03, type: 3}
-  m_Name: Pippo
+  m_Name: Sex
   m_EditorClassIdentifier: 
-  root: 
-  context: 1
+  root: Sex
+  context: 2
   suffixes: []
-  damage: 0
+  damage: 1
   stallDamage: 0
-  avaiableTargets: 0
-  description: 
-  effect: {fileID: 0}
+  avaiableTargets: 1
+  description: Hits an enemy for 5 damage.
+  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
     Guid:
       Data1: 0
@@ -27,6 +27,8 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  stun: 0
-  weakness: 0
+  showPopup: 1
+  stun: 1
   counter: 0
+  multiplier: 1
+  weakness: 0
