@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65eba8d77f25a3a469453f26ac3f6d03, type: 3}
-  m_Name: Hit
+  m_Name: Mind Charge
   m_EditorClassIdentifier: 
-  root: Hit
+  root: Mind charge
   context: 2
   suffixes: []
-  damage: 1
+  damage: 0
   stallDamage: 0
-  avaiableTargets: 1
-  description: Hits an enemy for 5 damage.
+  avaiableTargets: 0
+  description: 2x damage
   effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
     Guid:
@@ -27,8 +27,8 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  showPopup: 1
+  showPopup: 0
   stun: 1
   counter: 0
-  multiplier: 1
+  multiplier: 2
   weakness: 0
