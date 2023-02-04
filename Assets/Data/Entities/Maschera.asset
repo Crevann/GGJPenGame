@@ -15,5 +15,5 @@ MonoBehaviour:
   entityName: Machera
   health: 7
   rootPool:
-  - {fileID: 7751102114499456835, guid: d09a942939714f347b93201bfa599af2, type: 3}
-  - {fileID: 7751102114499456835, guid: dc56a95b1776c564cbeb253adf139526, type: 3}
+  - {fileID: 7751102114499456835, guid: cb93a67e2862d3547988c5d01c4e71a6, type: 3}
+  - {fileID: 7751102114499456835, guid: d68964147a5c97d41b533e5c10b9d084, type: 3}
