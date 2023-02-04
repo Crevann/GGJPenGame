@@ -9,8 +9,8 @@ public class FadeEffect : MonoBehaviour
     [SerializeField] float fadeSpeed = 5f;
     TextMeshProUGUI textMeshProUGUI;
     Image image;
-    UnityEvent finishFadeIN;
-    UnityEvent finishFadeOUT;
+    [SerializeField]UnityEvent finishFadeIN;
+    [SerializeField]UnityEvent finishFadeOUT;
 
     bool fadingIn = false;
     float counter;
