@@ -27,7 +27,7 @@ MonoBehaviour:
       Data3: -579759734
       Data4: 730647970
     Path: event:/SFX Roots/Bio SFX
-  showPopup: 0
+  showPopup: 1
   stun: 0
   counter: 0
   multiplier: 1

@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 0
   description: Counter the next attack or effect
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  effect: {fileID: 198252271518569764, guid: 29fc7381eafbf7141bf5b0b2fe6850f1, type: 3}
   SFX:
     Guid:
       Data1: 1236156417

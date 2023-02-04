@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 0
   description: Heals 1 HP and remove all effect
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  effect: {fileID: 198828295782883032, guid: f99c3ed97779c5b4eb026cb91d4e4933, type: 3}
   SFX:
     Guid:
       Data1: 1135472579

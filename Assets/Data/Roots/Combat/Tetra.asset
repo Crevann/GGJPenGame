@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 1
   description: Hits an enemy for 2 damage.
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  effect: {fileID: 198220203427489738, guid: 16b914e11b128e54fb9f85a547c95812, type: 3}
   SFX:
     Guid:
       Data1: 269622166

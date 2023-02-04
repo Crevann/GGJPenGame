@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 1
   description: Stuns target for one turn
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  effect: {fileID: 198493741878810020, guid: a1c8123c6777d6f45948a5e4b821a569, type: 3}
   SFX:
     Guid:
       Data1: -1859987368

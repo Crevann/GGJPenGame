@@ -19,7 +19,7 @@ MonoBehaviour:
   stallDamage: 0
   avaiableTargets: 1
   description: 'Deal 1 damage and stun '
-  effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+  effect: {fileID: 198345536097316502, guid: 6220b0bbd4630c24a9d0fd570b53d326, type: 3}
   SFX:
     Guid:
       Data1: 173356256
