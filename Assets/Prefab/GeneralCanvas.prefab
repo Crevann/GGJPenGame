@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 5821215647427745261}
   - component: {fileID: 5821215647427745260}
   - component: {fileID: 5821215647427745251}
+  - component: {fileID: 3960484}
   m_Layer: 5
   m_Name: Root
   m_TagString: Untagged
@@ -839,6 +840,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3960484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821215647427745249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09145242995b6c546869d200b53ac38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  rootDescription: {fileID: 5821215648532879561}
+  rootName: {fileID: 5821215648230207371}
 --- !u!1 &5821215647513358442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,6 +3128,7 @@ GameObject:
   - component: {fileID: 5821215648493852147}
   - component: {fileID: 5821215648493852146}
   - component: {fileID: 5821215648493852145}
+  - component: {fileID: 3960481}
   m_Layer: 5
   m_Name: Root 3
   m_TagString: Untagged
@@ -3234,6 +3251,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3960481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821215648493852151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09145242995b6c546869d200b53ac38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 3
+  rootDescription: {fileID: 5821215648532879561}
+  rootName: {fileID: 5821215648230207371}
 --- !u!1 &5821215648532879567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3708,6 +3740,7 @@ GameObject:
   - component: {fileID: 5821215648820200520}
   - component: {fileID: 5821215648820200527}
   - component: {fileID: 5821215648820200526}
+  - component: {fileID: 3960482}
   m_Layer: 5
   m_Name: Root 2
   m_TagString: Untagged
@@ -3830,6 +3863,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3960482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821215648820200524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09145242995b6c546869d200b53ac38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 2
+  rootDescription: {fileID: 5821215648532879561}
+  rootName: {fileID: 5821215648230207371}
 --- !u!1 &5821215648846568920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,6 +4002,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5821215647745512083}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: MoveInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: InventoryOpened
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4386,6 +4446,7 @@ GameObject:
   - component: {fileID: 5821215648996591656}
   - component: {fileID: 5821215648996591663}
   - component: {fileID: 5821215648996591662}
+  - component: {fileID: 3960483}
   m_Layer: 5
   m_Name: Root 1
   m_TagString: Untagged
@@ -4508,6 +4569,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3960483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821215648996591660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09145242995b6c546869d200b53ac38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
+  rootDescription: {fileID: 5821215648532879561}
+  rootName: {fileID: 5821215648230207371}
 --- !u!1 &5821215649088012863
 GameObject:
   m_ObjectHideFlags: 0
