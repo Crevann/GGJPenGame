@@ -64,8 +64,21 @@ public class InventoryUI : MonoBehaviour
 
     public void SelectRoot(int index)
     {
-        FightManager.Instance.PlayerFightingController.currentSelectedRoot = (RootCombat)Inventory.Instance.SelectRoot(index);
-        FightManager.Instance.PlayerFightingController.Setup();
+        
+        if (Inventory.Instance.roots[index].data.context == GameState.World)
+        {
+            Inventory.Instance.UseWord(index);
+            Inventory.Instance.RemoveRoot(index);
+        }
+        else if(Inventory.Instance.roots[index].data.context == GameState.Fight)
+        {
+            FightManager.Instance.PlayerFightingController.currentSelectedRoot = (RootCombat)Inventory.Instance.SelectRoot(index);
+            FightManager.Instance.PlayerFightingController.Setup();
+            if(((RootCombatData)Inventory.Instance.roots[index].data).avaiableTargets != Targettables.Single)
+            {
+                FightManager.Instance.NextPhase();
+            }
+        }
     }
     
 }

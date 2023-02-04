@@ -7,6 +7,7 @@ public class MobBattle : MonoBehaviour
 {
     [SerializeField] private Entity[] encounter;
     [SerializeField] private CinemachineVirtualCamera bookCamera;
+    public bool defeated;
 
     [SerializeField] private float battleStartTime;
     private float battleStartTimer;
@@ -18,6 +19,12 @@ public class MobBattle : MonoBehaviour
         bookCamera.Priority = 2;
         GameMGR.Instance.CurrentState = GameState.Fight;
         FightManager.Instance.StartFight();
+    }
+
+    private void Update() {
+        if (defeated) {
+            gameObject.SetActive(false);
+        }
     }
 
 }

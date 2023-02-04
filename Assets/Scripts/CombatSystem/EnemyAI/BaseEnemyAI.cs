@@ -18,7 +18,23 @@ abstract public class BaseEnemyAI : MonoBehaviour
     }
 
     public void Execute() {
-        self.DealDamage(self.Damage, target);
+        ParticleSystem ps;
+        switch (((RootCombatData)currentSelectedRoot.data).avaiableTargets) {
+            case Targettables.User:
+                self.DealDamage(self.Damage, self);
+                self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
+                break;
+            case Targettables.Single:
+                self.DealDamage(self.Damage, target);
+                self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
+                break;
+            case Targettables.Multiple:
+                self.DealDamage(self.Damage, target);
+                self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
+                break;
+            default:
+                break;
+        }
     }
     abstract public Root SelectRoot();
 
