@@ -48,6 +48,14 @@ public class Inventory : Singleton<Inventory>
         return null;
     }
 
+    public void ClearInventory() {
+        for(int i = 0; i < roots.Length; i++) {
+            if (roots[i]) {
+                RemoveRoot(i);
+            }
+        }
+    }
+
 #if UNITY_EDITOR
     [SerializeField] private Root rootToAdd;
     private void OnGUI() {
