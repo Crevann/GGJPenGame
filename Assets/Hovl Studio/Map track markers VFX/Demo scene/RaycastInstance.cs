@@ -62,12 +62,6 @@ public class RaycastInstance : MonoBehaviour
         buttonSaver += Time.deltaTime;
     }
 
-    void OnGUI()
-    {
-        GUI.Label(new Rect(10 * windowDpi, 5 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Use the keyboard buttons A/<- and D/-> to change prefabs!");
-        GUI.Label(new Rect(10 * windowDpi, 20 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Use left mouse button for instancing!");
-    }
-
     void Counter(int count)
     {
         Prefab += count;
