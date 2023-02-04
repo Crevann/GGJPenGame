@@ -10,10 +10,12 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance ambienceEventInstance;
     private EventInstance musicMenuInstance;
+    Bus masterBus;
 
     private void Awake()
     {
-        if(instance != null)
+        masterBus = RuntimeManager.GetBus("Bus:/");
+        if (instance != null)
         {
             Debug.Log("AudioManager already exist in the scene");
 
@@ -33,9 +35,11 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void StopMusic(bool value)
+    public void StopMusic()
     {
-        RuntimeManager.PauseAllEvents(value);
+        masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        
+
     }
     private void Start()
     {
