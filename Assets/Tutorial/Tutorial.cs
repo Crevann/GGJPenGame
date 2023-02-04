@@ -55,7 +55,6 @@ public class Tutorial : Singleton<Tutorial>
             done = false;
             return;
         }
-            Debug.Log(currentState);
         Rise();
         Do();
     }
