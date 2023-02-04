@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b556578d621a489fc57908b2ade4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
+  data: {fileID: 11400000, guid: 56dbb07835494d249942e2032189d016, type: 2}
   idle: {fileID: 21300000, guid: be0b72e1e7707564191d7accfe80bc01, type: 3}
   attack: {fileID: 21300000, guid: f31f8eaa4c266cf4980ff0187cca7e5c, type: 3}
   stunned: 0

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b7f211b70258c145a6eb7e225ffa977, type: 3}
-  m_Name: Cavaliere Numerato
+  m_Name: Polpo
   m_EditorClassIdentifier: 
-  entityName: Cavaliere Numerato
-  health: 10
+  entityName: Polpo
+  health: 5
   rootPool:
-  - {fileID: 7751102114499456835, guid: 8b2363cc7ece76949b0a384406521255, type: 3}
+  - {fileID: 7751102114499456835, guid: d68964147a5c97d41b533e5c10b9d084, type: 3}
+  - {fileID: 7751102114499456835, guid: 8b7882da2237ba74aa2cbb85bb315ddb, type: 3}
+  - {fileID: 7751102114499456835, guid: 3e59d1fe2d208ae4eaf35b10fbf266e2, type: 3}
   - {fileID: 7751102114499456835, guid: 114f4f7d6dd709b48bd19047a0cce933, type: 3}
-  - {fileID: 7751102114499456835, guid: a0b25734b064a97448ad64707ff8892f, type: 3}

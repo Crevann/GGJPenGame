@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2060981882690040381}
   - component: {fileID: 3440241696321798089}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: Polpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3100172685702195194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b556578d621a489fc57908b2ade4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 742f80cf0b854404eb670823b6ef603b, type: 2}
-  idle: {fileID: 21300000, guid: 8f3df43f5b6128148a095a36ab11f336, type: 3}
-  attack: {fileID: 21300000, guid: 5c9d5c19a05a5ed438376fc7d2af75b4, type: 3}
+  data: {fileID: 11400000, guid: eb6e5a70490519845b4ad6561720da05, type: 2}
+  idle: {fileID: 21300000, guid: 69ccb0c85d449af478fab909abd823cd, type: 3}
+  attack: {fileID: 21300000, guid: 108f79aa161ff044dbe62fb25cad482a, type: 3}
   stunned: 0
   counter: 0
   weakness: 0
@@ -121,9 +121,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 8f3df43f5b6128148a095a36ab11f336, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69ccb0c85d449af478fab909abd823cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 2.56}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2060981882690040381}
   - component: {fileID: 3440241696321798089}
   m_Layer: 0
-  m_Name: FlowerDog 1
+  m_Name: Sgorbio Forzuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b556578d621a489fc57908b2ade4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
-  idle: {fileID: 21300000, guid: 50d012f545c3a9d4c860f7f9cf34e78f, type: 3}
-  attack: {fileID: 21300000, guid: 334be5983fa57fb4c9f6df19bf576d43, type: 3}
+  data: {fileID: 11400000, guid: c8eaf5a69b5c3fa48a5b00bbbe7e08e5, type: 2}
+  idle: {fileID: 21300000, guid: ec02a435ddad479439524531723b64fe, type: 3}
+  attack: {fileID: 21300000, guid: e162bfb1d3e117849816c7bbf8012b43, type: 3}
   stunned: 0
   counter: 0
   weakness: 0
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 50d012f545c3a9d4c860f7f9cf34e78f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec02a435ddad479439524531723b64fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
