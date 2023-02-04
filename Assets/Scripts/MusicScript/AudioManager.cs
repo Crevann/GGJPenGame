@@ -38,8 +38,6 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        
-
     }
     private void Start()
     {

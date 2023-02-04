@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public enum Targettables {
     User,
@@ -23,4 +24,9 @@ public class RootCombatData : RootData
     public Targettables avaiableTargets;
     public string description;
     public ParticleSystem effect;
+    public EventReference SFX;
+
 }
+
+
+
