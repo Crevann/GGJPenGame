@@ -6,6 +6,7 @@ public class PlayerDecisionPhase : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         //This will enable the UI
+        FightManager.Instance.PlayerFightingController.currentSelectedRoot = null;
         FightManager.Instance.currentTurn = -1;
     }
 }
