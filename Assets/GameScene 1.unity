@@ -4621,7 +4621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxInventorySize: 4
   roots: []
-  rootToAdd: {fileID: 1361589565081366773, guid: 1702170ff7c58f94388a1bfe3bd5388a, type: 3}
+  rootToAdd: {fileID: 7751102114499456835, guid: b70017404e6d54948ba697f9b9f29ca8, type: 3}
 --- !u!114 &382855687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19878,7 +19878,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.50192684, y: -0.000000018407567, z: 0.000000010682324, w: 0.8649101}
+  m_LocalRotation: {x: 0.5019268, y: 0.00000002441511, z: -0.000000014168638, w: 0.8649101}
   m_LocalPosition: {x: -12.03, y: 13.82, z: -13.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28029,6 +28029,22 @@ PrefabInstance:
       propertyPath: battleStartTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.data[0]
+      value: 
+      objectReference: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.data[1]
+      value: 
+      objectReference: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
+    - target: {fileID: 242226270, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
+      propertyPath: encounter.Array.data[2]
+      value: 
+      objectReference: {fileID: 8167977010210215112, guid: 95d7a7e9aa5282048b3170d3ffed30d7, type: 3}
     - target: {fileID: 4414636748826655930, guid: 9206a77348f71444ba397b1c93ec5303, type: 3}
       propertyPath: m_Name
       value: CupCakey

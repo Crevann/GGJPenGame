@@ -10,7 +10,7 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float friction;
 
-    private TextMeshPro text;
+    public TextMeshPro text;
     private void Awake() {
         text = GetComponent<TextMeshPro>();
     }

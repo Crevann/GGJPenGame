@@ -15,9 +15,9 @@ MonoBehaviour:
   root: Counter
   context: 2
   suffixes: []
-  damage: 1
+  damage: 0
   stallDamage: 0
-  avaiableTargets: 1
+  avaiableTargets: 0
   description: Counter the next attack or effect
   effect: {fileID: 198824816094080230, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
   SFX:
@@ -27,7 +27,7 @@ MonoBehaviour:
       Data3: 2113195407
       Data4: -949459327
     Path: event:/SFX Roots/Counter SFX
-  showPopup: 1
+  showPopup: 0
   stun: 0
   counter: 1
   multiplier: 1

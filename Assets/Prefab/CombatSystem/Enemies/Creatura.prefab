@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: bc281d832f3c92045b1a68ccc0924fa9, type: 2}
-  idle: {fileID: 0}
-  attack: {fileID: 0}
+  idle: {fileID: 21300000, guid: fea821aabf41bb14e97da76fb1924d17, type: 3}
+  attack: {fileID: 21300000, guid: fea821aabf41bb14e97da76fb1924d17, type: 3}
   stunned: 0
   counter: 0
   weakness: 0

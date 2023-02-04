@@ -51,9 +51,18 @@ public class Entity : MonoBehaviour
     public void SetDamage(int damage) {
         this.damage = damage;
     }
-    public void DealDamage(int damage, Entity target, bool stun, int weakness, bool showPopup, int multiplier) {
+    public void DealDamage(int damage, Entity target, bool stun, int weakness, bool showPopup, int multiplier, bool counter) {
         //Do some cool camera shake or something
         int realDamage = (damage * this.multiplier) + target.weakness;
+        if (target.counter && !counter) {
+            DealDamage(damage, this, stun, weakness, showPopup, multiplier, counter);
+            target.counter = false;
+            DamagePopup instPopup = Instantiate<DamagePopup>(popup);
+            instPopup.transform.position = target.transform.position + Vector3.forward * -1.1f;
+            instPopup.SetText("COUNTER");
+            instPopup.text.fontSize = 16;
+            return;
+        }
         target.health.Health -= realDamage;
         Debug.Log(target.health.Health);
         if (target.CheckDead()) {
@@ -67,10 +76,7 @@ public class Entity : MonoBehaviour
         FightManager.Instance.ShakeCamera(realDamage);
         target.stunned = stun;
         target.weakness = weakness;
-        if (target.counter) {
-            DealDamage(damage, this, stun, weakness, showPopup, multiplier);
-            target.counter = false;
-        }
+        target.counter = counter;
         this.multiplier = multiplier;
     }
 

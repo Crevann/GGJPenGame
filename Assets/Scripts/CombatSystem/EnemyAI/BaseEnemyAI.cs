@@ -25,7 +25,8 @@ abstract public class BaseEnemyAI : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
                     ((RootCombatData)currentSelectedRoot.data).showPopup,
-                    ((RootCombatData)currentSelectedRoot.data).multiplier);
+                    ((RootCombatData)currentSelectedRoot.data).multiplier,
+                    ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, self);
                 break;
             case Targettables.Single:
@@ -34,7 +35,8 @@ abstract public class BaseEnemyAI : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
                     ((RootCombatData)currentSelectedRoot.data).showPopup,
-                    ((RootCombatData)currentSelectedRoot.data).multiplier);
+                    ((RootCombatData)currentSelectedRoot.data).multiplier,
+                    ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
                 break;
             case Targettables.Multiple:
@@ -43,7 +45,8 @@ abstract public class BaseEnemyAI : MonoBehaviour
                     ((RootCombatData)currentSelectedRoot.data).stun,
                     ((RootCombatData)currentSelectedRoot.data).weakness,
                     ((RootCombatData)currentSelectedRoot.data).showPopup,
-                    ((RootCombatData)currentSelectedRoot.data).multiplier);
+                    ((RootCombatData)currentSelectedRoot.data).multiplier,
+                    ((RootCombatData)currentSelectedRoot.data).counter);
                 self.SpawnEffect(((RootCombatData)currentSelectedRoot.data).effect, target);
                 break;
             default:
