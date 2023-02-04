@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3100172685702195173}
   - component: {fileID: 8167977010210215112}
   - component: {fileID: 3440241696321798089}
-  - component: {fileID: -148936327016971336}
+  - component: {fileID: 8952082319247031313}
   m_Layer: 0
   m_Name: Polpo
   m_TagString: Untagged
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &-148936327016971336
+--- !u!114 &8952082319247031313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3100172685702195194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a73c1d404154f4199513e86855f386, type: 3}
+  m_Script: {fileID: 11500000, guid: 623a99e62c8c71b4fbe541a55cebcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
