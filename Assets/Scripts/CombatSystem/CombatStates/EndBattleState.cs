@@ -13,5 +13,6 @@ public class EndBattleState : StateMachineBehaviour
         if (FightManager.Instance.pen.IsDead) {
             GameMGR.Instance.penIsDead = true;
         }
+        FightManager.Instance.isBattling = false;
     }
 }

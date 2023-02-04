@@ -13,7 +13,7 @@ public class FightManager : Singleton<FightManager>
     public Entity[] enemies;
     public Entity[] enemiesToSpawn;
     [HideInInspector] public int currentTurn; //If -1 is player turn
-    private bool isStalling;
+    public bool isBattling;
     private bool penIsDead;
 
     //Camera management
@@ -64,6 +64,7 @@ public class FightManager : Singleton<FightManager>
         }
         currentTurn = -1;
         fightingCam.Priority = 5;
+        isBattling = true;
     }
 
     private void Update() {
