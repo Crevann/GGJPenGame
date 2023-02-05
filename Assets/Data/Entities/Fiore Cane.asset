@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fiore Cane
   m_EditorClassIdentifier: 
   entityName: Cane-Fiore
-  health: 15
+  health: 20
   rootPool:
   - {fileID: 7751102114499456835, guid: dc56a95b1776c564cbeb253adf139526, type: 3}
   - {fileID: 7751102114499456835, guid: 114f4f7d6dd709b48bd19047a0cce933, type: 3}
