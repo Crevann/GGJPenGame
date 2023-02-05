@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Tutorial : Singleton<Tutorial>
 {
-    private enum State { LearnToMove, LearnToPickUp, OpenInventory, GoToFight, JumpInTheWhole}
+    private enum State { LearnToMove, LearnToPickUp, OpenInventory, GoToFight/*, OpenDoor*/, JumpInTheWhole}
     [SerializeField] TeleportingObject CaneFiore;
     [SerializeField] AnimationCurve standUpMovement;
     [SerializeField] float timeToRaise = 1;
