@@ -981,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999ec78bed892aa45a9a3d74f127bbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popup: {fileID: 3324199152760335834, guid: 865e8da6f71f77946843562f49dbc620, type: 3}
 --- !u!1101 &6030456186844851698
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
