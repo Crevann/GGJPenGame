@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Boids
-  productName: GGJPenGame
+  productName: Doodled
   defaultCursor: {fileID: 2800000, guid: 8a30f2360ad56dd48b8b5a73a90bdd8c, type: 3}
   cursorHotspot: {x: 0, y: 256}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -155,7 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Boids.GGJPenGame
+    Standalone: com.Boids.Doodled
   buildNumber:
     Standalone: 0
     iPhone: 0

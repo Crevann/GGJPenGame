@@ -3800,7 +3800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.00002146897
+  m_AmplitudeGain: 0.00002449779
   m_FrequencyGain: 3
   mNoiseOffsets: {x: 701.5126, y: -218.78183, z: 799.24036}
 --- !u!114 &267632487
@@ -10129,8 +10129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounter:
   - {fileID: 8167977010210215112, guid: 4fb108679359b5746bff8df35fb61b47, type: 3}
-  - {fileID: 8167977010210215112, guid: e0d3490f397e43f4889967bd10d12fec, type: 3}
-  - {fileID: 8167977010210215112, guid: e0d3490f397e43f4889967bd10d12fec, type: 3}
+  - {fileID: 8167977010210215112, guid: 92cf3946eef50374fa9ef5fa4e578479, type: 3}
+  - {fileID: 8167977010210215112, guid: 92cf3946eef50374fa9ef5fa4e578479, type: 3}
   defeated: 0
   battleStartTime: 0
 --- !u!65 &817238949
@@ -15118,6 +15118,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7203786004842440424}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: pickedUp.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -15128,6 +15132,10 @@ PrefabInstance:
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: openedInventory.m_PersistentCalls.m_Calls.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: moved.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -15146,6 +15154,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1166811907}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1893918007}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: openedDoor.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -15162,6 +15174,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1893918007}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: moved.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FadeOut
       objectReference: {fileID: 0}
@@ -15176,6 +15192,10 @@ PrefabInstance:
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: FadeIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: FadeOut
       objectReference: {fileID: 0}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: openedDoor.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -15242,6 +15262,10 @@ PrefabInstance:
       value: FadeIn
       objectReference: {fileID: 0}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: FadeEffect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: openedDoor.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FadeEffect, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -15252,6 +15276,10 @@ PrefabInstance:
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: openedInventory.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FadeEffect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
+      propertyPath: fought.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7400106583537230805, guid: f818f5862a4537b4c824ddbd1922a9f6, type: 3}
       propertyPath: openedDoor.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -23350,7 +23378,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854797050}
-  m_LocalRotation: {x: 0.5019268, y: -0.00000002441512, z: 0.000000014168644, w: 0.8649101}
+  m_LocalRotation: {x: 0.5019268, y: 0.00000002441511, z: -0.000000014168638, w: 0.8649101}
   m_LocalPosition: {x: -4.5699997, y: 13.82, z: 7.2680006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24440,7 +24468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounter:
   - {fileID: 8167977010210215112, guid: 2751fdbd86ce08242ae0ab3c6a1331b2, type: 3}
-  - {fileID: 8167977010210215112, guid: e0d3490f397e43f4889967bd10d12fec, type: 3}
+  - {fileID: 8167977010210215112, guid: 92cf3946eef50374fa9ef5fa4e578479, type: 3}
   - {fileID: 8167977010210215112, guid: 5d83e8d925b87ab4c8b759f143fbc301, type: 3}
   defeated: 0
   battleStartTime: 0
@@ -25932,7 +25960,7 @@ MonoBehaviour:
   speedWalk: 6
   speedRun: 9
   advancedView: 0
-  viewRadius: 2
+  viewRadius: 5
   viewAngle: 90
   targetMask:
     serializedVersion: 2
