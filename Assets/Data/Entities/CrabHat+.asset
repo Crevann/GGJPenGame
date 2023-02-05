@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7f211b70258c145a6eb7e225ffa977, type: 3}
+  m_Name: CrabHat+
+  m_EditorClassIdentifier: 
+  entityName: Crab Hat
+  health: 4
+  rootPool:
+  - {fileID: 7751102114499456835, guid: 1c9aaa337072d2248a882e467ec1d8e0, type: 3}
