@@ -48,7 +48,7 @@ public class Tutorial : Singleton<Tutorial>
     void Update()
     {
         if (!fioreAgent.enabled || !fioreAgent) return;
-        if (GameMGR.Instance.CurrentState == GameState.Fight) {
+        if (GameMGR.Instance.CurrentState == GameState.Fight && !fighting) {
             fighting = true;
             currentState = State.OpenDoor;
             fought.Invoke();
@@ -84,6 +84,10 @@ public class Tutorial : Singleton<Tutorial>
                 }
                 break;
             case State.GoToFight:
+                if(Inventory.Instance.roots[1] != null) {
+                    currentState = State.OpenDoor;
+                    fought.Invoke();
+                }
                 //if(fighting) {
                 //    currentState = State.JumpInTheWhole;
                 //    Debug.Log("JumpInDaHole");
