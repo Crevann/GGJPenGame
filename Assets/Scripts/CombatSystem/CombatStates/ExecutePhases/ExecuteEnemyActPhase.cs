@@ -6,6 +6,10 @@ public class ExecuteEnemyActPhase : StateMachineBehaviour
 {
     [SerializeField] private DamagePopup popup;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        if (FightManager.Instance.enemies[FightManager.Instance.currentTurn].counter) {
+            FightManager.Instance.enemies[FightManager.Instance.currentTurn].counter = false;
+        }
+
         if (!FightManager.Instance.enemies[FightManager.Instance.currentTurn].stunned) {
             FightManager.Instance.enemies[FightManager.Instance.currentTurn].SwitchSprites();
             FightManager.Instance.enemies[FightManager.Instance.currentTurn].ai.Execute();
@@ -19,10 +23,6 @@ public class ExecuteEnemyActPhase : StateMachineBehaviour
             instPopup.transform.position = FightManager.Instance.enemies[FightManager.Instance.currentTurn].transform.position + Vector3.forward * -1.2f;
             instPopup.SetText("Stunned");
             instPopup.text.fontSize = 14;
-        }
-
-        if (FightManager.Instance.enemies[FightManager.Instance.currentTurn].counter) {
-            FightManager.Instance.enemies[FightManager.Instance.currentTurn].counter = false;
         }
 
         if (FightManager.Instance.CheckIfPenIsDead()) {
