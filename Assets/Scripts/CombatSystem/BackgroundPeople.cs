@@ -20,6 +20,11 @@ public class BackgroundPeople : MonoBehaviour {
         GeneratePeople();
         anim.Play();
     }
+
+    public void CloseStadium() {
+        anim.Rewind();
+        anim.Stop();
+    }
     private void GeneratePeople() {
         List<Sprite> uniquePeopleSpritesSpawn = uniquePeopleSprites.ToList<Sprite>(); //Unique sprites can't be generate twice
         for (int i = 0; i < people.Length; i++) {
