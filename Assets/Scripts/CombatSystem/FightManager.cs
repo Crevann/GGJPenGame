@@ -51,6 +51,7 @@ public class FightManager : Singleton<FightManager>
         pen.HealthComponent.SetMaxHealth(GameMGR.Instance.penMaxHP);
         pen.HealthComponent.Health = GameMGR.Instance.penHP;
     }
+    
     public void InitializeFight() {
         stadium.gameObject.SetActive(true);
         stadium.OpenStadium();
@@ -135,6 +136,10 @@ public class FightManager : Singleton<FightManager>
             return true;
         }
         return false;
+    }
+
+    public void CloseStadium() {
+        stadium.CloseStadium();
     }
 
 #if UNITY_EDITOR
