@@ -35,7 +35,7 @@ public class GameMGR : Singleton<GameMGR>
     }
     private void Update() {
         if(penIsDead)
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
     }
 
     private GameState currentState = GameState.Menu;
