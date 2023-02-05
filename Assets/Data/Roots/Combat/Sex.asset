@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eba8d77f25a3a469453f26ac3f6d03, type: 3}
   m_Name: Sex
   m_EditorClassIdentifier: 
-  root: Sex
+  root: SMA
   context: 2
   suffixes: []
   damage: 1

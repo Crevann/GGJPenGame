@@ -60,6 +60,10 @@ public class LevelMgr : Singleton<LevelMgr>
 
     public virtual void OnStateButtonClicked(int buttonIndex) {
         RemoveFromPage(20, true);
+        for (int i = 0; i < 7; i++) {
+            RemoveFromPage(i, true);
+
+        }
         book.SetState((EndlessBook.StateEnum)buttonIndex, animationTime: 1, onCompleted: OnBookStateChanged);
 
     }

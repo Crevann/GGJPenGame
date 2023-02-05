@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public enum GameState { Menu, World, Fight, CutScene }
+public enum GameState { Menu, World, Fight, CutScene, Ending }
 public class GameMGR : Singleton<GameMGR>
 {
     [SerializeField] private EntityData penData;

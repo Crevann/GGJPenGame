@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Matita Mannara
   m_EditorClassIdentifier: 
   entityName: Matita Mannara
-  health: 7
+  health: 6
   rootPool:
   - {fileID: 7751102114499456835, guid: 114f4f7d6dd709b48bd19047a0cce933, type: 3}
   - {fileID: 7751102114499456835, guid: d68964147a5c97d41b533e5c10b9d084, type: 3}
