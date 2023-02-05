@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Tutorial : Singleton<Tutorial>
 {
-    private enum State { LearnToMove, LearnToPickUp, OpenInventory, GoToFight/*, OpenDoor*/, JumpInTheWhole}
+    private enum State { LearnToMove, LearnToPickUp, OpenInventory, GoToFight, OpenDoor, JumpInTheWhole}
     [SerializeField] TeleportingObject CaneFiore;
     [SerializeField] AnimationCurve standUpMovement;
     [SerializeField] float timeToRaise = 1;
@@ -20,6 +20,7 @@ public class Tutorial : Singleton<Tutorial>
     [SerializeField] UnityEvent pickedUp;
     [SerializeField] UnityEvent openedInventory;
     [SerializeField] UnityEvent fought;
+    [SerializeField] UnityEvent openedDoor;
     [SerializeField] UnityEvent jumped;
 
     bool inventoryOpened;
@@ -33,6 +34,7 @@ public class Tutorial : Singleton<Tutorial>
     bool fighting;
     float counter;
     bool isRising;
+    bool doorOpened;
     float risingVal = 0;
     NavMeshAgent fioreAgent;
     NavMeshAgent penAgent;
@@ -48,7 +50,8 @@ public class Tutorial : Singleton<Tutorial>
         if (!fioreAgent.enabled || !fioreAgent) return;
         if (GameMGR.Instance.CurrentState == GameState.Fight) {
             fighting = true;
-            currentState = State.JumpInTheWhole;
+            currentState = State.OpenDoor;
+            fought.Invoke();
         }
         if (!player || !player.isActiveAndEnabled) {
             player = FindObjectOfType<PlayerMovement>();
@@ -95,6 +98,12 @@ public class Tutorial : Singleton<Tutorial>
                     openedInventory.Invoke();
                 }
                 break;
+            case State.OpenDoor:
+                if (doorOpened) {
+                    currentState = State.JumpInTheWhole;
+                    openedDoor.Invoke();
+                }
+                break;
             default:
                 break;
         }
@@ -102,6 +111,9 @@ public class Tutorial : Singleton<Tutorial>
     }
     public void InventoryOpened() {
         inventoryOpened = true;
+    }
+    public void DoorOpened() {
+        doorOpened = true;
     }
     void Rise() {
         if (risingVal < 1 && CaneFiore.onTopOfBook) {
