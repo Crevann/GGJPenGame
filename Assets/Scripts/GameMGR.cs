@@ -34,8 +34,12 @@ public class GameMGR : Singleton<GameMGR>
         InitializePen();
     }
     private void Update() {
-        if(penIsDead)
+        if (penIsDead)
+        {
+            AudioManager.instance.StopMusic();
             SceneManager.LoadScene(0);
+        }
+            
     }
 
     private GameState currentState = GameState.Menu;
