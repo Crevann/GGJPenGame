@@ -54,6 +54,8 @@ MonoBehaviour:
   target: {fileID: 0}
   startTarget: {fileID: 0}
   hiddenTarget: {fileID: 0}
+  front: {fileID: 0}
+  back: {fileID: 0}
   negative: 0
   changePage:
     m_PersistentCalls:
@@ -81,8 +83,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.49116933, y: 1, z: 1}
-  m_Center: {x: 0.52561057, y: 0, z: 0}
+  m_Size: {x: 0.45, y: 1, z: 1}
+  m_Center: {x: 0.55, y: 0, z: 0}
 --- !u!1 &6013461056471857191
 GameObject:
   m_ObjectHideFlags: 0
