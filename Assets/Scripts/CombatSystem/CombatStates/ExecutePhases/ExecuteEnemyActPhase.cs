@@ -12,6 +12,7 @@ public class ExecuteEnemyActPhase : StateMachineBehaviour
 
         if (!FightManager.Instance.enemies[FightManager.Instance.currentTurn].stunned) {
             FightManager.Instance.enemies[FightManager.Instance.currentTurn].SwitchSprites();
+            FightManager.Instance.EnemyDecisions();
             FightManager.Instance.enemies[FightManager.Instance.currentTurn].ai.Execute();
             DamagePopup instPopup = Instantiate<DamagePopup>(popup);
             instPopup.transform.position = FightManager.Instance.enemies[FightManager.Instance.currentTurn].transform.position + Vector3.forward * -1.2f + Vector3.up * -1.2f;
