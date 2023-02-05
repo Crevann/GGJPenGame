@@ -23,6 +23,8 @@ public class BackgroundPeople : MonoBehaviour {
 
     public void CloseStadium() {
         anim.Rewind();
+        anim.Play();
+        anim.Sample();
         anim.Stop();
     }
     private void GeneratePeople() {
@@ -45,7 +47,7 @@ public class BackgroundPeople : MonoBehaviour {
 #if UNITY_EDITOR
     private void OnGUI() {
         if (GUI.Button(new Rect(600, 0, 100, 30), "Generate")) {
-            OpenStadium();
+            CloseStadium();
         }
     }
 #endif

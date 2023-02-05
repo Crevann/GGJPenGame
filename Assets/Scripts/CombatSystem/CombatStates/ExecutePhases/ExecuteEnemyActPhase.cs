@@ -20,7 +20,10 @@ public class ExecuteEnemyActPhase : StateMachineBehaviour
             instPopup.SetText("Stunned");
             instPopup.text.fontSize = 14;
         }
-        
+
+        if (FightManager.Instance.enemies[FightManager.Instance.currentTurn].counter) {
+            FightManager.Instance.enemies[FightManager.Instance.currentTurn].counter = false;
+        }
 
         if (FightManager.Instance.CheckIfPenIsDead()) {
             animator.SetBool("FightHasEnded", true);
