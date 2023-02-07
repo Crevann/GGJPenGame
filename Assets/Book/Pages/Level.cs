@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    [HideInInspector] public TeleportingObject[] mobs;
+    [HideInInspector] public TeleportingObject[] teleportingObjects;
     [SerializeField] public BoxCollider collider;
     void Start()
     {
         List<Transform> transforms = new List<Transform>();
-        mobs = transform.Find("Mobs").GetComponentsInChildren<TeleportingObject>();
+        teleportingObjects = transform.GetComponentsInChildren<TeleportingObject>();
     }
 
     // Update is called once per frame

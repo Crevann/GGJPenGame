@@ -77,7 +77,6 @@ public class LevelMgr : Singleton<LevelMgr>
                     onPageTurnStart: OnPageTurnStart,
                     onPageTurnEnd: OnPageTurnEnd
                     );
-
     }
     protected virtual void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
         if (toState == EndlessBook.StateEnum.OpenFront) {
@@ -124,7 +123,7 @@ public class LevelMgr : Singleton<LevelMgr>
             sizeOfCameraPage = new Vector3(dic[pageNumber].collider.size.x * dic[pageNumber].collider.transform.localScale.x, 
                 dic[pageNumber].collider.size.y * dic[pageNumber].collider.transform.localScale.y, 
                 dic[pageNumber].collider.size.z * dic[pageNumber].collider.transform.localScale.z);
-            foreach (TeleportingObject item in dic[pageNumber].mobs) {
+            foreach (TeleportingObject item in dic[pageNumber].teleportingObjects) {
                 if (!item.isActiveAndEnabled || item.onTopOfBook) continue;
                 item.onTopOfBook = true;
                 item.transform.rotation = Quaternion.Euler(Vector3.right * 90);
@@ -152,7 +151,7 @@ public class LevelMgr : Singleton<LevelMgr>
             sizeOfCameraPage = new Vector3(dic[pageNumber].collider.size.x * dic[pageNumber].collider.transform.localScale.x,
                 dic[pageNumber].collider.size.y * dic[pageNumber].collider.transform.localScale.y,
                 dic[pageNumber].collider.size.z * dic[pageNumber].collider.transform.localScale.z);
-            foreach (TeleportingObject item in dic[pageNumber].mobs) {
+            foreach (TeleportingObject item in dic[pageNumber].teleportingObjects) {
                 if (!item.isActiveAndEnabled || !item.onTopOfBook) continue;
                 if (item.GetComponent<NavMeshAgent>()) item.GetComponent<NavMeshAgent>().enabled = false;
                 item.onTopOfBook = false;
