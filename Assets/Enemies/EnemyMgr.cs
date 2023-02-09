@@ -21,7 +21,7 @@ public class EnemyMgr : Singleton<EnemyMgr>
         foreach (AIController item in enemies) {
             if (!item.GetComponent<TeleportingObject>().onTopOfBook) continue;
             item.GetComponent<NavMeshAgent>().enabled = false;
-            item.isRising = false;
+            item.GetComponent<RiseUpAndDown>().GoDown();
         }
     }
 }

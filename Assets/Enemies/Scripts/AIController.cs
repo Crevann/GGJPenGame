@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-[RequireComponent(typeof(TeleportingObject), typeof(NavMeshAgent))]
+[RequireComponent(typeof(TeleportingObject), typeof(NavMeshAgent), typeof(RiseUpAndDown))]
 public class AIController : MonoBehaviour {
     [SerializeField] float startWaitTime = 3;
     [SerializeField] float timeToRotation = 2;
@@ -19,6 +19,7 @@ public class AIController : MonoBehaviour {
     [SerializeField] float edgeDstThreshold = 0.5f;
 
     [SerializeField] Transform[] wayPoints;
+    Vector3 startingPos;
     int CurrentwayPointIndex;
 
     Vector3 playerLastPosition = Vector3.zero;
@@ -37,14 +38,9 @@ public class AIController : MonoBehaviour {
     PlayerMovement player;
 
     [Header("Standing Up")]
-    [SerializeField] AnimationCurve standUpMovement;
-    [SerializeField] float timeToRaise = 1;
-    [SerializeField] float timeToFall = 1;
-    [SerializeField] float distanceFromPlayer = 30;
+
+    RiseUpAndDown riseUpAndDown;
     TeleportingObject myTeleportingObject;
-    [HideInInspector] public bool isRising = false;
-    Quaternion myCurrentRotation;
-    float counter;
     bool readyToMove = false;
     bool wasReadyToMove = false;
     Vector2 radiusAndHeight;
@@ -57,8 +53,6 @@ public class AIController : MonoBehaviour {
         caughtPlayer = false;
         playerInRange = false;
         waitTime = startWaitTime;
-        timeToRotate = timeToRotation;
-
 
         CurrentwayPointIndex = 0;
         agent = GetComponent<NavMeshAgent>();
@@ -67,16 +61,17 @@ public class AIController : MonoBehaviour {
         //agent.isStopped = true;
         agent.speed = speedWalk;
         agent.enabled = false;
-        //agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
 
         myTeleportingObject = GetComponent<TeleportingObject>();
         switchFace = GetComponent<SwitchFaceEnemy>();
+        riseUpAndDown = GetComponent<RiseUpAndDown>();
     }
 
     // Update is called once per frame
     void Update() {
         if (!myTeleportingObject.onTopOfBook) {
             if (agent.enabled) agent.enabled = false;
+            if (wayPoints.Length == 0) startingPos = transform.position;
 
             return;
         }
@@ -93,7 +88,7 @@ public class AIController : MonoBehaviour {
                 agent.height = radiusAndHeight.y / transform.localScale.y;
                 wasReadyToMove = true;
                 agent.enabled = true;
-                agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+                agent.SetDestination(wayPoints.Length > 0 ? wayPoints[CurrentwayPointIndex].position : startingPos);
             }
             EnviromentView();
             if (agent.enabled) {
@@ -105,37 +100,37 @@ public class AIController : MonoBehaviour {
             }
 
         }
-        RisingAndLowering();
+        readyToMove = riseUpAndDown.CurrentState == RiseUpAndDown.State.Risen;
 
         if (!readyToMove) wasReadyToMove = false;
         if (switchFace) switchFace.enabled = readyToMove;
     }
     void RisingAndLowering() {
         
-        if (distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
-            if (!isRising) {
-                counter = 0;
-                isRising = true;
-            }
-            counter += Time.deltaTime;
-            float c = counter / timeToRaise;
-            c = Mathf.Clamp01(c);
-            transform.rotation = Quaternion.Euler(Vector3.right * standUpMovement.Evaluate(c) * 90);
-            readyToMove = c == 1;
-        } else {
-            readyToMove = false;
-            if (isRising) {
-                counter = 0;
-                isRising = false;
+        //if (distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
+        //    if (!isRising) {
+        //        counter = 0;
+        //        isRising = true;
+        //    }
+        //    counter += Time.deltaTime;
+        //    float c = counter / timeToRaise;
+        //    c = Mathf.Clamp01(c);
+        //    transform.rotation = Quaternion.Euler(Vector3.right * standUpMovement.Evaluate(c) * 90);
+        //    readyToMove = c == 1;
+        //} else {
+        //    readyToMove = false;
+        //    if (isRising) {
+        //        counter = 0;
+        //        isRising = false;
 
-                myCurrentRotation = transform.rotation;
-            }
-            counter += Time.deltaTime;
-            float c = counter / timeToRaise;
-            c = Mathf.Clamp01(c);
-            transform.rotation = Quaternion.Lerp(myCurrentRotation, Quaternion.Euler(Vector3.right * 90), c);
+        //        myCurrentRotation = transform.rotation;
+        //    }
+        //    counter += Time.deltaTime;
+        //    float c = counter / timeToRaise;
+        //    c = Mathf.Clamp01(c);
+        //    transform.rotation = Quaternion.Lerp(myCurrentRotation, Quaternion.Euler(Vector3.right * 90), c);
 
-        }
+        //}
     }
 
     private void ChasePlayer() {
@@ -162,7 +157,7 @@ public class AIController : MonoBehaviour {
                 EnemyMove(speedWalk);
                 timeToRotate = timeToRotation;
                 waitTime = startWaitTime;
-                agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+                agent.SetDestination(wayPoints.Length > 0 ? wayPoints[CurrentwayPointIndex].position : startingPos);
             } else {
                 if (Vector3.Distance(transform.position, player.transform.position) >= 1.5f) {
                     StopEnemy();
@@ -178,7 +173,7 @@ public class AIController : MonoBehaviour {
                 //agent.enabled = true;
                 EnemyMove(speedWalk);
             }
-            agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+            agent.SetDestination(wayPoints.Length > 0 ? wayPoints[CurrentwayPointIndex].position : startingPos);
             if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)) {
                 if (waitTime <= 0) {
                     NextPoint();
@@ -203,7 +198,7 @@ public class AIController : MonoBehaviour {
         } else {
             playerNear = false;
             playerLastPosition = Vector3.zero;
-            agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+            agent.SetDestination(wayPoints.Length > 0 ? wayPoints[CurrentwayPointIndex].position : startingPos);
             if (agent.remainingDistance <= agent.stoppingDistance) {
                 if (waitTime <= 0) {
                     NextPoint();
@@ -229,8 +224,10 @@ public class AIController : MonoBehaviour {
     }
 
     public void NextPoint() {
-        CurrentwayPointIndex = (CurrentwayPointIndex + 1) % wayPoints.Length;
-        agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+        if (wayPoints.Length > 0) {
+            CurrentwayPointIndex = (CurrentwayPointIndex + 1) % wayPoints.Length;
+            agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+        }
     }
 
     void CaughtPlayer() {
@@ -243,7 +240,7 @@ public class AIController : MonoBehaviour {
             if (waitTime <= 0) {
                 playerNear = false;
                 EnemyMove(speedWalk);
-                agent.SetDestination(wayPoints[CurrentwayPointIndex].position);
+                agent.SetDestination(wayPoints.Length > 0 ? wayPoints[CurrentwayPointIndex].position : startingPos);
                 waitTime = startWaitTime;
                 timeToRotate = timeToRotation;
             } else {
