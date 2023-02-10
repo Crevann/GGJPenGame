@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684039526870295365}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.100769, y: 12, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -325,8 +325,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4552366056164888495}
-  m_LocalRotation: {x: -0.70710677, y: 0.00000000698492, z: -0.0000000032596295, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: 0, z: -7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 0.3, y: 0.29999998, z: 0.29999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -409,7 +409,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5707296322198031695}
-  m_LocalRotation: {x: -0.022581365, y: 0.0031735748, z: -0.13913696, w: 0.99001056}
+  m_LocalRotation: {x: 0, y: 0, z: -0.21643952, w: 0.97629607}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -417,7 +417,7 @@ Transform:
   - {fileID: 1004456650120188566}
   m_Father: {fileID: 5443462220596786584}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -2.512, y: 0.721, z: -16.016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25}
 --- !u!114 &4973256710460918010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +457,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   riseMethod: 0
+  currentState: 0
+  myRotationAxies: 0
   distanceFromPlayer: 5
+  teleportingObject: {fileID: 0}
   OnRise:
     m_PersistentCalls:
       m_Calls: []
@@ -473,6 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004456650120188566}
+  - component: {fileID: 6813411434456310019}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -487,7 +491,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6636092980945025520}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -496,6 +500,55 @@ Transform:
   m_Father: {fileID: 1570399887760224783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6813411434456310019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636092980945025520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f1843c2cf903845babb00fbdbeb9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRaise: 1
+  timeToFall: 1
+  standUpMovement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -2
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  riseMethod: 0
+  currentState: 0
+  myRotationAxies: 0
+  distanceFromPlayer: 5
+  teleportingObject: {fileID: 9113706458736493373}
+  OnRise:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLowered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &147513114595795767
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class RiseUpAndDown : MonoBehaviour
 {
     enum RisingMethod { OnPageOpen, OnPlayerNear, OnlyOnEvent }
+    enum RotationAxis { X, Y, Z }
     public enum State { Lowered, Risen, Moving}
     private float riseAmount = 0; //0 - 1
     public float RiseAmount => riseAmount;
@@ -17,7 +18,14 @@ public class RiseUpAndDown : MonoBehaviour
     [SerializeField] RisingMethod riseMethod = RisingMethod.OnPageOpen;
 
     [SerializeField] State currentState = State.Lowered;
-    public State CurrentState => currentState;
+    [SerializeField] RotationAxis myRotationAxies = RotationAxis.X;
+    public State CurrentState {
+        get { return currentState; }
+        private set { 
+            currentState = value;
+            counter = 0;
+        }
+    }
 
     [Header("Only for OnPlayerNear")]
     [SerializeField] float distanceFromPlayer = 5;
@@ -30,69 +38,90 @@ public class RiseUpAndDown : MonoBehaviour
     [SerializeField] UnityEvent OnLowered;
     Quaternion myCurrentRotation;
     bool isRising;
+    bool oldIsRising;
     float counter;
+    bool forced;
     void Start()
     {
-        currentState = State.Lowered;
-        if (riseMethod == RisingMethod.OnPageOpen && !teleportingObject) teleportingObject = GetComponent<TeleportingObject>();
+        CurrentState = State.Lowered;
+        if (!teleportingObject) teleportingObject = GetComponent<TeleportingObject>();
+        isRising = false;
+        oldIsRising = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if (riseMethod == RisingMethod.OnPageOpen && teleportingObject != null && teleportingObject.onTopOfBook) isRising = true;
-        else if (riseMethod == RisingMethod.OnPageOpen && teleportingObject != null && !teleportingObject.onTopOfBook) return;
-
-        if (riseMethod == RisingMethod.OnPlayerNear && (!player || !player.isActiveAndEnabled)) {
-            player = FindObjectOfType<PlayerMovement>();
+        if (!teleportingObject || !teleportingObject.onTopOfBook) {
+            forced = false;
             return;
-        }else if (riseMethod == RisingMethod.OnPlayerNear) {
-            isRising = distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude;
         }
-
+        if(!forced)
+            switch (riseMethod) {
+                case RisingMethod.OnPageOpen:
+                    isRising = true;
+                    break;
+                case RisingMethod.OnPlayerNear:
+                    if (!player || !player.isActiveAndEnabled) {
+                        player = FindObjectOfType<PlayerMovement>();
+                        transform.localRotation = Quaternion.Euler(GetAxis() * 90);
+                        return;
+                    }
+                    isRising = distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude;
+                    break;
+                case RisingMethod.OnlyOnEvent:
+                    break;
+                default:
+                    break;
+            }
         RisingAndLowering();
     }
     void RisingAndLowering() {
 
-        if (isRising && currentState != State.Risen) {
-            if(currentState != State.Moving) {
-                counter = 0;
-                currentState = State.Moving;
-            }
-            counter += Time.deltaTime;
-            float c = counter / timeToRaise;
-            c = Mathf.Clamp01(c);
-            transform.localRotation = Quaternion.Euler(Vector3.right * standUpMovement.Evaluate(c) * 90);
-            if (c == 1) {
-                currentState = State.Risen;
-                OnRise.Invoke();
-            }
-        }
-        if (!isRising && currentState != State.Lowered) {
-            if(currentState != State.Moving) {
-                counter = 0;
+        if ((isRising && CurrentState != State.Risen) || (!isRising && CurrentState != State.Lowered)) {
+            if(oldIsRising != isRising) {
                 myCurrentRotation = transform.localRotation;
-                currentState = State.Moving;
+                CurrentState = State.Moving;
             }
             counter += Time.deltaTime;
-            float c = counter / timeToFall;
+            float c = counter / (isRising ? timeToRaise : timeToFall);
             c = Mathf.Clamp01(c);
-            transform.localRotation = Quaternion.Lerp(myCurrentRotation, Quaternion.Euler(Vector3.right * 90), c);
+            transform.localRotation = 
+                isRising ?
+                Quaternion.Euler(GetAxis() * standUpMovement.Evaluate(c) * 90) :
+                Quaternion.Lerp(myCurrentRotation, Quaternion.Euler(GetAxis() * 90), c);
             if (c == 1) {
-                currentState = State.Risen;
-                OnRise.Invoke();
+                CurrentState = isRising ? State.Risen : State.Lowered;
+                if (isRising) OnRise.Invoke(); else OnLowered.Invoke();
+                
             }
         }
-        if(currentState == State.Lowered)
-            transform.localRotation = Quaternion.Euler(Vector3.right * 90);
-
-
-
+        if (CurrentState == State.Lowered) {
+            transform.localRotation = Quaternion.Euler(GetAxis() * 90);
+            
+        }
+        oldIsRising = isRising;
+    }
+    Vector3 GetAxis() {
+        switch (myRotationAxies) {
+            case RotationAxis.X:
+                return Vector3.right;
+            case RotationAxis.Y:
+                return Vector3.up;
+            case RotationAxis.Z:
+                return Vector3.forward;
+        }
+        return Vector3.zero;
     }
     public void RiseUp() {
         isRising = true;
+        forced = true;
     }
     public void GoDown() {
         isRising = false;
+        forced = true;
+    }
+    public void DeactivateForced() {
+        forced = false;
     }
 }
