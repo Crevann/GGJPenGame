@@ -13,7 +13,7 @@ public class MobBattle : MonoBehaviour
     private float battleStartTimer;
     private bool battleIsStarting;
     private void OnTriggerEnter(Collider other) {
-        LevelMgr.Instance.OpenToPage(7);
+        PageManager.Instance.OpenToPage(7);
         GameMGR.Instance.mobInfight = this;
         FightManager.Instance.enemiesToSpawn = encounter;
         CameraMgr.Instance.ChooseCamera(Cameras.FollowFight);

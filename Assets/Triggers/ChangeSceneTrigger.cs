@@ -23,7 +23,7 @@ public class ChangeSceneTrigger : MonoBehaviour {
             count += Time.deltaTime;
             if (count > delayTime) {
                 GameMGR.Instance.currentLevel = pageToTurnTo;
-                LevelMgr.Instance.OpenToPage(pageToTurnTo);
+                PageManager.Instance.OpenToPage(pageToTurnTo);
                 isCounting = false;
                 p.JumpOut(whereToGo);
 

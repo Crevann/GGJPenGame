@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class Page : MonoBehaviour
 {
     [HideInInspector] public TeleportingObject[] teleportingObjects;
     [SerializeField] public BoxCollider collider;

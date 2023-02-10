@@ -4,28 +4,28 @@ using UnityEngine;
 using UnityEngine.AI;
 using echo17.EndlessBook;
 
-public class LevelMgr : Singleton<LevelMgr>
+public class PageManager : Singleton<PageManager>
 {
     [System.Serializable]
     public class KeyValuePair {
         public int page;
-        public Level mapObject;
+        public Page mapObject;
     }
     
     [SerializeField] List<KeyValuePair> MyList = new List<KeyValuePair>();
     EndlessBook book;
-    Dictionary<int, Level> dic = new Dictionary<int, Level>();
+    Dictionary<int, Page> dic = new Dictionary<int, Page>();
 
     float baseTotalPageLength = 39.2f * 0.01f; //cm
     float totalPageLength;
-    float pageLength;
     float notViewablePageLength;
     float bohOffset;
 
-    int currentPage = 0;
+    [Header("DEBUG")]
+    [SerializeField] int currentPage = 0;
     [SerializeField] bool clickMe;
     [SerializeField] bool debug = false;
-    int openingPageLeft;
+    [SerializeField] int openingPageLeft;
     void Awake() {
         foreach (var kvp in MyList) {
             dic[kvp.page] = kvp.mapObject;
@@ -36,12 +36,16 @@ public class LevelMgr : Singleton<LevelMgr>
     {
         book = EndlessBookMgr.Instance.book;
         totalPageLength = baseTotalPageLength * book.transform.localScale.x;
-        pageLength = totalPageLength * 0.8037109375f;
+        //viiblePageLength = totalPageLength * 0.8037109375f;
 
-        //pageLength = basePageLength * book.transform.localScale.x;
         notViewablePageLength = totalPageLength * 0.1962890625f;
-        //totalPageLength = pageLength + notViewablePageLength;
         bohOffset = 0.008125f * book.transform.localScale.x;
+
+        foreach (int p in dic.Keys) {
+            RemoveFromPage(p, p == 20);
+            dic[p].gameObject.SetActive(false);
+        }
+
     }
     public void TurnPageForward() {
         if (currentPage % 2 == 0) OpenToPage(++currentPage);
@@ -57,16 +61,6 @@ public class LevelMgr : Singleton<LevelMgr>
             OpenToPage(currentPage);
         }
     }
-
-    public virtual void OnStateButtonClicked(int buttonIndex) {
-        RemoveFromPage(20, true);
-        for (int i = 0; i < 7; i++) {
-            RemoveFromPage(i, true);
-
-        }
-        book.SetState((EndlessBook.StateEnum)buttonIndex, animationTime: 1, onCompleted: OnBookStateChanged);
-
-    }
     public void OpenToPage(int panegN) {
         openingPageLeft = panegN % 2 == 1 ? panegN : panegN - 1;
         EnemyMgr.Instance.DeactivateAllEnemies();
@@ -78,7 +72,16 @@ public class LevelMgr : Singleton<LevelMgr>
                     onPageTurnEnd: OnPageTurnEnd
                     );
     }
+    public virtual void ChangeBookState(int buttonIndex) {
+        dic[20].gameObject.SetActive(false);
+        if (buttonIndex == (int)EndlessBook.StateEnum.OpenFront) {
+            dic[20].gameObject.SetActive(true);
+        }
+        book.SetState((EndlessBook.StateEnum)buttonIndex, animationTime: 1, onCompleted: OnBookStateChanged);
+
+    }
     protected virtual void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
+        RemoveFromPage(20, true);
         if (toState == EndlessBook.StateEnum.OpenFront) {
             AddToPage(20, true);
             return;
@@ -87,7 +90,15 @@ public class LevelMgr : Singleton<LevelMgr>
     }
     //For state change
     protected virtual void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
-        
+        //Turn off all pages not used
+        int startingPage = Mathf.Min(currentPage, openingPageLeft);
+        int finishingPage = Mathf.Max(currentPage, openingPageLeft);
+        for (int i = startingPage; i < finishingPage; i++) {
+            if (dic.ContainsKey(i) && (i != openingPageLeft || i != openingPageLeft + 1)) {
+                dic[i].gameObject.SetActive(false);
+            }
+        }
+        //Teleport objects
         currentPage = currentPageNumber;
         if (currentPageNumber % 2 == 1) {
             AddToPage(currentPageNumber);
@@ -99,17 +110,19 @@ public class LevelMgr : Singleton<LevelMgr>
         if (debug) Debug.Log("OnBookTurnToPageCompleted: State set to " + toState + ". Current Page Number = " + currentPageNumber);
     }
 
-    protected virtual void OnPageTurnStart(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection) {
-        RemoveFromPage(20, true);
-        RemoveFromPage(pageNumberFront);
-        RemoveFromPage(pageNumberBack);
-        RemoveFromPage(pageNumberFirstVisible);
-        RemoveFromPage(pageNumberLastVisible);
-
+    protected virtual void OnPageTurnStart(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection) {
+        int startingPage = Mathf.Min(currentPage, openingPageLeft);
+        int finishingPage = Mathf.Max(currentPage, openingPageLeft);
+        for (int i = startingPage; i <= finishingPage + (turnDirection == echo17.EndlessBook.Page.TurnDirectionEnum.TurnForward ? 1 : -1); i++) {
+            if (dic.ContainsKey(i)) {
+                dic[i].gameObject.SetActive(true);
+                RemoveFromPage(i);
+            }
+        }
         if (debug)Debug.Log("OnPageTurnStart: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
     }
 
-    protected virtual void OnPageTurnEnd(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection) {
+    protected virtual void OnPageTurnEnd(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection) {
         AddToPage(openingPageLeft);
         AddToPage(openingPageLeft + 1);
 

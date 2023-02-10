@@ -8,7 +8,7 @@ public class EndBattleState : StateMachineBehaviour
         FightManager.Instance.pen.HealthComponent.Health = FightManager.Instance.pen.MaxHealth;
         GameMGR.Instance.penHP = GameMGR.Instance.penMaxHP;
         FightManager.Instance.CloseStadium();
-        LevelMgr.Instance.OpenToPage(GameMGR.Instance.currentLevel);
+        PageManager.Instance.OpenToPage(GameMGR.Instance.currentLevel);
         GameMGR.Instance.mobInfight.defeated = true;
         GameMGR.Instance.CurrentState = GameState.World;
         CameraMgr.Instance.ChooseCamera(Cameras.FollowPlayer);
