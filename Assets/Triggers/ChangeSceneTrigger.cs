@@ -7,8 +7,6 @@ public class ChangeSceneTrigger : MonoBehaviour {
     [SerializeField] int pageToTurnTo;
     [SerializeField] LayerMask playerLayer = (LayerMask)9;
     [SerializeField] Vector3 whereToGo = new Vector3(-22.1588745f, 2.77509117f, -11.7599993f);
-    [SerializeField] float delayTime = 1;
-    float count;
     bool isCounting;
     PlayerMovement p;
 
@@ -19,15 +17,10 @@ public class ChangeSceneTrigger : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (isCounting) {
-            count += Time.deltaTime;
-            if (count > delayTime) {
-                GameMGR.Instance.currentLevel = pageToTurnTo;
-                PageManager.Instance.OpenToPage(pageToTurnTo);
-                isCounting = false;
-                p.JumpOut(whereToGo);
-
-            }
+        if(isCounting && PageManager.Instance.CurrentPage == pageToTurnTo) {
+            GameMGR.Instance.currentLevel = pageToTurnTo;
+            p.JumpOut(whereToGo);
+            isCounting = false;
         }
     }
     private void OnTriggerEnter(Collider other) {
@@ -35,9 +28,10 @@ public class ChangeSceneTrigger : MonoBehaviour {
             p = other.GetComponent<PlayerMovement>();
             p.JumpIn(transform.position);
             GetComponent<Collider>().enabled = false;
-            Inventory.Instance.ClearInventory();
+            Inventory.Instance.ClearInventory();//TODO remove
             isCounting = true;
-            count = 0;
+                //TODO move camera
+            PageManager.Instance.OpenToPage(pageToTurnTo);
         }
     }
 }

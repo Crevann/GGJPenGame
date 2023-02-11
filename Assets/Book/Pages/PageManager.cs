@@ -21,11 +21,14 @@ public class PageManager : Singleton<PageManager>
     float notViewablePageLength;
     float bohOffset;
 
+    bool waitingForRisenObjToGoDown;
+
     [Header("DEBUG")]
     [SerializeField] int currentPage = 0;
+    public int CurrentPage => currentPage;
     [SerializeField] bool clickMe;
     [SerializeField] bool debug = false;
-    [SerializeField] int openingPageLeft;
+    [SerializeField] int pageIWantToGoToLeft;
     void Awake() {
         foreach (var kvp in MyList) {
             dic[kvp.page] = kvp.mapObject;
@@ -62,16 +65,23 @@ public class PageManager : Singleton<PageManager>
         }
     }
     public void OpenToPage(int panegN) {
-        openingPageLeft = panegN % 2 == 1 ? panegN : panegN - 1;
-        EnemyMgr.Instance.DeactivateAllEnemies();
+        pageIWantToGoToLeft = panegN % 2 == 1 ? panegN : panegN - 1;
+        //EnemyMgr.Instance.DeactivateAllEnemies();
+        if (dic.ContainsKey(currentPage)) dic[currentPage].DeactivateAll();
+        if (dic.ContainsKey(currentPage + 1)) dic[currentPage + 1].DeactivateAll();
         RemoveFromPage(20, true);
-        book.TurnToPage(panegN, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 0.5f,
+        waitingForRisenObjToGoDown = true;
+        
+    }
+    private void TurnPage() {
+        book.TurnToPage(pageIWantToGoToLeft, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 0.5f,
                     openTime: 1f,
                     onCompleted: OnBookTurnToPageCompleted,
                     onPageTurnStart: OnPageTurnStart,
                     onPageTurnEnd: OnPageTurnEnd
                     );
     }
+    
     public virtual void ChangeBookState(int buttonIndex) {
         dic[20].gameObject.SetActive(false);
         if (buttonIndex == (int)EndlessBook.StateEnum.OpenFront) {
@@ -91,10 +101,10 @@ public class PageManager : Singleton<PageManager>
     //For state change
     protected virtual void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber) {
         //Turn off all pages not used
-        int startingPage = Mathf.Min(currentPage, openingPageLeft);
-        int finishingPage = Mathf.Max(currentPage, openingPageLeft);
+        int startingPage = Mathf.Min(currentPage, pageIWantToGoToLeft);
+        int finishingPage = Mathf.Max(currentPage, pageIWantToGoToLeft);
         for (int i = startingPage; i < finishingPage; i++) {
-            if (dic.ContainsKey(i) && (i != openingPageLeft || i != openingPageLeft + 1)) {
+            if (dic.ContainsKey(i) && (i != pageIWantToGoToLeft || i != pageIWantToGoToLeft + 1)) {
                 dic[i].gameObject.SetActive(false);
             }
         }
@@ -111,8 +121,8 @@ public class PageManager : Singleton<PageManager>
     }
 
     protected virtual void OnPageTurnStart(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection) {
-        int startingPage = Mathf.Min(currentPage, openingPageLeft);
-        int finishingPage = Mathf.Max(currentPage, openingPageLeft);
+        int startingPage = Mathf.Min(currentPage, pageIWantToGoToLeft);
+        int finishingPage = Mathf.Max(currentPage, pageIWantToGoToLeft);
         for (int i = startingPage; i <= finishingPage + (turnDirection == echo17.EndlessBook.Page.TurnDirectionEnum.TurnForward ? 1 : -1); i++) {
             if (dic.ContainsKey(i)) {
                 dic[i].gameObject.SetActive(true);
@@ -123,8 +133,8 @@ public class PageManager : Singleton<PageManager>
     }
 
     protected virtual void OnPageTurnEnd(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection) {
-        AddToPage(openingPageLeft);
-        AddToPage(openingPageLeft + 1);
+        AddToPage(pageIWantToGoToLeft);
+        AddToPage(pageIWantToGoToLeft + 1);
 
 
         if (debug) Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
@@ -193,5 +203,20 @@ public class PageManager : Singleton<PageManager>
             clickMe = false;
             OpenToPage(1);
         }
+        if (waitingForRisenObjToGoDown && AreAllDown()) {
+            TurnPage();
+            waitingForRisenObjToGoDown = false;
+        }
+    }
+    bool AreAllDown() {
+        if (dic.ContainsKey(currentPage)) {
+            if (!dic[currentPage].AreAllDown()) 
+                return false;
+        }
+        if (dic.ContainsKey(currentPage + 1)) {
+            if (!dic[currentPage + 1].AreAllDown()) 
+                return false;
+        }
+        return true;
     }
 }
