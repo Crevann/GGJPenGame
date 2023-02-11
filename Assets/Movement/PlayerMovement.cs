@@ -38,10 +38,11 @@ public class PlayerMovement : MonoBehaviour {
         lockInput = true;
         animator.SetTrigger("GetItem");
     }
-    public void JumpIn(Vector3 pos) {
+    public void JumpIn(Vector3 pos, Vector3 destinationPos) {
         navMeshAgent.destination = pos;
         lockInput = true;
         animator.SetTrigger("JumpIn");
+        if(destinationPos != Vector3.zero) StartCoroutine(WaitForJumpOut(destinationPos));
     }
     public void JumpOut(Vector3 pos) {
         navMeshAgent.enabled = false;
@@ -49,6 +50,13 @@ public class PlayerMovement : MonoBehaviour {
         navMeshAgent.enabled = true;
         navMeshAgent.destination = pos;
         animator.SetTrigger("JumpOut");
+    }
+
+    IEnumerator WaitForJumpOut(Vector3 whereToGo) {
+        while (!PageManager.Instance.AreAllUp() && PageManager.Instance.InTransition) {
+            yield return null;
+        }
+        JumpOut(whereToGo);
     }
     private void FixedUpdate() {
 

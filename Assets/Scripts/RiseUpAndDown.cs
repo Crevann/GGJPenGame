@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class RiseUpAndDown : MonoBehaviour
 {
-    enum RisingMethod { OnPageOpen, OnPlayerNear, OnlyOnEvent }
+    public enum RisingMethod { OnPageOpen, OnPlayerNear, OnlyOnEvent }
     enum RotationAxis { X, Y, Z }
     public enum State { Lowered, Risen, Moving}
     private float riseAmount = 0; //0 - 1
@@ -16,6 +16,7 @@ public class RiseUpAndDown : MonoBehaviour
     [SerializeField] AnimationCurve standUpMovement;
 
     [SerializeField] RisingMethod riseMethod = RisingMethod.OnPageOpen;
+    public RisingMethod RiseMethod => riseMethod;
 
     [SerializeField] State currentState = State.Lowered;
     [SerializeField] RotationAxis myRotationAxies = RotationAxis.X;

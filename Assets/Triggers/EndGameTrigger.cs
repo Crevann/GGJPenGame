@@ -29,7 +29,7 @@ public class EndGameTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if ((playerLayer.value & (1 << other.gameObject.layer)) > 0) {
             p = other.GetComponent<PlayerMovement>();
-            p.JumpIn(transform.position);
+            p.JumpIn(transform.position, Vector3.zero);
             GetComponent<Collider>().enabled = false;
             isCounting = true;
             count = 0;

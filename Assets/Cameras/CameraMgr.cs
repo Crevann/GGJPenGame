@@ -27,6 +27,10 @@ public class CameraMgr : Singleton<CameraMgr>
     float currentDelay = 0;
     int val;
 
+    Cameras transitTo;
+
+    CinemachineBrain cinemachineBrain;
+
     Dictionary<EndlessBook.StateEnum, CinemachineVirtualCamera> cameras = new Dictionary<EndlessBook.StateEnum, CinemachineVirtualCamera>();
 
     void Awake() {
@@ -35,6 +39,7 @@ public class CameraMgr : Singleton<CameraMgr>
             kvp.val.Priority = 0;
         }
         currentCamera.Priority = 1;
+        cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
     }
     public void ChangeCamera(int val) {
         this.val = val;
@@ -57,6 +62,17 @@ public class CameraMgr : Singleton<CameraMgr>
             }
         }
     }
+
+    public void TransitTo(Cameras camera) {
+        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 1f);
+        transitTo = camera;
+        ChooseCamera(Cameras.BookView);
+    }
+    public void TransitNow() {
+        ChooseCamera(transitTo);
+        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 2);
+    }
+
     public void Update() {
         if(currentDelay > 0) {
             currentDelay -= Time.deltaTime;

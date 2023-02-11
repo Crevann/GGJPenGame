@@ -22,6 +22,8 @@ public class PageManager : Singleton<PageManager>
     float bohOffset;
 
     bool waitingForRisenObjToGoDown;
+    bool waitingForLoweredObjToGoUp;
+    public bool InTransition => waitingForLoweredObjToGoUp || waitingForRisenObjToGoDown;
 
     [Header("DEBUG")]
     [SerializeField] int currentPage = 0;
@@ -65,6 +67,7 @@ public class PageManager : Singleton<PageManager>
         }
     }
     public void OpenToPage(int panegN) {
+        CameraMgr.Instance.TransitTo(Cameras.FollowPlayer);
         pageIWantToGoToLeft = panegN % 2 == 1 ? panegN : panegN - 1;
         //EnemyMgr.Instance.DeactivateAllEnemies();
         if (dic.ContainsKey(currentPage)) dic[currentPage].DeactivateAll();
@@ -103,8 +106,8 @@ public class PageManager : Singleton<PageManager>
         //Turn off all pages not used
         int startingPage = Mathf.Min(currentPage, pageIWantToGoToLeft);
         int finishingPage = Mathf.Max(currentPage, pageIWantToGoToLeft);
-        for (int i = startingPage; i < finishingPage; i++) {
-            if (dic.ContainsKey(i) && (i != pageIWantToGoToLeft || i != pageIWantToGoToLeft + 1)) {
+        for (int i = startingPage; i <= finishingPage + 1; i++) {
+            if (dic.ContainsKey(i) && (i != pageIWantToGoToLeft && i != pageIWantToGoToLeft + 1)) {
                 dic[i].gameObject.SetActive(false);
             }
         }
@@ -123,7 +126,7 @@ public class PageManager : Singleton<PageManager>
     protected virtual void OnPageTurnStart(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection) {
         int startingPage = Mathf.Min(currentPage, pageIWantToGoToLeft);
         int finishingPage = Mathf.Max(currentPage, pageIWantToGoToLeft);
-        for (int i = startingPage; i <= finishingPage + (turnDirection == echo17.EndlessBook.Page.TurnDirectionEnum.TurnForward ? 1 : -1); i++) {
+        for (int i = startingPage; i <= finishingPage + 1; i++) {
             if (dic.ContainsKey(i)) {
                 dic[i].gameObject.SetActive(true);
                 RemoveFromPage(i);
@@ -206,6 +209,11 @@ public class PageManager : Singleton<PageManager>
         if (waitingForRisenObjToGoDown && AreAllDown()) {
             TurnPage();
             waitingForRisenObjToGoDown = false;
+            waitingForLoweredObjToGoUp = true;
+        }
+        if(waitingForLoweredObjToGoUp && AreAllUp()) {
+            CameraMgr.Instance.TransitNow();
+            waitingForLoweredObjToGoUp=false;
         }
     }
     bool AreAllDown() {
@@ -215,6 +223,17 @@ public class PageManager : Singleton<PageManager>
         }
         if (dic.ContainsKey(currentPage + 1)) {
             if (!dic[currentPage + 1].AreAllDown()) 
+                return false;
+        }
+        return true;
+    }
+    public bool AreAllUp() {
+        if (dic.ContainsKey(pageIWantToGoToLeft)) {
+            if (!dic[pageIWantToGoToLeft].AreAllUp()) 
+                return false;
+        }
+        if (dic.ContainsKey(pageIWantToGoToLeft + 1)) {
+            if (!dic[pageIWantToGoToLeft + 1].AreAllUp()) 
                 return false;
         }
         return true;

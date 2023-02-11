@@ -11,7 +11,7 @@ public class EndBattleState : StateMachineBehaviour
         PageManager.Instance.OpenToPage(GameMGR.Instance.currentLevel);
         GameMGR.Instance.mobInfight.defeated = true;
         GameMGR.Instance.CurrentState = GameState.World;
-        CameraMgr.Instance.ChooseCamera(Cameras.FollowPlayer);
+        CameraMgr.Instance.TransitTo(Cameras.FollowPlayer);
         if (FightManager.Instance.pen.IsDead) {
             GameMGR.Instance.penIsDead = true;
         }

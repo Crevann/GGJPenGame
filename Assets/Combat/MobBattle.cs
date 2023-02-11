@@ -16,7 +16,7 @@ public class MobBattle : MonoBehaviour
         PageManager.Instance.OpenToPage(7);
         GameMGR.Instance.mobInfight = this;
         FightManager.Instance.enemiesToSpawn = encounter;
-        CameraMgr.Instance.ChooseCamera(Cameras.FollowFight);
+        CameraMgr.Instance.TransitTo(Cameras.FollowFight);
         GameMGR.Instance.CurrentState = GameState.Fight;
         FightManager.Instance.StartFight();
     }

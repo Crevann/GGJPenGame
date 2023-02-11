@@ -33,6 +33,16 @@ public class Page : MonoBehaviour {
         }
         return allDown;
     }
+    public bool AreAllUp() {
+        bool up = true;
+        foreach (RiseUpAndDown item in risingObjects) {
+            if (item.RiseMethod == RiseUpAndDown.RisingMethod.OnPageOpen && item.CurrentState != RiseUpAndDown.State.Risen) {
+                up = false;
+                break;
+            }
+        }
+        return up;
+    }
     void Update() {
         if (goDown) { 
             goDown = false;
