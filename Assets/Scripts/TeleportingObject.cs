@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TeleportingObject : MonoBehaviour
 {
-    [HideInInspector] public bool onTopOfBook = false;
+    public bool onTopOfBook = false;
 }
