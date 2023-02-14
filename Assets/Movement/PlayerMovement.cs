@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
 using FMOD.Studio;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class PlayerMovement : MonoBehaviour {
     Camera cam;
     NavMeshAgent navMeshAgent;
     [SerializeField] LayerMask ground;
-    [SerializeField] float speedAnimationMult = 0.2f;
+    //[SerializeField] float speedAnimationMult = 0.2f;
     private EventInstance movePenSFX;
     Animator animator;
     bool lockInput = false;
@@ -28,10 +29,10 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         UpdateSound();
-        if (!lockInput) animator.speed = navMeshAgent.velocity.magnitude * speedAnimationMult;
         if (GameMGR.Instance.CurrentState == GameState.Fight) {
             movePenSFX.stop(STOP_MODE.IMMEDIATE);
         }
+        animator.SetFloat("Speed", navMeshAgent.velocity.sqrMagnitude);
     }
     public void GetItem(Vector3 pos) {
         navMeshAgent.destination = pos;
