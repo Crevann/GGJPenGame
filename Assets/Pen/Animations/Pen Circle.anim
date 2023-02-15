@@ -2079,7 +2079,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 5.6
-    functionName: UnLockInput
+    functionName: UnlockInput
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

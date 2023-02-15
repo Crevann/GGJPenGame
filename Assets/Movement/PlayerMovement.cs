@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate() {
 
     }
-    public void UnLockInput() {
+    public void UnlockInput() {
         lockInput = false;
     }
     private void OnMouse() {

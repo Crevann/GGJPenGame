@@ -129,7 +129,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 109595662830008142}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &2209289415388337675
 TrailRenderer:
@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 2209289417013083373}
   - component: {fileID: 2209289417013083372}
   - component: {fileID: 2209289417013083345}
+  - component: {fileID: 1764696543461416256}
   m_Layer: 9
   m_Name: ___     Pen     ___
   m_TagString: Untagged
@@ -344,7 +345,6 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 8
-  speedAnimationMult: 0.2
 --- !u!114 &2209289417013083372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +411,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1764696543461416256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2209289417013083375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414dfbf270fa1854abde7636174d6067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterSuperIdle: 0
+  maxTimeSuperIdle: 5
 --- !u!1 &2209289417090896764
 GameObject:
   m_ObjectHideFlags: 0

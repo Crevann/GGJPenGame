@@ -105,34 +105,6 @@ public class AIController : MonoBehaviour {
         if (!readyToMove) wasReadyToMove = false;
         if (switchFace) switchFace.enabled = readyToMove;
     }
-    void RisingAndLowering() {
-        
-        //if (distanceFromPlayer * distanceFromPlayer >= (transform.position - player.transform.position).sqrMagnitude) {
-        //    if (!isRising) {
-        //        counter = 0;
-        //        isRising = true;
-        //    }
-        //    counter += Time.deltaTime;
-        //    float c = counter / timeToRaise;
-        //    c = Mathf.Clamp01(c);
-        //    transform.rotation = Quaternion.Euler(Vector3.right * standUpMovement.Evaluate(c) * 90);
-        //    readyToMove = c == 1;
-        //} else {
-        //    readyToMove = false;
-        //    if (isRising) {
-        //        counter = 0;
-        //        isRising = false;
-
-        //        myCurrentRotation = transform.rotation;
-        //    }
-        //    counter += Time.deltaTime;
-        //    float c = counter / timeToRaise;
-        //    c = Mathf.Clamp01(c);
-        //    transform.rotation = Quaternion.Lerp(myCurrentRotation, Quaternion.Euler(Vector3.right * 90), c);
-
-        //}
-    }
-
     private void ChasePlayer() {
         if (!advancedView) {
             EnemyMove(speedRun);

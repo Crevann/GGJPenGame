@@ -136,8 +136,8 @@ public class PageManager : Singleton<PageManager>
     }
 
     protected virtual void OnPageTurnEnd(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection) {
-        AddToPage(pageIWantToGoToLeft);
-        AddToPage(pageIWantToGoToLeft + 1);
+        //AddToPage(pageIWantToGoToLeft);
+        //AddToPage(pageIWantToGoToLeft + 1);
 
 
         if (debug) Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");

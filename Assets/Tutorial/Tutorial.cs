@@ -120,6 +120,7 @@ public class Tutorial : Singleton<Tutorial>
         doorOpened = true;
     }
     void Rise() {
+        //TODO remove
         if (risingVal < 1 && CaneFiore.onTopOfBook) {
             if (!isRising) {
                 fioreAgent.enabled = true;
