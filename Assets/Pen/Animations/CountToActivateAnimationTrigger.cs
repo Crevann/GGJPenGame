@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PenIdle : MonoBehaviour
+public class CountToActivateAnimationTrigger : MonoBehaviour
 {
     [HideInInspector] public float counterSuperIdle = 0;
-    [SerializeField] float maxTimeSuperIdle = 5f;
+    [SerializeField] float countingTime = 5f;
+    [SerializeField] string triggerName = "Idle";
     Animator animator;
     NavMeshAgent navMeshAgent;
 
@@ -30,10 +31,10 @@ public class PenIdle : MonoBehaviour
         if (navMeshAgent.velocity.sqrMagnitude <= 0.1f)
         {
             counterSuperIdle += Time.deltaTime;
-            if (counterSuperIdle >= maxTimeSuperIdle)
+            if (counterSuperIdle >= countingTime)
             {
                 counterSuperIdle = 0;
-                animator.SetTrigger("Idle");
+                animator.SetTrigger(triggerName);
             }
         }
         else
