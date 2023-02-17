@@ -27,7 +27,7 @@ public class ChangeSceneTrigger : MonoBehaviour {
             GetComponent<Collider>().enabled = false;
             Inventory.Instance.ClearInventory();//TODO remove
             PageManager.Instance.OpenToPage(pageToTurnTo);
-            GameMGR.Instance.currentLevel = pageToTurnTo;
+            GameMGR.Instance.CurrentPage = pageToTurnTo;
             p.JumpIn(transform.position, whereToGo);
         }
     }

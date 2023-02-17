@@ -9,8 +9,11 @@ public class GameMGR : Singleton<GameMGR>
 {
     [SerializeField] private EntityData penData;
     public MobBattle mobInfight;
-    public int currentLevel = 3;
-    
+    private int currentPage = 3;
+    public int CurrentPage {
+        get { return currentPage; }
+        set { currentPage = value; }
+    }
     //Pen stats
     public int penMaxHP;
     public int penHP;
@@ -49,7 +52,7 @@ public class GameMGR : Singleton<GameMGR>
             currentState = value;
             ChangeState();
             AudioManager.instance.SetMusicArea(currentState);
-            Debug.Log(currentState);
+            //Debug.Log(currentState);
         }
     }
     private void ChangeState() {

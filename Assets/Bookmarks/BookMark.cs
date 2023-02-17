@@ -8,7 +8,7 @@ public class BookMark : MonoBehaviour
 {
     [SerializeField]float speed;
     float counter;
-    [SerializeField] LayerMask bookMark;
+    [SerializeField] LayerMask bookMarkMask;
     [SerializeField] Transform bookMarkToMove;
     [SerializeField] Transform target;
     [SerializeField] Transform startTarget;
@@ -42,11 +42,12 @@ public class BookMark : MonoBehaviour
     void Update()
     {
         if (isHiding) {
-            ChaingePosition(bookMarkToMove.position.x, (negative ? -1 : 1) * hiddenTarget.position.x, ref counter, speed * Time.deltaTime);
+            ChangePosition(bookMarkToMove.position.x, (negative ? -1 : 1) * hiddenTarget.position.x, ref counter, speed * Time.deltaTime);
 
             if (counter >= 0.5) {
                 if (wasClicked) {
                     wasClicked = false;
+                    BookmarksMgr.Instance.StartCounting();
                     changePage.Invoke();
                 }
                 isHiding = false;
@@ -55,22 +56,23 @@ public class BookMark : MonoBehaviour
             return;
         }
 
-
+        RaycastCheck();
+    }
+    void RaycastCheck() {
         Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
-        if(Physics.Raycast(ray,out hit, 1000, bookMark) && hit.collider.gameObject == gameObject)
+        if(Physics.Raycast(ray,out hit, 1000, bookMarkMask) && hit.collider.gameObject == gameObject)
         {
-            ChaingePosition(bookMarkToMove.position.x, (negative ? -1 : 1) * target.position.x, ref counter, speed * Time.deltaTime);
+            ChangePosition(bookMarkToMove.position.x, (negative ? -1 : 1) * target.position.x, ref counter, speed * Time.deltaTime);
 
             BookMarkClicked();
         }
         else
         {
-            ChaingePosition((negative ? -1 : 1) * startTarget.position.x, bookMarkToMove.position.x, ref counter, -speed * Time.deltaTime);
-            
+            ChangePosition((negative ? -1 : 1) * startTarget.position.x, bookMarkToMove.position.x, ref counter, -speed * Time.deltaTime);
         }
     }
-    void ChaingePosition(float start, float end, ref float counter, float deltaChange) {
+    void ChangePosition(float start, float end, ref float counter, float deltaChange) {
         counter += deltaChange;
         counter = Mathf.Clamp01(counter);
         bookMarkToMove.position = Vector3.right * Mathf.Lerp(start, end, counter)
